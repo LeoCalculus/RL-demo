@@ -1,0 +1,154 @@
+WARNING Thu Nov  5 04:14:08 2026: Attach conflict when attaching 'p1_rl' to 'mjlab scene', policy is 'warning'
+timestep: parent has 0.002 (default), child has 0.001, keeping parent value
+tolerance: parent has 1e-08 (default), child has 1e-10, keeping parent value
+integrator: parent has 0 (default), child has 3, keeping parent value
+jacobian: parent has 2 (default), child has 0, keeping parent value
+nuser_actuator: parent has -1 (default), child has 7, keeping parent value
+
+WARNING Thu Nov  5 04:14:38 2026: Attach conflict when attaching 'p1_rl' to 'mjlab scene', policy is 'warning'
+timestep: parent has 0.002 (default), child has 0.001, keeping parent value
+tolerance: parent has 1e-08 (default), child has 1e-10, keeping parent value
+integrator: parent has 0 (default), child has 3, keeping parent value
+jacobian: parent has 2 (default), child has 0, keeping parent value
+nuser_actuator: parent has -1 (default), child has 7, keeping parent value
+
+WARNING Thu Nov  5 04:15:42 2026: Attach conflict when attaching 'p1_rl' to 'mjlab scene', policy is 'warning'
+timestep: parent has 0.002 (default), child has 0.001, keeping parent value
+tolerance: parent has 1e-08 (default), child has 1e-10, keeping parent value
+integrator: parent has 0 (default), child has 3, keeping parent value
+jacobian: parent has 2 (default), child has 0, keeping parent value
+nuser_actuator: parent has -1 (default), child has 7, keeping parent value
+
+WARNING Thu Nov  5 04:33:19 2026: Attach conflict when attaching 'p1_rl' to 'mjlab scene', policy is 'warning'
+timestep: parent has 0.002 (default), child has 0.001, keeping parent value
+tolerance: parent has 1e-08 (default), child has 1e-10, keeping parent value
+integrator: parent has 0 (default), child has 3, keeping parent value
+jacobian: parent has 2 (default), child has 0, keeping parent value
+nuser_actuator: parent has -1 (default), child has 7, keeping parent value
+
+WARNING Thu Nov  5 04:34:12 2026: Attach conflict when attaching 'p1_rl' to 'mjlab scene', policy is 'warning'
+timestep: parent has 0.002 (default), child has 0.001, keeping parent value
+tolerance: parent has 1e-08 (default), child has 1e-10, keeping parent value
+integrator: parent has 0 (default), child has 3, keeping parent value
+jacobian: parent has 2 (default), child has 0, keeping parent value
+nuser_actuator: parent has -1 (default), child has 7, keeping parent value
+
+WARNING Thu Nov  5 04:34:52 2026: Attach conflict when attaching 'p1_rl' to 'mjlab scene', policy is 'warning'
+timestep: parent has 0.002 (default), child has 0.001, keeping parent value
+tolerance: parent has 1e-08 (default), child has 1e-10, keeping parent value
+integrator: parent has 0 (default), child has 3, keeping parent value
+jacobian: parent has 2 (default), child has 0, keeping parent value
+nuser_actuator: parent has -1 (default), child has 7, keeping parent value
+
+WARNING Thu Nov  5 04:35:35 2026: Attach conflict when attaching 'p1_rl' to 'mjlab scene', policy is 'warning'
+timestep: parent has 0.002 (default), child has 0.001, keeping parent value
+tolerance: parent has 1e-08 (default), child has 1e-10, keeping parent value
+integrator: parent has 0 (default), child has 3, keeping parent value
+jacobian: parent has 2 (default), child has 0, keeping parent value
+nuser_actuator: parent has -1 (default), child has 7, keeping parent value
+
+WARNING Thu Nov  5 04:44:12 2026: Attach conflict when attaching 'p1_rl' to 'mjlab scene', policy is 'warning'
+timestep: parent has 0.002 (default), child has 0.001, keeping parent value
+tolerance: parent has 1e-08 (default), child has 1e-10, keeping parent value
+integrator: parent has 0 (default), child has 3, keeping parent value
+jacobian: parent has 2 (default), child has 0, keeping parent value
+nuser_actuator: parent has -1 (default), child has 7, keeping parent value
+
+WARNING Thu Nov  5 04:51:44 2026: Attach conflict when attaching 'p1_rl' to 'mjlab scene', policy is 'warning'
+timestep: parent has 0.002 (default), child has 0.001, keeping parent value
+tolerance: parent has 1e-08 (default), child has 1e-10, keeping parent value
+integrator: parent has 0 (default), child has 3, keeping parent value
+jacobian: parent has 2 (default), child has 0, keeping parent value
+nuser_actuator: parent has -1 (default), child has 7, keeping parent value
+
+WARNING Thu Nov  5 04:51:54 2026: Attach conflict when attaching 'p1_rl' to 'mjlab scene', policy is 'warning'
+timestep: parent has 0.002 (default), child has 0.001, keeping parent value
+tolerance: parent has 1e-08 (default), child has 1e-10, keeping parent value
+integrator: parent has 0 (default), child has 3, keeping parent value
+jacobian: parent has 2 (default), child has 0, keeping parent value
+nuser_actuator: parent has -1 (default), child has 7, keeping parent value
+
+WARNING Thu Nov  5 04:52:29 2026: Attach conflict when attaching 'p1_rl' to 'mjlab scene', policy is 'warning'
+timestep: parent has 0.002 (default), child has 0.001, keeping parent value
+tolerance: parent has 1e-08 (default), child has 1e-10, keeping parent value
+integrator: parent has 0 (default), child has 3, keeping parent value
+jacobian: parent has 2 (default), child has 0, keeping parent value
+nuser_actuator: parent has -1 (default), child has 7, keeping parent value
+
+WARNING Thu Nov  5 05:01:08 2026: Attach conflict when attaching 'p1_rl' to 'mjlab scene', policy is 'warning'
+timestep: parent has 0.002 (default), child has 0.001, keeping parent value
+tolerance: parent has 1e-08 (default), child has 1e-10, keeping parent value
+integrator: parent has 0 (default), child has 3, keeping parent value
+jacobian: parent has 2 (default), child has 0, keeping parent value
+nuser_actuator: parent has -1 (default), child has 7, keeping parent value
+
+WARNING Thu Nov  5 05:08:07 2026: Attach conflict when attaching 'p1_rl' to 'mjlab scene', policy is 'warning'
+timestep: parent has 0.002 (default), child has 0.001, keeping parent value
+tolerance: parent has 1e-08 (default), child has 1e-10, keeping parent value
+integrator: parent has 0 (default), child has 3, keeping parent value
+jacobian: parent has 2 (default), child has 0, keeping parent value
+nuser_actuator: parent has -1 (default), child has 7, keeping parent value
+
+WARNING Thu Nov  5 05:33:05 2026: Attach conflict when attaching 'p1_rl' to 'mjlab scene', policy is 'warning'
+timestep: parent has 0.002 (default), child has 0.001, keeping parent value
+tolerance: parent has 1e-08 (default), child has 1e-10, keeping parent value
+integrator: parent has 0 (default), child has 3, keeping parent value
+jacobian: parent has 2 (default), child has 0, keeping parent value
+nuser_actuator: parent has -1 (default), child has 7, keeping parent value
+
+WARNING Thu Nov  5 05:33:21 2026: Attach conflict when attaching 'p1_rl' to 'mjlab scene', policy is 'warning'
+timestep: parent has 0.002 (default), child has 0.001, keeping parent value
+tolerance: parent has 1e-08 (default), child has 1e-10, keeping parent value
+integrator: parent has 0 (default), child has 3, keeping parent value
+jacobian: parent has 2 (default), child has 0, keeping parent value
+nuser_actuator: parent has -1 (default), child has 7, keeping parent value
+
+WARNING Thu Nov  5 05:35:15 2026: Attach conflict when attaching 'p1_rl' to 'mjlab scene', policy is 'warning'
+timestep: parent has 0.002 (default), child has 0.001, keeping parent value
+tolerance: parent has 1e-08 (default), child has 1e-10, keeping parent value
+integrator: parent has 0 (default), child has 3, keeping parent value
+jacobian: parent has 2 (default), child has 0, keeping parent value
+nuser_actuator: parent has -1 (default), child has 7, keeping parent value
+
+WARNING Thu Nov  5 05:35:40 2026: Attach conflict when attaching 'p1_rl' to 'mjlab scene', policy is 'warning'
+timestep: parent has 0.002 (default), child has 0.001, keeping parent value
+tolerance: parent has 1e-08 (default), child has 1e-10, keeping parent value
+integrator: parent has 0 (default), child has 3, keeping parent value
+jacobian: parent has 2 (default), child has 0, keeping parent value
+nuser_actuator: parent has -1 (default), child has 7, keeping parent value
+
+WARNING Thu Nov  5 05:35:56 2026: Attach conflict when attaching 'p1_rl' to 'mjlab scene', policy is 'warning'
+timestep: parent has 0.002 (default), child has 0.001, keeping parent value
+tolerance: parent has 1e-08 (default), child has 1e-10, keeping parent value
+integrator: parent has 0 (default), child has 3, keeping parent value
+jacobian: parent has 2 (default), child has 0, keeping parent value
+nuser_actuator: parent has -1 (default), child has 7, keeping parent value
+
+WARNING Thu Nov  5 05:36:32 2026: Attach conflict when attaching 'p1_rl' to 'mjlab scene', policy is 'warning'
+timestep: parent has 0.002 (default), child has 0.001, keeping parent value
+tolerance: parent has 1e-08 (default), child has 1e-10, keeping parent value
+integrator: parent has 0 (default), child has 3, keeping parent value
+jacobian: parent has 2 (default), child has 0, keeping parent value
+nuser_actuator: parent has -1 (default), child has 7, keeping parent value
+
+WARNING Thu Nov  5 05:42:39 2026: Attach conflict when attaching 'p1_rl' to 'mjlab scene', policy is 'warning'
+timestep: parent has 0.002 (default), child has 0.001, keeping parent value
+tolerance: parent has 1e-08 (default), child has 1e-10, keeping parent value
+integrator: parent has 0 (default), child has 3, keeping parent value
+jacobian: parent has 2 (default), child has 0, keeping parent value
+nuser_actuator: parent has -1 (default), child has 7, keeping parent value
+
+WARNING Thu Nov  5 05:53:26 2026: Attach conflict when attaching 'p1_rl' to 'mjlab scene', policy is 'warning'
+timestep: parent has 0.002 (default), child has 0.001, keeping parent value
+tolerance: parent has 1e-08 (default), child has 1e-10, keeping parent value
+integrator: parent has 0 (default), child has 3, keeping parent value
+jacobian: parent has 2 (default), child has 0, keeping parent value
+nuser_actuator: parent has -1 (default), child has 7, keeping parent value
+
+WARNING Thu Nov  5 05:53:41 2026: Attach conflict when attaching 'p1_rl' to 'mjlab scene', policy is 'warning'
+timestep: parent has 0.002 (default), child has 0.001, keeping parent value
+tolerance: parent has 1e-08 (default), child has 1e-10, keeping parent value
+integrator: parent has 0 (default), child has 3, keeping parent value
+jacobian: parent has 2 (default), child has 0, keeping parent value
+nuser_actuator: parent has -1 (default), child has 7, keeping parent value
+

@@ -1,0 +1,752 @@
+{
+  "schema_version": 2,
+  "model_sha256": "faaaa08e0766025eacac859e712349b341357b6047f6e6636a07216ad6a9f20e",
+  "source_urdf_sha256": "1aa836ae69e415258431df0a9d8b72578768d34a230707a6a33fedcf0be2fb36",
+  "action_dimension": 24,
+  "action_units": "Joint-side N m; torque limits active; gear=1 is an interface convention, not a measured motor gear ratio",
+  "position_units": "radian; same sign and zero as the URDF/browser",
+  "root_qpos": {
+    "position_xyz_indices": [
+      0,
+      1,
+      2
+    ],
+    "quaternion_wxyz_indices": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "frame": "MuJoCo world +Z up; CAD/URDF +Y is mapped to +Z by Rx(+pi/2)"
+  },
+  "joints": {
+    "body_rear_fold": {
+      "actuator_id": 0,
+      "joint_id": 1,
+      "qposadr": 7,
+      "dofadr": 6,
+      "position_unit": "rad",
+      "control_unit": "Nm",
+      "motor_profile": "RH17",
+      "gear": 1,
+      "ctrlrange_Nm": [
+        -54.0,
+        54.0
+      ],
+      "forcerange_Nm": [
+        -54.0,
+        54.0
+      ],
+      "rated_speed_rad_s": 2.6179938779914944,
+      "rated_speed_is_enforced": false,
+      "brake_equality": "brake_body_rear_fold",
+      "actuator_group": 1
+    },
+    "body_front_fold": {
+      "actuator_id": 1,
+      "joint_id": 2,
+      "qposadr": 8,
+      "dofadr": 7,
+      "position_unit": "rad",
+      "control_unit": "Nm",
+      "motor_profile": "RH17",
+      "gear": 1,
+      "ctrlrange_Nm": [
+        -54.0,
+        54.0
+      ],
+      "forcerange_Nm": [
+        -54.0,
+        54.0
+      ],
+      "rated_speed_rad_s": 2.6179938779914944,
+      "rated_speed_is_enforced": false,
+      "brake_equality": "brake_body_front_fold",
+      "actuator_group": 1
+    },
+    "right_rear_hip_swing": {
+      "actuator_id": 2,
+      "joint_id": 15,
+      "qposadr": 21,
+      "dofadr": 20,
+      "position_unit": "rad",
+      "control_unit": "Nm",
+      "motor_profile": "DM6248P",
+      "gear": 1,
+      "ctrlrange_Nm": [
+        -97.0,
+        97.0
+      ],
+      "forcerange_Nm": [
+        -97.0,
+        97.0
+      ],
+      "rated_speed_rad_s": 4.1887902047863905,
+      "rated_speed_is_enforced": false
+    },
+    "right_rear_thigh_pitch": {
+      "actuator_id": 3,
+      "joint_id": 16,
+      "qposadr": 22,
+      "dofadr": 21,
+      "position_unit": "rad",
+      "control_unit": "Nm",
+      "motor_profile": "DM6248P",
+      "gear": 1,
+      "ctrlrange_Nm": [
+        -97.0,
+        97.0
+      ],
+      "forcerange_Nm": [
+        -97.0,
+        97.0
+      ],
+      "rated_speed_rad_s": 4.1887902047863905,
+      "rated_speed_is_enforced": false
+    },
+    "right_rear_knee_motor": {
+      "actuator_id": 4,
+      "joint_id": 17,
+      "qposadr": 23,
+      "dofadr": 22,
+      "position_unit": "rad",
+      "control_unit": "Nm",
+      "motor_profile": "DM6248P",
+      "gear": 1,
+      "ctrlrange_Nm": [
+        -97.0,
+        97.0
+      ],
+      "forcerange_Nm": [
+        -97.0,
+        97.0
+      ],
+      "rated_speed_rad_s": 4.1887902047863905,
+      "rated_speed_is_enforced": false
+    },
+    "right_rear_wheel_spin": {
+      "actuator_id": 5,
+      "joint_id": 20,
+      "qposadr": 26,
+      "dofadr": 25,
+      "position_unit": "rad",
+      "control_unit": "Nm",
+      "motor_profile": "M3508_C620",
+      "gear": 1,
+      "ctrlrange_Nm": [
+        -4.5,
+        4.5
+      ],
+      "forcerange_Nm": [
+        -4.5,
+        4.5
+      ],
+      "rated_speed_rad_s": 49.113565151120426,
+      "rated_speed_is_enforced": false
+    },
+    "right_front_hip_swing": {
+      "actuator_id": 6,
+      "joint_id": 3,
+      "qposadr": 9,
+      "dofadr": 8,
+      "position_unit": "rad",
+      "control_unit": "Nm",
+      "motor_profile": "DM6248P",
+      "gear": 1,
+      "ctrlrange_Nm": [
+        -97.0,
+        97.0
+      ],
+      "forcerange_Nm": [
+        -97.0,
+        97.0
+      ],
+      "rated_speed_rad_s": 4.1887902047863905,
+      "rated_speed_is_enforced": false
+    },
+    "right_front_thigh_pitch": {
+      "actuator_id": 7,
+      "joint_id": 4,
+      "qposadr": 10,
+      "dofadr": 9,
+      "position_unit": "rad",
+      "control_unit": "Nm",
+      "motor_profile": "DM6248P",
+      "gear": 1,
+      "ctrlrange_Nm": [
+        -97.0,
+        97.0
+      ],
+      "forcerange_Nm": [
+        -97.0,
+        97.0
+      ],
+      "rated_speed_rad_s": 4.1887902047863905,
+      "rated_speed_is_enforced": false
+    },
+    "right_front_knee_motor": {
+      "actuator_id": 8,
+      "joint_id": 5,
+      "qposadr": 11,
+      "dofadr": 10,
+      "position_unit": "rad",
+      "control_unit": "Nm",
+      "motor_profile": "DM6248P",
+      "gear": 1,
+      "ctrlrange_Nm": [
+        -97.0,
+        97.0
+      ],
+      "forcerange_Nm": [
+        -97.0,
+        97.0
+      ],
+      "rated_speed_rad_s": 4.1887902047863905,
+      "rated_speed_is_enforced": false
+    },
+    "right_front_wheel_spin": {
+      "actuator_id": 9,
+      "joint_id": 8,
+      "qposadr": 14,
+      "dofadr": 13,
+      "position_unit": "rad",
+      "control_unit": "Nm",
+      "motor_profile": "M3508_C620",
+      "gear": 1,
+      "ctrlrange_Nm": [
+        -4.5,
+        4.5
+      ],
+      "forcerange_Nm": [
+        -4.5,
+        4.5
+      ],
+      "rated_speed_rad_s": 49.113565151120426,
+      "rated_speed_is_enforced": false
+    },
+    "left_front_hip_swing": {
+      "actuator_id": 10,
+      "joint_id": 9,
+      "qposadr": 15,
+      "dofadr": 14,
+      "position_unit": "rad",
+      "control_unit": "Nm",
+      "motor_profile": "DM6248P",
+      "gear": 1,
+      "ctrlrange_Nm": [
+        -97.0,
+        97.0
+      ],
+      "forcerange_Nm": [
+        -97.0,
+        97.0
+      ],
+      "rated_speed_rad_s": 4.1887902047863905,
+      "rated_speed_is_enforced": false
+    },
+    "left_front_thigh_pitch": {
+      "actuator_id": 11,
+      "joint_id": 10,
+      "qposadr": 16,
+      "dofadr": 15,
+      "position_unit": "rad",
+      "control_unit": "Nm",
+      "motor_profile": "DM6248P",
+      "gear": 1,
+      "ctrlrange_Nm": [
+        -97.0,
+        97.0
+      ],
+      "forcerange_Nm": [
+        -97.0,
+        97.0
+      ],
+      "rated_speed_rad_s": 4.1887902047863905,
+      "rated_speed_is_enforced": false
+    },
+    "left_front_knee_motor": {
+      "actuator_id": 12,
+      "joint_id": 11,
+      "qposadr": 17,
+      "dofadr": 16,
+      "position_unit": "rad",
+      "control_unit": "Nm",
+      "motor_profile": "DM6248P",
+      "gear": 1,
+      "ctrlrange_Nm": [
+        -97.0,
+        97.0
+      ],
+      "forcerange_Nm": [
+        -97.0,
+        97.0
+      ],
+      "rated_speed_rad_s": 4.1887902047863905,
+      "rated_speed_is_enforced": false
+    },
+    "left_front_wheel_spin": {
+      "actuator_id": 13,
+      "joint_id": 14,
+      "qposadr": 20,
+      "dofadr": 19,
+      "position_unit": "rad",
+      "control_unit": "Nm",
+      "motor_profile": "M3508_C620",
+      "gear": 1,
+      "ctrlrange_Nm": [
+        -4.5,
+        4.5
+      ],
+      "forcerange_Nm": [
+        -4.5,
+        4.5
+      ],
+      "rated_speed_rad_s": 49.113565151120426,
+      "rated_speed_is_enforced": false
+    },
+    "left_rear_hip_swing": {
+      "actuator_id": 14,
+      "joint_id": 24,
+      "qposadr": 30,
+      "dofadr": 29,
+      "position_unit": "rad",
+      "control_unit": "Nm",
+      "motor_profile": "DM6248P",
+      "gear": 1,
+      "ctrlrange_Nm": [
+        -97.0,
+        97.0
+      ],
+      "forcerange_Nm": [
+        -97.0,
+        97.0
+      ],
+      "rated_speed_rad_s": 4.1887902047863905,
+      "rated_speed_is_enforced": false
+    },
+    "left_rear_thigh_pitch": {
+      "actuator_id": 15,
+      "joint_id": 25,
+      "qposadr": 31,
+      "dofadr": 30,
+      "position_unit": "rad",
+      "control_unit": "Nm",
+      "motor_profile": "DM6248P",
+      "gear": 1,
+      "ctrlrange_Nm": [
+        -97.0,
+        97.0
+      ],
+      "forcerange_Nm": [
+        -97.0,
+        97.0
+      ],
+      "rated_speed_rad_s": 4.1887902047863905,
+      "rated_speed_is_enforced": false
+    },
+    "left_rear_knee_motor": {
+      "actuator_id": 16,
+      "joint_id": 26,
+      "qposadr": 32,
+      "dofadr": 31,
+      "position_unit": "rad",
+      "control_unit": "Nm",
+      "motor_profile": "DM6248P",
+      "gear": 1,
+      "ctrlrange_Nm": [
+        -97.0,
+        97.0
+      ],
+      "forcerange_Nm": [
+        -97.0,
+        97.0
+      ],
+      "rated_speed_rad_s": 4.1887902047863905,
+      "rated_speed_is_enforced": false
+    },
+    "left_rear_wheel_spin": {
+      "actuator_id": 17,
+      "joint_id": 29,
+      "qposadr": 35,
+      "dofadr": 34,
+      "position_unit": "rad",
+      "control_unit": "Nm",
+      "motor_profile": "M3508_C620",
+      "gear": 1,
+      "ctrlrange_Nm": [
+        -4.5,
+        4.5
+      ],
+      "forcerange_Nm": [
+        -4.5,
+        4.5
+      ],
+      "rated_speed_rad_s": 49.113565151120426,
+      "rated_speed_is_enforced": false
+    },
+    "arm_deploy": {
+      "actuator_id": 18,
+      "joint_id": 21,
+      "qposadr": 27,
+      "dofadr": 26,
+      "position_unit": "rad",
+      "control_unit": "Nm",
+      "motor_profile": "DM4340P",
+      "gear": 1,
+      "ctrlrange_Nm": [
+        -40.0,
+        40.0
+      ],
+      "forcerange_Nm": [
+        -40.0,
+        40.0
+      ],
+      "rated_speed_rad_s": 3.7699111843077517,
+      "rated_speed_is_enforced": false
+    },
+    "arm_pitch": {
+      "actuator_id": 19,
+      "joint_id": 22,
+      "qposadr": 28,
+      "dofadr": 27,
+      "position_unit": "rad",
+      "control_unit": "Nm",
+      "motor_profile": "DM4340P",
+      "gear": 1,
+      "ctrlrange_Nm": [
+        -40.0,
+        40.0
+      ],
+      "forcerange_Nm": [
+        -40.0,
+        40.0
+      ],
+      "rated_speed_rad_s": 3.7699111843077517,
+      "rated_speed_is_enforced": false
+    },
+    "hand_roll": {
+      "actuator_id": 20,
+      "joint_id": 23,
+      "qposadr": 29,
+      "dofadr": 28,
+      "position_unit": "rad",
+      "control_unit": "Nm",
+      "motor_profile": "DM4340P",
+      "gear": 1,
+      "ctrlrange_Nm": [
+        -40.0,
+        40.0
+      ],
+      "forcerange_Nm": [
+        -40.0,
+        40.0
+      ],
+      "rated_speed_rad_s": 3.7699111843077517,
+      "rated_speed_is_enforced": false
+    },
+    "left_arm_deploy": {
+      "actuator_id": 21,
+      "joint_id": 30,
+      "qposadr": 36,
+      "dofadr": 35,
+      "position_unit": "rad",
+      "control_unit": "Nm",
+      "motor_profile": "DM4340P",
+      "gear": 1,
+      "ctrlrange_Nm": [
+        -40.0,
+        40.0
+      ],
+      "forcerange_Nm": [
+        -40.0,
+        40.0
+      ],
+      "rated_speed_rad_s": 3.7699111843077517,
+      "rated_speed_is_enforced": false
+    },
+    "left_arm_pitch": {
+      "actuator_id": 22,
+      "joint_id": 31,
+      "qposadr": 37,
+      "dofadr": 36,
+      "position_unit": "rad",
+      "control_unit": "Nm",
+      "motor_profile": "DM4340P",
+      "gear": 1,
+      "ctrlrange_Nm": [
+        -40.0,
+        40.0
+      ],
+      "forcerange_Nm": [
+        -40.0,
+        40.0
+      ],
+      "rated_speed_rad_s": 3.7699111843077517,
+      "rated_speed_is_enforced": false
+    },
+    "left_hand_roll": {
+      "actuator_id": 23,
+      "joint_id": 32,
+      "qposadr": 38,
+      "dofadr": 37,
+      "position_unit": "rad",
+      "control_unit": "Nm",
+      "motor_profile": "DM4340P",
+      "gear": 1,
+      "ctrlrange_Nm": [
+        -40.0,
+        40.0
+      ],
+      "forcerange_Nm": [
+        -40.0,
+        40.0
+      ],
+      "rated_speed_rad_s": 3.7699111843077517,
+      "rated_speed_is_enforced": false
+    }
+  },
+  "dependent_joints": {
+    "right_rear_auto_knee_linkage": {
+      "joint_id": 19,
+      "qposadr": 25,
+      "dofadr": 24,
+      "equality_id": 0,
+      "driver": "right_rear_knee_motor",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "actuator_id": null
+    },
+    "right_rear_auto_pushrod_linkage": {
+      "joint_id": 18,
+      "qposadr": 24,
+      "dofadr": 23,
+      "equality_id": 1,
+      "driver": "right_rear_knee_motor",
+      "multiplier": -1.0,
+      "offset": 0.0,
+      "actuator_id": null
+    },
+    "right_front_auto_knee_linkage": {
+      "joint_id": 7,
+      "qposadr": 13,
+      "dofadr": 12,
+      "equality_id": 2,
+      "driver": "right_front_knee_motor",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "actuator_id": null
+    },
+    "right_front_auto_pushrod_linkage": {
+      "joint_id": 6,
+      "qposadr": 12,
+      "dofadr": 11,
+      "equality_id": 3,
+      "driver": "right_front_knee_motor",
+      "multiplier": -1.0,
+      "offset": 0.0,
+      "actuator_id": null
+    },
+    "left_front_auto_knee_linkage": {
+      "joint_id": 13,
+      "qposadr": 19,
+      "dofadr": 18,
+      "equality_id": 4,
+      "driver": "left_front_knee_motor",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "actuator_id": null
+    },
+    "left_front_auto_pushrod_linkage": {
+      "joint_id": 12,
+      "qposadr": 18,
+      "dofadr": 17,
+      "equality_id": 5,
+      "driver": "left_front_knee_motor",
+      "multiplier": -1.0,
+      "offset": 0.0,
+      "actuator_id": null
+    },
+    "left_rear_auto_knee_linkage": {
+      "joint_id": 28,
+      "qposadr": 34,
+      "dofadr": 33,
+      "equality_id": 6,
+      "driver": "left_rear_knee_motor",
+      "multiplier": 1.0,
+      "offset": 0.0,
+      "actuator_id": null
+    },
+    "left_rear_auto_pushrod_linkage": {
+      "joint_id": 27,
+      "qposadr": 33,
+      "dofadr": 32,
+      "equality_id": 7,
+      "driver": "left_rear_knee_motor",
+      "multiplier": -1.0,
+      "offset": 0.0,
+      "actuator_id": null
+    }
+  },
+  "source_urdf_status": "historical_single_arm_reference_not_current_MJCF",
+  "actuator_user_fields": [
+    "model_id",
+    "rated_torque_Nm",
+    "torque_limit_Nm",
+    "rated_speed_rpm",
+    "rated_speed_rad_s",
+    "catalogue_internal_reduction_ratio",
+    "brake_present"
+  ],
+  "motor_metadata_source": "p1_reconfigurable.xml custom + actuator user; catalogue source: model_evaluation/motors.txt",
+  "motor_profiles": {
+    "RH17": {
+      "model_id": 1,
+      "model": "RH-17 (brake equipped)",
+      "count": 2,
+      "rated_torque_Nm": 35.0,
+      "torque_limit_Nm": 54.0,
+      "torque_limit_kind": "peak",
+      "rated_speed_rpm": 25.0,
+      "catalogue_internal_reduction_ratio": 100.0,
+      "brake_present": 1,
+      "rated_speed_rad_s": 2.6179938779914944
+    },
+    "DM6248P": {
+      "model_id": 2,
+      "model": "DM6248P",
+      "count": 12,
+      "rated_torque_Nm": 30.0,
+      "torque_limit_Nm": 97.0,
+      "torque_limit_kind": "peak",
+      "rated_speed_rpm": 40.0,
+      "catalogue_internal_reduction_ratio": 48.0,
+      "brake_present": -1,
+      "rated_speed_rad_s": 4.1887902047863905
+    },
+    "M3508_C620": {
+      "model_id": 3,
+      "model": "M3508 P19 + C620 (catalogue reference)",
+      "count": 4,
+      "rated_torque_Nm": 3.0,
+      "torque_limit_Nm": 4.5,
+      "torque_limit_kind": "stall_reference_not_continuous_peak",
+      "rated_speed_rpm": 469.0,
+      "catalogue_internal_reduction_ratio": 19.203208556149733,
+      "brake_present": -1,
+      "rated_speed_rad_s": 49.113565151120426
+    },
+    "DM4340P": {
+      "model_id": 4,
+      "model": "DM-J4340P-2EC V1.1",
+      "count": 6,
+      "rated_torque_Nm": 12.0,
+      "torque_limit_Nm": 40.0,
+      "torque_limit_kind": "peak",
+      "rated_speed_rpm": 36.0,
+      "catalogue_internal_reduction_ratio": 40.0,
+      "brake_present": -1,
+      "rated_speed_rad_s": 3.7699111843077517
+    }
+  },
+  "arm_mirror": {
+    "parent": "left_rear_lower_leg",
+    "source_bodies": [
+      "arm_link",
+      "wrist_link",
+      "hand_link"
+    ],
+    "mirrored_bodies": [
+      "left_arm_link",
+      "left_wrist_link",
+      "left_hand_link"
+    ],
+    "reflection": "CAD/body zero-frame x -> -x",
+    "symmetric_angle_multiplier": -1,
+    "coupled": false,
+    "fixed_mount": {
+      "source_body": "right_rear_lower_leg",
+      "target_body": "left_rear_lower_leg",
+      "source_geoms": [
+        "right_rear_lower_leg_visual_1",
+        "right_rear_lower_leg_collision_1"
+      ],
+      "target_geoms": [
+        "left_rear_arm_mount_visual",
+        "left_rear_arm_mount_collision"
+      ],
+      "cad_component": "BO-CF-臂模块垫块^P1.V0.右后腿.09.15.09.30-1"
+    }
+  },
+  "brakes": {
+    "brake_body_rear_fold": {
+      "joint": "body_rear_fold",
+      "equality_id": 8,
+      "initial_engaged": true,
+      "actuator_group": 1,
+      "type": "ideal_joint_equality",
+      "hold_torque_Nm": null,
+      "engage": "Set model.eq_data[equality_id,0] = data.qpos[qposadr] - model.qpos0[qposadr], then data.eq_active[equality_id] = True.",
+      "release": "Set data.eq_active[equality_id] = False."
+    },
+    "brake_body_front_fold": {
+      "joint": "body_front_fold",
+      "equality_id": 9,
+      "initial_engaged": true,
+      "actuator_group": 1,
+      "type": "ideal_joint_equality",
+      "hold_torque_Nm": null,
+      "engage": "Set model.eq_data[equality_id,0] = data.qpos[qposadr] - model.qpos0[qposadr], then data.eq_active[equality_id] = True.",
+      "release": "Set data.eq_active[equality_id] = False."
+    }
+  },
+  "brake_motor_policy": "Default engaged; RH-17 group 1 is disabled. For both brakes released clear bit (1<<1) in model.opt.disableactuator; set it for both engaged. Equality reaction is not capped by the motor torque limit. find_angle.py startup/reset engage; B toggles both at current angles.",
+  "leg_inertials": {
+    "source_file": "leg_inertial_sources.json",
+    "structural_thigh_groups": {
+      "right_rear": {
+        "body_names": [
+          "right_rear_upper_leg",
+          "right_rear_knee_crank",
+          "right_rear_pushrod"
+        ],
+        "mass_kg": 0.3,
+        "drive_mass_owner": "right_rear_hip",
+        "drive_geometry_parent": "right_rear_upper_leg"
+      },
+      "right_front": {
+        "body_names": [
+          "right_front_upper_leg",
+          "right_front_knee_crank",
+          "right_front_pushrod"
+        ],
+        "mass_kg": 0.3,
+        "drive_geometry_parent": "right_front_upper_leg",
+        "drive_mass_owner": "right_front_hip"
+      },
+      "left_front": {
+        "body_names": [
+          "left_front_upper_leg",
+          "left_front_knee_crank",
+          "left_front_pushrod"
+        ],
+        "mass_kg": 0.3,
+        "drive_geometry_parent": "left_front_upper_leg",
+        "drive_mass_owner": "left_front_hip"
+      },
+      "left_rear": {
+        "body_names": [
+          "left_rear_upper_leg",
+          "left_rear_knee_crank",
+          "left_rear_pushrod"
+        ],
+        "mass_kg": 0.3,
+        "drive_mass_owner": "left_rear_hip",
+        "drive_geometry_parent": "left_rear_upper_leg"
+      }
+    },
+    "hip_mass_source": "Mechanical/user instruction: all four three-motor hip modules are 2 kg each; all four chassis-mounted motors are removed from chassis inertials to avoid double counting.",
+    "added_fixed_bodies": [],
+    "action_and_state_indices_unchanged": true,
+    "geometry_only_frames": []
+  }
+}

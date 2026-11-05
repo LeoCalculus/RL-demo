@@ -1,0 +1,5872 @@
+{
+  "schema_version": 3,
+  "source_git_commit": "4c207c8f19cc26d3b0dfebc0fff2caaabe432e8d",
+  "native_export_sha256": "4a1f9f69dee29ed777586e2a3b2dbde98d001f4e29602ed5a6a8505f7780df56",
+  "historical_link_mapping_sha256": "1c0bd2993a3fd1f0c52a575742efd7c936d863c2b1842010d1c71b2aa861f651",
+  "fresh_solidworks_export": false,
+  "CAD_source_files_verified_unchanged": true,
+  "user_instruction": "Restore all motor geometry for ordinary body/geom viewers; all four three-motor modules lumped into hip at 2 kg each, COM at the hip motor housing center indicated in screenshots. No independent thigh_drive COMs. Each thigh frame/linkage group remains 0.300 kg.",
+  "inertia_convention": "Source SolidWorks products of inertia negated once, rotated into CAD root/body axes, then aggregated with the parallel-axis theorem. Structural central tensors scaled uniformly with mass; COMs retained from their own components.",
+  "estimate_scope": "Hip COM placement follows the user image region, implemented as housing geometric center. Hip central tensors are scaled CAD aggregate estimates. Structural thigh distribution is CAD based with a user-specified 0.300 kg total.",
+  "thigh_groups": {
+    "right_rear": {
+      "target_structural_mass_kg": 0.3,
+      "members": {
+        "right_rear_upper_leg": {
+          "mass_kg": 0.18740254264165151,
+          "com_body_m": [
+            0.005209428373433911,
+            -0.007048477001791963,
+            0.06002531139671988
+          ],
+          "inertia_com_body_kg_m2": [
+            [
+              0.0010011870349520505,
+              2.7678621062179297e-05,
+              -8.640523391711979e-05
+            ],
+            [
+              2.767862106217932e-05,
+              0.0009439410717084982,
+              0.00013604785221052183
+            ],
+            [
+              -8.64052339171198e-05,
+              0.00013604785221052183,
+              0.00015576643223144446
+            ]
+          ],
+          "cad_components": [
+            "P1.V0.右后腿.09.15.09.30-1/REF-大腿外部.09.15.09.30-1"
+          ]
+        },
+        "right_rear_knee_crank": {
+          "mass_kg": 0.025753598860157732,
+          "com_body_m": [
+            0.0013585586653863946,
+            0.0054177244341835,
+            -0.0028523054757447104
+          ],
+          "inertia_com_body_kg_m2": [
+            [
+              5.86682493761437e-06,
+              8.512293039580748e-07,
+              -1.9009259863021496e-07
+            ],
+            [
+              8.512293039580747e-07,
+              2.9080714506937383e-06,
+              9.425159739644505e-07
+            ],
+            [
+              -1.9009259863021496e-07,
+              9.425159739644506e-07,
+              3.6980745242574147e-06
+            ]
+          ],
+          "cad_components": [
+            "P1.V0.右后腿.09.15.09.30-1/REF-J2输出连杆.09.15.09.30-1"
+          ]
+        },
+        "right_rear_pushrod": {
+          "mass_kg": 0.08684385849819072,
+          "com_body_m": [
+            0.017458163332575105,
+            -0.020820844436977706,
+            0.09965188100509693
+          ],
+          "inertia_com_body_kg_m2": [
+            [
+              0.0005256643213102343,
+              1.1609766104444262e-05,
+              -4.197250665265302e-05
+            ],
+            [
+              1.1609766104444269e-05,
+              0.0004936276476597346,
+              0.00012950834474823034
+            ],
+            [
+              -4.197250665265302e-05,
+              0.00012950834474823034,
+              4.018770224415031e-05
+            ]
+          ],
+          "cad_components": [
+            "P1.V0.右后腿.09.15.09.30-1/COT-深沟球轴承8-16-6.09.15.09.30-1",
+            "P1.V0.右后腿.09.15.09.30-1/COT-深沟球轴承8-16-6.09.15.09.30-2",
+            "P1.V0.右后腿.09.15.09.30-1/REF-J2输出连杆中继.09.15.09.30-1"
+          ]
+        }
+      },
+      "native_structural_mass_kg": 0.15135098509405645,
+      "uniform_mass_and_inertia_scale": 1.9821476537702494,
+      "drive_components": [
+        "P1.V0.右后腿.09.15.09.30-1/COT-DM6248P.09.15.09.30-4",
+        "P1.V0.右后腿.09.15.09.30-1/REF-J1电机输出转接件.09.15.09.30-1",
+        "P1.V0.右后腿.09.15.09.30-1/REF-J2电机限位.09.15.09.30-1"
+      ],
+      "drive_motor_only_cad_mass_kg": 0.20657475299964775,
+      "definition": "Outer frame + knee crank + pushrod and bearings totals 0.300 kg. All drive visuals/collisions remain directly under upper_leg, while the complete three-motor drive mass is lumped at hip (2 kg).",
+      "previous_drive_inertial": {
+        "mass_kg": 0.26305539033552444,
+        "com_body_m": [
+          -0.03355050024767775,
+          -0.011619612496155934,
+          0.00017866638891102932
+        ],
+        "inertia_com_body_kg_m2": [
+          [
+            0.00017537269712383866,
+            -1.180585249638819e-06,
+            -1.2409891948761588e-06
+          ],
+          [
+            -1.1805852496388237e-06,
+            0.00019776459879166215,
+            -7.079374817525302e-07
+          ],
+          [
+            -1.240989194876161e-06,
+            -7.079374817525356e-07,
+            0.00019505497567034858
+          ]
+        ]
+      },
+      "drive_mass_owner": "right_rear_hip",
+      "drive_independent_mass_kg": 0.0,
+      "drive_geometry_parent": "right_rear_upper_leg",
+      "drive_geom_names": [
+        "right_rear_thigh_drive_visual_0",
+        "right_rear_thigh_drive_visual_1",
+        "right_rear_thigh_drive_visual_2",
+        "right_rear_thigh_drive_collision_0",
+        "right_rear_thigh_drive_collision_1",
+        "right_rear_thigh_drive_collision_2"
+      ]
+    },
+    "right_front": {
+      "target_structural_mass_kg": 0.3,
+      "members": {
+        "right_front_upper_leg": {
+          "mass_kg": 0.18740254264165151,
+          "com_body_m": [
+            0.00255447494872027,
+            -0.056422582132768954,
+            -0.022131969264013174
+          ],
+          "inertia_com_body_kg_m2": [
+            [
+              0.0010122745223951446,
+              3.4767034358569e-05,
+              1.3481902698082303e-05
+            ],
+            [
+              3.4767034358568997e-05,
+              0.0002691071654003305,
+              -0.00031594673554379384
+            ],
+            [
+              1.3481902698082301e-05,
+              -0.00031594673554379384,
+              0.0008195128510965187
+            ]
+          ],
+          "cad_components": [
+            "P1.V0.右前腿.09.15.09.30-1/REF-大腿外部.09.15.09.30-1"
+          ]
+        },
+        "right_front_knee_crank": {
+          "mass_kg": 0.025753598860157732,
+          "com_body_m": [
+            0.0029538425664878964,
+            -0.004848315552443021,
+            0.0026649046167497303
+          ],
+          "inertia_com_body_kg_m2": [
+            [
+              6.085553938257436e-06,
+              1.7628713835565055e-07,
+              -1.0082309883068157e-07
+            ],
+            [
+              1.7628713835565055e-07,
+              2.6161179445832073e-06,
+              9.130099277620615e-07
+            ],
+            [
+              -1.0082309883068159e-07,
+              9.130099277620615e-07,
+              3.7712990297248806e-06
+            ]
+          ],
+          "cad_components": [
+            "P1.V0.右前腿.09.15.09.30-1/REF-J2输出连杆.09.15.09.30-1"
+          ]
+        },
+        "right_front_pushrod": {
+          "mass_kg": 0.08684385849819072,
+          "com_body_m": [
+            0.00979743743560163,
+            -0.09102347961105543,
+            -0.047828117222587285
+          ],
+          "inertia_com_body_kg_m2": [
+            [
+              0.0005294215234350142,
+              -1.7551414800762017e-06,
+              -9.707359136803528e-07
+            ],
+            [
+              -1.7551414800762017e-06,
+              0.00012676426581035855,
+              -0.0002235326976471324
+            ],
+            [
+              -9.707359136803528e-07,
+              -0.00022353269764713242,
+              0.00040329388196869034
+            ]
+          ],
+          "cad_components": [
+            "P1.V0.右前腿.09.15.09.30-1/COT-深沟球轴承8-16-6.09.15.09.30-1",
+            "P1.V0.右前腿.09.15.09.30-1/COT-深沟球轴承8-16-6.09.15.09.30-2",
+            "P1.V0.右前腿.09.15.09.30-1/REF-J2输出连杆中继.09.15.09.30-1"
+          ]
+        }
+      },
+      "native_structural_mass_kg": 0.15135098509405645,
+      "uniform_mass_and_inertia_scale": 1.9821476537702494,
+      "drive_components": [
+        "P1.V0.右前腿.09.15.09.30-1/COT-DM6248P.09.15.09.30-4",
+        "P1.V0.右前腿.09.15.09.30-1/REF-J1电机输出转接件.09.15.09.30-1",
+        "P1.V0.右前腿.09.15.09.30-1/REF-J2电机限位.09.15.09.30-1"
+      ],
+      "drive_motor_only_cad_mass_kg": 0.20657475299964775,
+      "definition": "Outer frame + knee crank + pushrod and bearings totals 0.300 kg. All drive visuals/collisions remain directly under upper_leg, while the complete three-motor drive mass is lumped at hip (2 kg).",
+      "previous_drive_inertial": {
+        "mass_kg": 0.26305539033552444,
+        "com_body_m": [
+          -0.035499724768880664,
+          0.0001093116262420521,
+          -0.0006640597946440119
+        ],
+        "inertia_com_body_kg_m2": [
+          [
+            0.00017683127283590997,
+            1.0669132422435296e-07,
+            5.819883381194931e-06
+          ],
+          [
+            1.06691324224353e-07,
+            0.0001949918762668005,
+            -5.004511995144148e-08
+          ],
+          [
+            5.819883381194931e-06,
+            -5.0045119951446365e-08,
+            0.00019636912248313933
+          ]
+        ]
+      },
+      "drive_geometry_parent": "right_front_upper_leg",
+      "drive_geom_names": [
+        "right_front_thigh_drive_visual_0",
+        "right_front_thigh_drive_visual_1",
+        "right_front_thigh_drive_visual_2",
+        "right_front_thigh_drive_collision_0",
+        "right_front_thigh_drive_collision_1",
+        "right_front_thigh_drive_collision_2"
+      ],
+      "drive_mass_owner": "right_front_hip",
+      "drive_independent_mass_kg": 0.0
+    },
+    "left_front": {
+      "target_structural_mass_kg": 0.3,
+      "members": {
+        "left_front_upper_leg": {
+          "mass_kg": 0.18740271524434832,
+          "com_body_m": [
+            -0.08043442118219643,
+            -0.05671527101692983,
+            -0.022130000378887682
+          ],
+          "inertia_com_body_kg_m2": [
+            [
+              0.0010122743298217212,
+              -3.4766704088002594e-05,
+              -1.3481821890672379e-05
+            ],
+            [
+              -3.4766704088002594e-05,
+              0.00026910685812806006,
+              -0.0003159463427833357
+            ],
+            [
+              -1.3481821890672377e-05,
+              -0.0003159463427833357,
+              0.0008195130339235476
+            ]
+          ],
+          "cad_components": [
+            "镜向P1.V0.右前腿.09.15.09.30-3/镜向REF-大腿外部.09.15.09.30-1"
+          ]
+        },
+        "left_front_knee_crank": {
+          "mass_kg": 0.025753559381996107,
+          "com_body_m": [
+            -0.08083376754928356,
+            -0.005141114884068224,
+            0.002666872833391176
+          ],
+          "inertia_com_body_kg_m2": [
+            [
+              6.085544609600759e-06,
+              -1.7628686812187935e-07,
+              1.0082294427711364e-07
+            ],
+            [
+              -1.762868681218793e-07,
+              2.616113934288273e-06,
+              9.13008528192483e-07
+            ],
+            [
+              1.0082294427711363e-07,
+              9.130085281924829e-07,
+              3.771293248631782e-06
+            ]
+          ],
+          "cad_components": [
+            "镜向P1.V0.右前腿.09.15.09.30-3/镜向REF-J2输出连杆.09.15.09.30-1"
+          ]
+        },
+        "left_front_pushrod": {
+          "mass_kg": 0.08684372537365555,
+          "com_body_m": [
+            -0.08767736241839683,
+            -0.09131627894279451,
+            -0.04782614900576865
+          ],
+          "inertia_com_body_kg_m2": [
+            [
+              0.0005294207118751018,
+              1.7551387895877677e-06,
+              9.707344256215383e-07
+            ],
+            [
+              1.7551387895877677e-06,
+              0.00012676407149110288,
+              -0.00022353235498978204
+            ],
+            [
+              9.707344256215383e-07,
+              -0.00022353235498978198,
+              0.00040329326375214045
+            ]
+          ],
+          "cad_components": [
+            "镜向P1.V0.右前腿.09.15.09.30-3/镜向COT-深沟球轴承8-16-6.09.15.09.30-1",
+            "镜向P1.V0.右前腿.09.15.09.30-3/镜向COT-深沟球轴承8-16-6.09.15.09.30-2",
+            "镜向P1.V0.右前腿.09.15.09.30-3/镜向REF-J2输出连杆中继.09.15.09.30-1"
+          ]
+        }
+      },
+      "native_structural_mass_kg": 0.15135121710309893,
+      "uniform_mass_and_inertia_scale": 1.9821446152999418,
+      "drive_components": [
+        "镜向P1.V0.右前腿.09.15.09.30-3/镜向COT-DM6248P.09.15.09.30-2",
+        "镜向P1.V0.右前腿.09.15.09.30-3/镜向REF-J1电机输出转接件.09.15.09.30-1",
+        "镜向P1.V0.右前腿.09.15.09.30-3/镜向REF-J2电机限位.09.15.09.30-1"
+      ],
+      "drive_motor_only_cad_mass_kg": 0.20657473938894885,
+      "definition": "Outer frame + knee crank + pushrod and bearings totals 0.300 kg. All drive visuals/collisions remain directly under upper_leg, while the complete three-motor drive mass is lumped at hip (2 kg).",
+      "previous_drive_inertial": {
+        "mass_kg": 0.2630546572687288,
+        "com_body_m": [
+          -0.04238027588200635,
+          -0.00018347723726037934,
+          -0.0006620872971013769
+        ],
+        "inertia_com_body_kg_m2": [
+          [
+            0.00017683158473464302,
+            -1.06775630784057e-07,
+            -5.819876380330011e-06
+          ],
+          [
+            -1.0677563078405696e-07,
+            0.00019499106353127629,
+            -5.020228445485281e-08
+          ],
+          [
+            -5.819876380330011e-06,
+            -5.0202284454855574e-08,
+            0.00019636845049330004
+          ]
+        ]
+      },
+      "drive_geometry_parent": "left_front_upper_leg",
+      "drive_geom_names": [
+        "left_front_thigh_drive_visual_0",
+        "left_front_thigh_drive_visual_1",
+        "left_front_thigh_drive_visual_2",
+        "left_front_thigh_drive_collision_0",
+        "left_front_thigh_drive_collision_1",
+        "left_front_thigh_drive_collision_2"
+      ],
+      "drive_mass_owner": "left_front_hip",
+      "drive_independent_mass_kg": 0.0
+    },
+    "left_rear": {
+      "target_structural_mass_kg": 0.3,
+      "members": {
+        "left_rear_upper_leg": {
+          "mass_kg": 0.18740271524434837,
+          "com_body_m": [
+            -0.0052094560024629755,
+            -0.007048494509330785,
+            0.06002520378252041
+          ],
+          "inertia_com_body_kg_m2": [
+            [
+              0.0010011868626193696,
+              -2.76785694334505e-05,
+              8.640476759746929e-05
+            ],
+            [
+              -2.7678569433450505e-05,
+              0.0009439410312271511,
+              0.00013604751887132875
+            ],
+            [
+              8.640476759746928e-05,
+              0.00013604751887132875,
+              0.00015576632802680854
+            ]
+          ],
+          "cad_components": [
+            "镜向P1.V0.右后腿.09.15.09.30-3/镜向REF-大腿外部.09.151.09.30-1"
+          ]
+        },
+        "left_rear_knee_crank": {
+          "mass_kg": 0.025753559381996107,
+          "com_body_m": [
+            -0.0013585586653864778,
+            0.005417724434183167,
+            -0.0028523054757448874
+          ],
+          "inertia_com_body_kg_m2": [
+            [
+              5.866815944251372e-06,
+              -8.51227999093143e-07,
+              1.9009230723380185e-07
+            ],
+            [
+              -8.51227999093143e-07,
+              2.908066992857947e-06,
+              9.425145291645152e-07
+            ],
+            [
+              1.9009230723380183e-07,
+              9.42514529164515e-07,
+              3.698068855411497e-06
+            ]
+          ],
+          "cad_components": [
+            "镜向P1.V0.右后腿.09.15.09.30-3/镜向REF-J2输出连杆.09.151.09.30-1"
+          ]
+        },
+        "left_rear_pushrod": {
+          "mass_kg": 0.08684372537365553,
+          "com_body_m": [
+            -0.01745816333257505,
+            -0.020820844436977466,
+            0.0996518810050974
+          ],
+          "inertia_com_body_kg_m2": [
+            [
+              0.000525663515509806,
+              -1.1609748307621988e-05,
+              4.1972442312231794e-05
+            ],
+            [
+              -1.1609748307621992e-05,
+              0.0004936268909689076,
+              0.00012950814622252594
+            ],
+            [
+              4.1972442312231794e-05,
+              0.00012950814622252594,
+              4.01876406396884e-05
+            ]
+          ],
+          "cad_components": [
+            "镜向P1.V0.右后腿.09.15.09.30-3/镜向COT-深沟球轴承8-16-6.09.151.09.30-1",
+            "镜向P1.V0.右后腿.09.15.09.30-3/镜向COT-深沟球轴承8-16-6.09.151.09.30-2",
+            "镜向P1.V0.右后腿.09.15.09.30-3/镜向REF-J2输出连杆中继.09.151.09.30-1"
+          ]
+        }
+      },
+      "native_structural_mass_kg": 0.15135121710309893,
+      "uniform_mass_and_inertia_scale": 1.9821446152999418,
+      "drive_components": [
+        "镜向P1.V0.右后腿.09.15.09.30-3/镜向COT-DM6248P.09.151.09.30-2",
+        "镜向P1.V0.右后腿.09.15.09.30-3/镜向REF-J1电机输出转接件.09.151.09.30-1",
+        "镜向P1.V0.右后腿.09.15.09.30-3/镜向REF-J2电机限位.09.151.09.30-1"
+      ],
+      "drive_motor_only_cad_mass_kg": 0.2065747393934207,
+      "definition": "Outer frame + knee crank + pushrod and bearings totals 0.300 kg. All drive visuals/collisions remain directly under upper_leg, while the complete three-motor drive mass is lumped at hip (2 kg).",
+      "previous_drive_inertial": {
+        "mass_kg": 0.2630546572732006,
+        "com_body_m": [
+          0.033550428859507375,
+          -0.011619587473312556,
+          0.00017865493357815607
+        ],
+        "inertia_com_body_kg_m2": [
+          [
+            0.0001753729358151744,
+            1.18033590772976e-06,
+            1.2411031217868534e-06
+          ],
+          [
+            1.180335907729761e-06,
+            0.0001977640632173108,
+            -7.078609423105288e-07
+          ],
+          [
+            1.2411031217868513e-06,
+            -7.078609423105263e-07,
+            0.0001950540997350955
+          ]
+        ]
+      },
+      "drive_mass_owner": "left_rear_hip",
+      "drive_independent_mass_kg": 0.0,
+      "drive_geometry_parent": "left_rear_upper_leg",
+      "drive_geom_names": [
+        "left_rear_thigh_drive_visual_0",
+        "left_rear_thigh_drive_visual_1",
+        "left_rear_thigh_drive_visual_2",
+        "left_rear_thigh_drive_collision_0",
+        "left_rear_thigh_drive_collision_1",
+        "left_rear_thigh_drive_collision_2"
+      ]
+    }
+  },
+  "hips": {
+    "right_rear_hip": {
+      "mass_kg": 2.0,
+      "com_body_m": [
+        -0.011418929551981774,
+        -0.003689080686733034,
+        0.06379581880325753
+      ],
+      "inertia_com_body_kg_m2": [
+        [
+          0.004212065370766399,
+          -0.0005311032008503421,
+          -0.0008734730014712278
+        ],
+        [
+          -0.0005311032008503421,
+          0.005783407178196468,
+          -0.00027368410046575
+        ],
+        [
+          -0.0008734730014712278,
+          -0.00027368410046575,
+          0.003190201737812446
+        ]
+      ],
+      "mass_source": "User/mechanical instruction: each hip represents three DM6248P motors plus mounting hardware, 2 kg per module, both front and rear.",
+      "com_source": "User-indicated central region, approximated by the geometric center of the hip motor housing visual mesh in its local part axes.",
+      "com_reference_geom": "right_rear_hip_visual_0",
+      "cad_components": [
+        "COT-DM6248P.09.15.09.30-1",
+        "P1.V0.右后腿.09.15.09.30-1/COT-DM6248P.09.15.09.30-3",
+        "REF-J0电机输出转接件.09.15.09.30-1",
+        "P1.V0.右后腿.09.15.09.30-1/COT-DM6248P.09.15.09.30-4",
+        "P1.V0.右后腿.09.15.09.30-1/REF-J1电机输出转接件.09.15.09.30-1",
+        "P1.V0.右后腿.09.15.09.30-1/REF-J2电机限位.09.15.09.30-1"
+      ],
+      "cad_reference_inertial": {
+        "mass_kg": 0.67620489633482,
+        "com_body_m": [
+          0.01746462430016056,
+          0.005420734143687843,
+          0.03899054452725095
+        ],
+        "inertia_com_body_kg_m2": [
+          [
+            0.0014241096136972892,
+            -0.00017956729243704834,
+            -0.0002953233602055578
+          ],
+          [
+            -0.00017956729243704834,
+            0.001955384125697198,
+            -9.253326439196545e-05
+          ],
+          [
+            -0.0002953233602055578,
+            -9.253326439196545e-05,
+            0.0010786150177023138
+          ]
+        ]
+      },
+      "previous_inertial": {
+        "mass_kg": 2.0,
+        "com_body_m": [
+          0.01746462430016056,
+          0.005420734143687843,
+          0.03899054452725095
+        ],
+        "inertia_com_body_kg_m2": [
+          [
+            0.004212065370766399,
+            -0.0005311032008503421,
+            -0.0008734730014712278
+          ],
+          [
+            -0.0005311032008503421,
+            0.005783407178196468,
+            -0.00027368410046575
+          ],
+          [
+            -0.0008734730014712278,
+            -0.00027368410046575,
+            0.003190201737812446
+          ]
+        ]
+      },
+      "inertia_estimate": "CAD aggregate CENTRAL tensor scaled to 2 kg, retained as an estimated central tensor when relocating the equivalent lump to the requested COM. No claim of a new measured tensor or of preserving the original component distribution."
+    },
+    "right_front_hip": {
+      "mass_kg": 2.0,
+      "com_body_m": [
+        -0.012000126611705658,
+        -0.00043908939348677976,
+        -0.0637338144255551
+      ],
+      "inertia_com_body_kg_m2": [
+        [
+          0.004070386475284466,
+          1.6124257026924365e-05,
+          0.000945539013916279
+        ],
+        [
+          1.6124257026924372e-05,
+          0.005963578863761663,
+          -2.2633006201535957e-05
+        ],
+        [
+          0.000945539013916279,
+          -2.2633006201535977e-05,
+          0.0031964556790330706
+        ]
+      ],
+      "mass_source": "User/mechanical instruction: each hip represents three DM6248P motors plus mounting hardware, 2 kg per module, both front and rear.",
+      "com_source": "User-indicated central region, approximated by the geometric center of the hip motor housing visual mesh in its local part axes.",
+      "com_reference_geom": "right_front_hip_visual_0",
+      "cad_components": [
+        "COT-DM6248P.09.15.09.30-4",
+        "P1.V0.右前腿.09.15.09.30-1/COT-DM6248P.09.15.09.30-3",
+        "REF-J0电机输出转接件.09.15.09.30-3",
+        "P1.V0.右前腿.09.15.09.30-1/COT-DM6248P.09.15.09.30-4",
+        "P1.V0.右前腿.09.15.09.30-1/REF-J1电机输出转接件.09.15.09.30-1",
+        "P1.V0.右前腿.09.15.09.30-1/REF-J2电机限位.09.15.09.30-1"
+      ],
+      "cad_reference_inertial": {
+        "mass_kg": 0.67620489633482,
+        "com_body_m": [
+          0.018256426368904427,
+          -0.00032055402389669085,
+          -0.03919387276871755
+        ],
+        "inertia_com_body_kg_m2": [
+          [
+            0.0013762076322811926,
+            5.451650775683691e-06,
+            0.00031968905544289264
+          ],
+          [
+            5.451650775683694e-06,
+            0.002016300613677239,
+            -7.65227480612748e-06
+          ],
+          [
+            0.00031968905544289264,
+            -7.652274806127487e-06,
+            0.001080729490539702
+          ]
+        ]
+      },
+      "previous_inertial": {
+        "mass_kg": 0.20657475299964775,
+        "com_body_m": [
+          -0.011987940897837945,
+          -0.0003367594354834469,
+          -0.06376446899860633
+        ],
+        "inertia_com_body_kg_m2": [
+          [
+            0.00013113125769867795,
+            2.0792476915695736e-07,
+            -8.996243760378971e-08
+          ],
+          [
+            2.0792476915695736e-07,
+            0.00011249694605807863,
+            5.722813810369865e-08
+          ],
+          [
+            -8.996243760378971e-08,
+            5.722813810369865e-08,
+            0.00011266795109364392
+          ]
+        ]
+      },
+      "inertia_estimate": "CAD aggregate CENTRAL tensor scaled to 2 kg, retained as an estimated central tensor when relocating the equivalent lump to the requested COM. No claim of a new measured tensor or of preserving the original component distribution."
+    },
+    "left_front_hip": {
+      "mass_kg": 2.0,
+      "com_body_m": [
+        0.011999888888353953,
+        -0.00037597345748518617,
+        -0.06375087194613002
+      ],
+      "inertia_com_body_kg_m2": [
+        [
+          0.004070729073436989,
+          -1.587823630869049e-05,
+          -0.0009416226805180009
+        ],
+        [
+          -1.5878236308690504e-05,
+          0.00596155011635417,
+          -2.38659668317023e-05
+        ],
+        [
+          -0.0009416226805180009,
+          -2.386596683170231e-05,
+          0.003194797817878381
+        ]
+      ],
+      "mass_source": "User/mechanical instruction: each hip represents three DM6248P motors plus mounting hardware, 2 kg per module, both front and rear.",
+      "com_source": "User-indicated central region, approximated by the geometric center of the hip motor housing visual mesh in its local part axes.",
+      "com_reference_geom": "left_front_hip_visual_0",
+      "cad_components": [
+        "COT-DM6248P.09.15.09.30-3",
+        "REF-J0电机输出转接件.09.15.09.30-5",
+        "镜向P1.V0.右前腿.09.15.09.30-3/镜向COT-DM6248P.09.15.09.30-1",
+        "镜向P1.V0.右前腿.09.15.09.30-3/镜向COT-DM6248P.09.15.09.30-2",
+        "镜向P1.V0.右前腿.09.15.09.30-3/镜向REF-J1电机输出转接件.09.15.09.30-1",
+        "镜向P1.V0.右前腿.09.15.09.30-3/镜向REF-J2电机限位.09.15.09.30-1"
+      ],
+      "cad_reference_inertial": {
+        "mass_kg": 0.6762041496573253,
+        "com_body_m": [
+          -0.01827938972860181,
+          -0.00031330789531831826,
+          -0.03919389193928763
+        ],
+        "inertia_com_body_kg_m2": [
+          [
+            0.0013763219457944053,
+            -5.36846464058806e-06,
+            -0.00031836458198886304
+          ],
+          [
+            -5.368464640588065e-06,
+            0.0020156124635344,
+            -8.069132903590592e-06
+          ],
+          [
+            -0.00031836458198886304,
+            -8.069132903590595e-06,
+            0.0010801677708827645
+          ]
+        ]
+      },
+      "previous_inertial": {
+        "mass_kg": 0.20657473938894885,
+        "com_body_m": [
+          0.011987939984737322,
+          -0.0003367594398706042,
+          -0.06376446896013538
+        ],
+        "inertia_com_body_kg_m2": [
+          [
+            0.00013113125231750482,
+            -2.0792491721573952e-07,
+            8.996233334110355e-08
+          ],
+          [
+            -2.0792491721573952e-07,
+            0.00011249693425781383,
+            5.722819335443241e-08
+          ],
+          [
+            8.996233334110355e-08,
+            5.722819335443241e-08,
+            0.00011266794169652821
+          ]
+        ]
+      },
+      "inertia_estimate": "CAD aggregate CENTRAL tensor scaled to 2 kg, retained as an estimated central tensor when relocating the equivalent lump to the requested COM. No claim of a new measured tensor or of preserving the original component distribution."
+    },
+    "left_rear_hip": {
+      "mass_kg": 2.0,
+      "com_body_m": [
+        0.011406609748793251,
+        -0.00372683735398306,
+        0.063743883329586
+      ],
+      "inertia_com_body_kg_m2": [
+        [
+          0.004212062636867321,
+          0.0005314689721477281,
+          0.0008785897495142579
+        ],
+        [
+          0.0005314689721477281,
+          0.005785506773190157,
+          -0.0002736401663692753
+        ],
+        [
+          0.0008785897495142579,
+          -0.00027364016636927525,
+          0.0031922930188103393
+        ]
+      ],
+      "mass_source": "User/mechanical instruction: each hip represents three DM6248P motors plus mounting hardware, 2 kg per module, both front and rear.",
+      "com_source": "User-indicated central region, approximated by the geometric center of the hip motor housing visual mesh in its local part axes.",
+      "com_reference_geom": "left_rear_hip_visual_0",
+      "cad_components": [
+        "COT-DM6248P.09.15.09.30-2",
+        "REF-J0电机输出转接件.09.15.09.30-6",
+        "镜向P1.V0.右后腿.09.15.09.30-3/镜向COT-DM6248P.09.151.09.30-1",
+        "镜向P1.V0.右后腿.09.15.09.30-3/镜向COT-DM6248P.09.151.09.30-2",
+        "镜向P1.V0.右后腿.09.15.09.30-3/镜向REF-J1电机输出转接件.09.151.09.30-1",
+        "镜向P1.V0.右后腿.09.15.09.30-3/镜向REF-J2电机限位.09.151.09.30-1"
+      ],
+      "cad_reference_inertial": {
+        "mass_kg": 0.6762041496662691,
+        "com_body_m": [
+          -0.01743460299860572,
+          0.005420988593692819,
+          0.03899051253427857
+        ],
+        "inertia_com_body_kg_m2": [
+          [
+            0.0014241071168519651,
+            0.00017969076219258027,
+            0.0002970530172378946
+          ],
+          [
+            0.00017969076219258027,
+            0.0019560918439767453,
+            -9.251830800713611e-05
+          ],
+          [
+            0.0002970530172378946,
+            -9.25183080071361e-05,
+            0.0010793208931351064
+          ]
+        ]
+      },
+      "previous_inertial": {
+        "mass_kg": 2.0,
+        "com_body_m": [
+          -0.01743460299860572,
+          0.005420988593692819,
+          0.03899051253427857
+        ],
+        "inertia_com_body_kg_m2": [
+          [
+            0.004212062636867321,
+            0.0005314689721477281,
+            0.0008785897495142579
+          ],
+          [
+            0.0005314689721477281,
+            0.005785506773190157,
+            -0.0002736401663692753
+          ],
+          [
+            0.0008785897495142579,
+            -0.0002736401663692753,
+            0.0031922930188103393
+          ]
+        ]
+      },
+      "inertia_estimate": "CAD aggregate CENTRAL tensor scaled to 2 kg, retained as an estimated central tensor when relocating the equivalent lump to the requested COM. No claim of a new measured tensor or of preserving the original component distribution."
+    }
+  },
+  "geom_renames": {
+    "right_rear_upper_leg_visual_0": "right_rear_thigh_drive_visual_0",
+    "right_rear_upper_leg_visual_1": "right_rear_thigh_drive_visual_1",
+    "right_rear_upper_leg_visual_2": "right_rear_thigh_drive_visual_2",
+    "right_rear_upper_leg_collision_0": "right_rear_thigh_drive_collision_0",
+    "right_rear_upper_leg_collision_1": "right_rear_thigh_drive_collision_1",
+    "right_rear_upper_leg_collision_2": "right_rear_thigh_drive_collision_2",
+    "right_front_upper_leg_visual_0": "right_front_thigh_drive_visual_0",
+    "right_front_upper_leg_visual_1": "right_front_thigh_drive_visual_1",
+    "right_front_upper_leg_visual_2": "right_front_thigh_drive_visual_2",
+    "right_front_upper_leg_collision_0": "right_front_thigh_drive_collision_0",
+    "right_front_upper_leg_collision_1": "right_front_thigh_drive_collision_1",
+    "right_front_upper_leg_collision_2": "right_front_thigh_drive_collision_2",
+    "left_front_upper_leg_visual_0": "left_front_thigh_drive_visual_0",
+    "left_front_upper_leg_visual_1": "left_front_thigh_drive_visual_1",
+    "left_front_upper_leg_visual_2": "left_front_thigh_drive_visual_2",
+    "left_front_upper_leg_collision_0": "left_front_thigh_drive_collision_0",
+    "left_front_upper_leg_collision_1": "left_front_thigh_drive_collision_1",
+    "left_front_upper_leg_collision_2": "left_front_thigh_drive_collision_2",
+    "left_rear_upper_leg_visual_0": "left_rear_thigh_drive_visual_0",
+    "left_rear_upper_leg_visual_1": "left_rear_thigh_drive_visual_1",
+    "left_rear_upper_leg_visual_2": "left_rear_thigh_drive_visual_2",
+    "left_rear_upper_leg_collision_0": "left_rear_thigh_drive_collision_0",
+    "left_rear_upper_leg_collision_1": "left_rear_thigh_drive_collision_1",
+    "left_rear_upper_leg_collision_2": "left_rear_thigh_drive_collision_2"
+  },
+  "cad_component_records": {
+    "P1.V0.右后腿.09.15.09.30-1/COT-DM6248P.09.15.09.30-4": {
+      "name": "P1.V0.右后腿.09.15.09.30-1/COT-DM6248P.09.15.09.30-4",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\COT-DM6248P.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "P1.V0.右后腿.09.15.09.30-1",
+      "transform": [
+        0.2705998896248454,
+        -0.8293111370486016,
+        0.4888954261416005,
+        -0.9506715910436212,
+        -0.3101991714730872,
+        -2.913896885210148e-17,
+        0.15165495612610638,
+        -0.46477899262398453,
+        -0.8723423996905246,
+        0.16234815774729117,
+        -0.0234987526521463,
+        0.02125450433223587,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        0.2705998896248454,
+        -0.8293111370486016,
+        0.4888954261416005,
+        -0.9506715910436212,
+        -0.3101991714730872,
+        -2.913896885210148e-17,
+        0.15165495612610638,
+        -0.46477899262398453,
+        -0.8723423996905246,
+        0.16234815774729117,
+        -0.0234987526521463,
+        0.02125450433223587,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        0.08652379200172858,
+        -0.09217964895483712,
+        -0.03047253304938488,
+        0.1780321347190261,
+        0.025558649117346996,
+        0.07298154171385662
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.20657475299964775,
+        "volume_m3": 0.0002065747532994101,
+        "density_kg_m3": 999.9999985488917,
+        "com_m": [
+          4.9146683202096344e-05,
+          0.03161867697786208,
+          -2.884033124936939e-06
+        ],
+        "inertia_com_matrix_kg_m2": [
+          0.00011248163570315766,
+          2.919986740757441e-07,
+          -6.528578228484662e-09,
+          2.919986740757441e-07,
+          0.00013112942632440255,
+          -1.4981277707123135e-08,
+          -6.528578228484662e-09,
+          -1.4981277707123135e-08,
+          0.0001126850928228403
+        ],
+        "principal_moments_kg_m2": [
+          0.0001124768449283931,
+          0.00011268530042470844,
+          0.00013113400949729882
+        ],
+        "override_mass": true,
+        "override_com": true,
+        "override_inertia": true
+      },
+      "solid_body_count": 32,
+      "body_info": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "ff2280e7b6429abbc3e19e4b937c84eefe5a0e54c304569c483f36374d289753",
+      "source_file_matches_original_export_baseline": true
+    },
+    "P1.V0.右后腿.09.15.09.30-1/REF-J1电机输出转接件.09.15.09.30-1": {
+      "name": "P1.V0.右后腿.09.15.09.30-1/REF-J1电机输出转接件.09.15.09.30-1",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\REF-J1电机输出转接件.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "P1.V0.右后腿.09.15.09.30-1",
+      "transform": [
+        0.2705998896248455,
+        -0.8293111370486015,
+        0.4888954261416004,
+        -0.9506715910436212,
+        -0.3101991714730875,
+        -2.3804187949288464e-16,
+        0.1516549561261067,
+        -0.4647789926239844,
+        -0.8723423996905246,
+        0.11207619205070098,
+        -0.03990223231254798,
+        0.021254504332235857,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        0.2705998896248455,
+        -0.8293111370486015,
+        0.4888954261416004,
+        -0.9506715910436212,
+        -0.3101991714730875,
+        -2.3804187949288464e-16,
+        0.1516549561261067,
+        -0.4647789926239844,
+        -0.8723423996905246,
+        0.11207619205070098,
+        -0.03990223231254798,
+        0.021254504332235857,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        0.07724334376732206,
+        -0.0943775125526441,
+        -0.028728460324276884,
+        0.12781867268563893,
+        0.00834396073965582,
+        0.0712374689887486
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.04354615624615038,
+        "volume_m3": 1.6128206017092734e-05,
+        "density_kg_m3": 2700,
+        "com_m": [
+          1.461935398702285e-10,
+          0.011953077343661054,
+          -2.459966388311823e-10
+        ],
+        "inertia_com_matrix_kg_m2": [
+          2.0470740025554804e-05,
+          3.4786195207605004e-14,
+          3.1124735569061877e-10,
+          3.4786195207605004e-14,
+          3.677691151339628e-05,
+          -4.335307603900398e-14,
+          3.1124735569061877e-10,
+          -4.335307603900398e-14,
+          2.0559592225124532e-05
+        ],
+        "principal_moments_kg_m2": [
+          2.047073893527816e-05,
+          2.0559593315401086e-05,
+          3.677691151339627e-05
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 1,
+      "body_info": [
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "6570c1a91c749ca2657abeb65d42aabcfed355c6d7f0a905f3a6119f75cd0308",
+      "source_file_matches_original_export_baseline": true
+    },
+    "P1.V0.右后腿.09.15.09.30-1/REF-J2电机限位.09.15.09.30-1": {
+      "name": "P1.V0.右后腿.09.15.09.30-1/REF-J2电机限位.09.15.09.30-1",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\REF-J2电机限位.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "P1.V0.右后腿.09.15.09.30-1",
+      "transform": [
+        0.15165495612606444,
+        -0.4647789926238548,
+        -0.872342399690601,
+        -0.2705998896248707,
+        0.8293111370486737,
+        -0.48889542614146414,
+        0.9506715910436208,
+        0.31019917147308873,
+        -4.3002138706894213e-16,
+        0.16032277529616393,
+        -0.02415962436028944,
+        0.02125450433223247,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        0.15165495612606444,
+        -0.4647789926238548,
+        -0.872342399690601,
+        -0.2705998896248707,
+        0.8293111370486737,
+        -0.48889542614146414,
+        0.9506715910436208,
+        0.31019917147308873,
+        -4.3002138706894213e-16,
+        0.16032277529616393,
+        -0.02415962436028944,
+        0.02125450433223247,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        0.15048263918470656,
+        -0.06330585078288342,
+        -0.014623728717740193,
+        0.17975068551743506,
+        0.008168967903255962,
+        0.062431948563652445
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.012934481089726332,
+        "volume_m3": 4.790548551750493e-06,
+        "density_kg_m3": 2700,
+        "com_m": [
+          0.003230793982129019,
+          -0.01232997597599649,
+          0.0034008725501197224
+        ],
+        "inertia_com_matrix_kg_m2": [
+          1.936340231474559e-06,
+          8.657441390201955e-07,
+          -7.758475832472153e-09,
+          8.657441390201955e-07,
+          5.102150499131757e-06,
+          -1.2227989115807445e-09,
+          -7.758475832472153e-09,
+          -1.2227989115807445e-09,
+          6.938606399036831e-06
+        ],
+        "principal_moments_kg_m2": [
+          1.7150436536034207e-06,
+          5.323435035164242e-06,
+          6.938618440875464e-06
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 1,
+      "body_info": [
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "1dcc475662ae729ec733667bd1f7b0f9fb8646d730ec83d1544de91752e6e915",
+      "source_file_matches_original_export_baseline": true
+    },
+    "P1.V0.右后腿.09.15.09.30-1/REF-大腿外部.09.15.09.30-1": {
+      "name": "P1.V0.右后腿.09.15.09.30-1/REF-大腿外部.09.15.09.30-1",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\REF-大腿外部.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "P1.V0.右后腿.09.15.09.30-1",
+      "transform": [
+        0.08410676906472814,
+        -0.2577631512830834,
+        0.9625404974535391,
+        0.9506715910436215,
+        0.3101991714730865,
+        8.533947103284726e-16,
+        -0.2985792648193805,
+        0.9150599061580749,
+        0.2711379552218635,
+        0.1527174025678172,
+        -0.026641217732077855,
+        0.021254504332236426,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        0.08410676906472814,
+        -0.2577631512830834,
+        0.9625404974535391,
+        0.9506715910436215,
+        0.3101991714730865,
+        8.533947103284726e-16,
+        -0.2985792648193805,
+        0.9150599061580749,
+        0.2711379552218635,
+        0.1527174025678172,
+        -0.026641217732077855,
+        0.021254504332236426,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        0.12528560393029287,
+        -0.1203887045889574,
+        -0.02565239066495105,
+        0.2125136120506833,
+        0.03239332679038007,
+        0.23888690854117361
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.09454519812648293,
+        "volume_m3": 9.454519812648294e-05,
+        "density_kg_m3": 1000,
+        "com_m": [
+          0.06003177892449244,
+          0.012896499247697233,
+          0.008269934195980305
+        ],
+        "inertia_com_matrix_kg_m2": [
+          6.629954806618924e-05,
+          2.014385362390265e-05,
+          3.516073085893279e-05,
+          2.014385362390265e-05,
+          0.0005105590086151393,
+          2.80715461896786e-06,
+          3.516073085893279e-05,
+          2.80715461896786e-06,
+          0.00048304963678542717
+        ],
+        "principal_moments_kg_m2": [
+          6.243359048739634e-05,
+          0.0004859466440467349,
+          0.0005115279589326231
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 2,
+      "body_info": [
+        1,
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "b1099db343060a05c0120373e39998b136d874e2733b30953d7ebd4d21018912",
+      "source_file_matches_original_export_baseline": true
+    },
+    "P1.V0.右后腿.09.15.09.30-1/COT-DM6248P.09.15.09.30-3": {
+      "name": "P1.V0.右后腿.09.15.09.30-1/COT-DM6248P.09.15.09.30-3",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\COT-DM6248P.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "P1.V0.右后腿.09.15.09.30-1",
+      "transform": [
+        0.18843178181472003,
+        -0.5774894271003115,
+        -0.7943547225197847,
+        -0.9506715910436213,
+        -0.3101991714730872,
+        -3.0503150494880625e-17,
+        -0.24640817678137128,
+        0.755170467910898,
+        -0.6074541750704462,
+        0.0936621352943907,
+        -0.045910642791076484,
+        0.021254504332235885,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        0.18843178181472003,
+        -0.5774894271003115,
+        -0.7943547225197847,
+        -0.9506715910436213,
+        -0.3101991714730872,
+        -3.0503150494880625e-17,
+        -0.24640817678137128,
+        0.755170467910898,
+        -0.6074541750704462,
+        0.0936621352943907,
+        -0.045910642791076484,
+        0.021254504332235885,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        0.017359535260712808,
+        -0.11605719017663499,
+        -0.032014233776192884,
+        0.10982434655424093,
+        0.0046124100612845095,
+        0.07452324244066466
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.20657475299964775,
+        "volume_m3": 0.0002065747532994101,
+        "density_kg_m3": 999.9999985488917,
+        "com_m": [
+          4.9146683202096344e-05,
+          0.03161867697786208,
+          -2.884033124936939e-06
+        ],
+        "inertia_com_matrix_kg_m2": [
+          0.00011248163570315766,
+          2.919986740757441e-07,
+          -6.528578228484662e-09,
+          2.919986740757441e-07,
+          0.00013112942632440255,
+          -1.4981277707123135e-08,
+          -6.528578228484662e-09,
+          -1.4981277707123135e-08,
+          0.0001126850928228403
+        ],
+        "principal_moments_kg_m2": [
+          0.0001124768449283931,
+          0.00011268530042470844,
+          0.00013113400949729882
+        ],
+        "override_mass": true,
+        "override_com": true,
+        "override_inertia": true
+      },
+      "solid_body_count": 32,
+      "body_info": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "ff2280e7b6429abbc3e19e4b937c84eefe5a0e54c304569c483f36374d289753",
+      "source_file_matches_original_export_baseline": true
+    },
+    "REF-J0电机输出转接件.09.15.09.30-1": {
+      "name": "REF-J0电机输出转接件.09.15.09.30-1",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\REF-J0电机输出转接件.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": null,
+      "transform": [
+        -0.9506715910436215,
+        -0.3101991714730866,
+        1.6672743372996407e-17,
+        -0.3101991714730866,
+        0.9506715910436215,
+        -2.7858667402112188e-18,
+        -1.4986129914820545e-17,
+        -7.82031554683899e-18,
+        -0.9999999999999998,
+        0.13204029546261944,
+        -0.033388049711614944,
+        -0.04549549566777673,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        -0.9506715910436215,
+        -0.3101991714730866,
+        1.6672743372996407e-17,
+        -0.3101991714730866,
+        0.9506715910436215,
+        -2.7858667402112188e-18,
+        -1.4986129914820545e-17,
+        -7.82031554683899e-18,
+        -0.9999999999999998,
+        0.13204029546261944,
+        -0.033388049711614944,
+        -0.04549549566777673,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        0.043829000130705086,
+        -0.09776434423197305,
+        -0.02874549566776413,
+        0.10617088566158836,
+        -0.006235674379092122,
+        0.06310452933223586
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "mass_kg": 0,
+        "volume_m3": 0,
+        "density_kg_m3": 0,
+        "com_m": [
+          0,
+          0,
+          0
+        ],
+        "inertia_com_matrix_kg_m2": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "principal_moments_kg_m2": [
+          0,
+          0,
+          0
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 0,
+      "body_info": null,
+      "mass_part_frame_original_mp2": {
+        "error": "CreateMassProperty2 returned null"
+      },
+      "zero_mass_reference": true,
+      "mass_properties_provenance": {
+        "source_file": "native_mass_fallback.json",
+        "api": "IModelDocExtension.CreateMassProperty / IMassProperty (legacy_mass only)",
+        "coordinate_frame": "part",
+        "reason": "CreateMassProperty2 returned null for a component with no solid bodies.",
+        "values_changed": false,
+        "extension_GetMassProperties2_used": false,
+        "zero_mass_reference": true,
+        "inertial_grouping": "Keep in its assigned rigid body; do not manufacture an independent mass."
+      },
+      "verified_current_source_file_sha256": "da1580b121a5114acdbd7b8d1c3f290d5f365557a310d8e80e96c4e27f838df7",
+      "source_file_matches_original_export_baseline": true
+    },
+    "P1.V0.右后腿.09.15.09.30-1/REF-J2输出连杆.09.15.09.30-1": {
+      "name": "P1.V0.右后腿.09.15.09.30-1/REF-J2输出连杆.09.15.09.30-1",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\REF-J2输出连杆.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "P1.V0.右后腿.09.15.09.30-1",
+      "transform": [
+        -0.26562430461114456,
+        0.8140623944459534,
+        -0.5164747300195498,
+        -0.9506715910436212,
+        -0.3101991714730872,
+        -2.8077250057448654e-17,
+        -0.16021003333885075,
+        0.49099785332151014,
+        0.8563024309502064,
+        0.16792814802451259,
+        -0.02167803098850448,
+        0.021254504332235843,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        -0.26562430461114456,
+        0.8140623944459534,
+        -0.5164747300195498,
+        -0.9506715910436212,
+        -0.3101991714730872,
+        -2.8077250057448654e-17,
+        -0.16021003333885075,
+        0.49099785332151014,
+        0.8563024309502064,
+        0.16792814802451259,
+        -0.02167803098850448,
+        0.021254504332235843,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        0.15161248231564245,
+        -0.04645533014614189,
+        -0.008450318014949939,
+        0.18232015155325593,
+        0.012379663638085157,
+        0.04527810464920658
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.012992775190673475,
+        "volume_m3": 4.8121389595086946e-06,
+        "density_kg_m3": 2700,
+        "com_m": [
+          0.005522643225091593,
+          0.002897407827696609,
+          2.2530450271653974e-10
+        ],
+        "inertia_com_matrix_kg_m2": [
+          1.0668856256104208e-06,
+          -1.0906406118626886e-07,
+          4.4773494177355473e-14,
+          -1.0906406118626886e-07,
+          3.0694858116381583e-06,
+          -1.1942284808888955e-14,
+          4.4773494177355473e-14,
+          -1.1942284808888955e-14,
+          2.156283344972436e-06
+        ],
+        "principal_moments_kg_m2": [
+          1.0609633768784204e-06,
+          2.1562833449724304e-06,
+          3.0754080603701558e-06
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 1,
+      "body_info": [
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "b39a33be578f7fb06221f60e4844d6ee34b0a8f2f5a92fdcba15c8e3bb654e3a",
+      "source_file_matches_original_export_baseline": true
+    },
+    "P1.V0.右后腿.09.15.09.30-1/COT-深沟球轴承8-16-6.09.15.09.30-1": {
+      "name": "P1.V0.右后腿.09.15.09.30-1/COT-深沟球轴承8-16-6.09.15.09.30-1",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\COT-深沟球轴承8-16-6.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "P1.V0.右后腿.09.15.09.30-1",
+      "transform": [
+        -0.23354124782962507,
+        0.7157370169435322,
+        0.6581633597663697,
+        0.20416172889347123,
+        -0.6256972083957101,
+        0.7528751502480634,
+        0.9506715910436214,
+        0.31019917147308684,
+        -1.0726082811429135e-16,
+        0.17473820221068267,
+        -0.037713293186782675,
+        0.015153107074043631,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        -0.23354124782962507,
+        0.7157370169435322,
+        0.6581633597663697,
+        0.20416172889347123,
+        -0.6256972083957101,
+        0.7528751502480634,
+        0.9506715910436214,
+        0.31019917147308684,
+        -1.0726082811429135e-16,
+        0.17473820221068267,
+        -0.037713293186782675,
+        0.015153107074043631,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        0.15961036043893134,
+        -0.012813739764528877,
+        -0.0021709599033390443,
+        0.1723176376127626,
+        0.010510402869737522,
+        0.020405656256891884
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.006966795868600722,
+        "volume_m3": 9.0477868423386e-07,
+        "density_kg_m3": 7700,
+        "com_m": [
+          0.02424513123150973,
+          -0.02921203591236576,
+          0.003
+        ],
+        "inertia_com_matrix_kg_m2": [
+          1.6023630497781655e-07,
+          1.4190367121198643e-40,
+          -2.020080302649181e-40,
+          1.4190367121198643e-40,
+          1.6023630497781653e-07,
+          5.385244322494889e-40,
+          -2.020080302649181e-40,
+          5.385244322494889e-40,
+          2.7867183474402874e-07
+        ],
+        "principal_moments_kg_m2": [
+          1.6023630497781666e-07,
+          1.6023630497781666e-07,
+          2.786718347440284e-07
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 1,
+      "body_info": [
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "cc373b8f2bbe7ad0b9da12f9cc4fe8e898164d6b69201092054404775ccf3217",
+      "source_file_matches_original_export_baseline": true
+    },
+    "P1.V0.右后腿.09.15.09.30-1/COT-深沟球轴承8-16-6.09.15.09.30-2": {
+      "name": "P1.V0.右后腿.09.15.09.30-1/COT-深沟球轴承8-16-6.09.15.09.30-2",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\COT-深沟球轴承8-16-6.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "P1.V0.右后腿.09.15.09.30-1",
+      "transform": [
+        -0.2667129396513223,
+        0.8173987489590775,
+        0.5106109017859735,
+        0.15839107867913488,
+        -0.4854232784050896,
+        0.8598119020909833,
+        0.9506715910436212,
+        0.31019917147308723,
+        7.123944369351166e-17,
+        0.19083661984901631,
+        -0.0876950782311843,
+        0.21436247550720344,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        -0.2667129396513223,
+        0.8173987489590775,
+        0.5106109017859735,
+        0.15839107867913488,
+        -0.4854232784050896,
+        0.8598119020909833,
+        0.9506715910436212,
+        0.31019917147308723,
+        7.123944369351166e-17,
+        0.19083661984901631,
+        -0.0876950782311843,
+        0.21436247550720344,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        0.17634237160081137,
+        -0.06411951227164513,
+        0.19066206523646692,
+        0.1888480654403604,
+        -0.04141316480497993,
+        0.21258883009849824
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.006966795868600722,
+        "volume_m3": 9.0477868423386e-07,
+        "density_kg_m3": 7700,
+        "com_m": [
+          0.02424513123150973,
+          -0.02921203591236576,
+          0.003
+        ],
+        "inertia_com_matrix_kg_m2": [
+          1.6023630497781655e-07,
+          1.4190367121198643e-40,
+          -2.020080302649181e-40,
+          1.4190367121198643e-40,
+          1.6023630497781653e-07,
+          5.385244322494889e-40,
+          -2.020080302649181e-40,
+          5.385244322494889e-40,
+          2.7867183474402874e-07
+        ],
+        "principal_moments_kg_m2": [
+          1.6023630497781666e-07,
+          1.6023630497781666e-07,
+          2.786718347440284e-07
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 1,
+      "body_info": [
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "cc373b8f2bbe7ad0b9da12f9cc4fe8e898164d6b69201092054404775ccf3217",
+      "source_file_matches_original_export_baseline": true
+    },
+    "P1.V0.右后腿.09.15.09.30-1/REF-J2输出连杆中继.09.15.09.30-1": {
+      "name": "P1.V0.右后腿.09.15.09.30-1/REF-J2输出连杆中继.09.15.09.30-1",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\REF-J2输出连杆中继.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "P1.V0.右后腿.09.15.09.30-1",
+      "transform": [
+        0.08410676906444715,
+        -0.257763151282219,
+        0.9625404974537952,
+        0.9506715910436213,
+        0.3101991714730869,
+        -1.1191756564486465e-16,
+        -0.2985792648194601,
+        0.9150599061583182,
+        0.2711379552209546,
+        0.16216131266165024,
+        -0.002392465133219848,
+        0.009117348176807108,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        0.08410676906444715,
+        -0.257763151282219,
+        0.9625404974537952,
+        0.9506715910436213,
+        0.3101991714730869,
+        -1.1191756564486465e-16,
+        -0.2985792648194601,
+        0.9150599061583182,
+        0.2711379552209546,
+        0.16216131266165024,
+        -0.002392465133219848,
+        0.009117348176807108,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        0.1585257953397531,
+        -0.06697948988507137,
+        -0.0026025971236030288,
+        0.19042046709632673,
+        0.011093698923176468,
+        0.22041265803586152
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.029879420039698595,
+        "volume_m3": 1.1066451866555035e-05,
+        "density_kg_m3": 2700,
+        "com_m": [
+          0.10403851092936445,
+          0.0037076862251371333,
+          0.0040389133175550915
+        ],
+        "inertia_com_matrix_kg_m2": [
+          6.269159313351948e-07,
+          5.112114592992264e-09,
+          4.675182389252734e-07,
+          5.112114592992264e-09,
+          0.00012689542911099402,
+          5.2488963066657485e-09,
+          4.675182389252734e-07,
+          5.2488963066657485e-09,
+          0.00012649754250398877
+        ],
+        "principal_moments_kg_m2": [
+          6.251792550026785e-07,
+          0.0001264992099404059,
+          0.00012689549835090904
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 1,
+      "body_info": [
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "24c38d7d06d9a67fc5f8c8c7ae7b46bdfddc7094184e1fc57d4cddb775172ad5",
+      "source_file_matches_original_export_baseline": true
+    },
+    "P1.V0.右前腿.09.15.09.30-1/COT-DM6248P.09.15.09.30-4": {
+      "name": "P1.V0.右前腿.09.15.09.30-1/COT-DM6248P.09.15.09.30-4",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\COT-DM6248P.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "P1.V0.右前腿.09.15.09.30-1",
+      "transform": [
+        -0.0009952378505808173,
+        -0.2711874666234107,
+        -0.9625260346858142,
+        -0.9999929323646055,
+        0.003759598668690865,
+        -2.52722742075282e-05,
+        0.003625565122603236,
+        0.9625192067508195,
+        -0.27118929166417116,
+        0.1668798260358985,
+        -0.05707008628864634,
+        -0.5148982428838945,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        -0.0009952378505808173,
+        -0.2711874666234107,
+        -0.9625260346858142,
+        -0.9999929323646055,
+        0.003759598668690865,
+        -2.52722742075282e-05,
+        0.003625565122603236,
+        0.9625192067508195,
+        -0.27118929166417116,
+        0.1668798260358985,
+        -0.05707008628864634,
+        -0.5148982428838945,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        0.10382420452559116,
+        -0.10394950944200865,
+        -0.5617810144178109,
+        0.16667494382433978,
+        -0.00995282734877398,
+        -0.46801707009807403
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.20657475299964775,
+        "volume_m3": 0.0002065747532994101,
+        "density_kg_m3": 999.9999985488917,
+        "com_m": [
+          4.9146683202096344e-05,
+          0.03161867697786208,
+          -2.884033124936939e-06
+        ],
+        "inertia_com_matrix_kg_m2": [
+          0.00011248163570315766,
+          2.919986740757441e-07,
+          -6.528578228484662e-09,
+          2.919986740757441e-07,
+          0.00013112942632440255,
+          -1.4981277707123135e-08,
+          -6.528578228484662e-09,
+          -1.4981277707123135e-08,
+          0.0001126850928228403
+        ],
+        "principal_moments_kg_m2": [
+          0.0001124768449283931,
+          0.00011268530042470844,
+          0.00013113400949729882
+        ],
+        "override_mass": true,
+        "override_com": true,
+        "override_inertia": true
+      },
+      "solid_body_count": 32,
+      "body_info": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "ff2280e7b6429abbc3e19e4b937c84eefe5a0e54c304569c483f36374d289753",
+      "source_file_matches_original_export_baseline": true
+    },
+    "P1.V0.右前腿.09.15.09.30-1/REF-J1电机输出转接件.09.15.09.30-1": {
+      "name": "P1.V0.右前腿.09.15.09.30-1/REF-J1电机输出转接件.09.15.09.30-1",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\REF-J1电机输出转接件.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "P1.V0.右前腿.09.15.09.30-1",
+      "transform": [
+        -0.0009952378505806785,
+        -0.2711874666234107,
+        -0.9625260346858142,
+        -0.9999929323646055,
+        0.003759598668691126,
+        -2.527227420774605e-05,
+        0.003625565122603547,
+        0.9625192067508195,
+        -0.27118929166417116,
+        0.11399972436221814,
+        -0.056871276923681637,
+        -0.5148995792937694,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        -0.0009952378505806785,
+        -0.2711874666234107,
+        -0.9625260346858142,
+        -0.9999929323646055,
+        0.003759598668691126,
+        -2.527227420774605e-05,
+        0.003625565122603547,
+        0.9625192067508195,
+        -0.27118929166417116,
+        0.11399972436221814,
+        -0.056871276923681637,
+        -0.5148995792937694,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        0.09375059648880789,
+        -0.10182776744474029,
+        -0.5612390808809391,
+        0.11416806628963609,
+        -0.011839290172934343,
+        -0.46856058519731514
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.04354615624615038,
+        "volume_m3": 1.6128206017092734e-05,
+        "density_kg_m3": 2700,
+        "com_m": [
+          1.461935398702285e-10,
+          0.011953077343661054,
+          -2.459966388311823e-10
+        ],
+        "inertia_com_matrix_kg_m2": [
+          2.0470740025554804e-05,
+          3.4786195207605004e-14,
+          3.1124735569061877e-10,
+          3.4786195207605004e-14,
+          3.677691151339628e-05,
+          -4.335307603900398e-14,
+          3.1124735569061877e-10,
+          -4.335307603900398e-14,
+          2.0559592225124532e-05
+        ],
+        "principal_moments_kg_m2": [
+          2.047073893527816e-05,
+          2.0559593315401086e-05,
+          3.677691151339627e-05
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 1,
+      "body_info": [
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "6570c1a91c749ca2657abeb65d42aabcfed355c6d7f0a905f3a6119f75cd0308",
+      "source_file_matches_original_export_baseline": true
+    },
+    "P1.V0.右前腿.09.15.09.30-1/REF-J2电机限位.09.15.09.30-1": {
+      "name": "P1.V0.右前腿.09.15.09.30-1/REF-J2电机限位.09.15.09.30-1",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\REF-J2电机限位.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "P1.V0.右前腿.09.15.09.30-1",
+      "transform": [
+        0.003625565122603779,
+        0.9625192067508619,
+        -0.2711892916640209,
+        0.0009952378505786062,
+        0.27118746662326043,
+        0.9625260346858568,
+        0.9999929323646054,
+        -0.003759598668690789,
+        2.527227420921563e-05,
+        0.16474936567972095,
+        -0.05706207655611433,
+        -0.514898296725853,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        0.003625565122603779,
+        0.9625192067508619,
+        -0.2711892916640209,
+        0.0009952378505786062,
+        0.27118746662326043,
+        0.9625260346858568,
+        0.9999929323646054,
+        -0.003759598668690789,
+        2.527227420921563e-05,
+        0.16474936567972095,
+        -0.05706207655611433,
+        -0.514898296725853,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        0.16460958638978218,
+        -0.09440802061636237,
+        -0.5522181853479368,
+        0.17187830796320597,
+        -0.02268189149466608,
+        -0.48801119590299613
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.012934481089726332,
+        "volume_m3": 4.790548551750493e-06,
+        "density_kg_m3": 2700,
+        "com_m": [
+          0.003230793982129019,
+          -0.01232997597599649,
+          0.0034008725501197224
+        ],
+        "inertia_com_matrix_kg_m2": [
+          1.936340231474559e-06,
+          8.657441390201955e-07,
+          -7.758475832472153e-09,
+          8.657441390201955e-07,
+          5.102150499131757e-06,
+          -1.2227989115807445e-09,
+          -7.758475832472153e-09,
+          -1.2227989115807445e-09,
+          6.938606399036831e-06
+        ],
+        "principal_moments_kg_m2": [
+          1.7150436536034207e-06,
+          5.323435035164242e-06,
+          6.938618440875464e-06
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 1,
+      "body_info": [
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "1dcc475662ae729ec733667bd1f7b0f9fb8646d730ec83d1544de91752e6e915",
+      "source_file_matches_original_export_baseline": true
+    },
+    "P1.V0.右前腿.09.15.09.30-1/REF-大腿外部.09.15.09.30-1": {
+      "name": "P1.V0.右前腿.09.15.09.30-1/REF-大腿外部.09.15.09.30-1",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\REF-大腿外部.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "P1.V0.右前腿.09.15.09.30-1",
+      "transform": [
+        -0.0032674011168664805,
+        -0.8723623547380353,
+        -0.48884889907398976,
+        0.9999929323646055,
+        -0.0037595986686914727,
+        2.527227420657173e-05,
+        -0.0018599222507862956,
+        -0.48884536149355096,
+        0.8723684733158694,
+        0.1567494222208051,
+        -0.05703199976676763,
+        -0.5148984989040517,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        -0.0032674011168664805,
+        -0.8723623547380353,
+        -0.48884889907398976,
+        0.9999929323646055,
+        -0.0037595986686914727,
+        2.527227420657173e-05,
+        -0.0018599222507862956,
+        -0.48884536149355096,
+        0.8723684733158694,
+        0.1567494222208051,
+        -0.05703199976676763,
+        -0.5148984989040517,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        0.14397037646651345,
+        -0.2648398216377279,
+        -0.6527497054065106,
+        0.18894422033666836,
+        -0.0052121068297937,
+        -0.4588423872276883
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.09454519812648293,
+        "volume_m3": 9.454519812648294e-05,
+        "density_kg_m3": 1000,
+        "com_m": [
+          0.06003177892449244,
+          0.012896499247697233,
+          0.008269934195980305
+        ],
+        "inertia_com_matrix_kg_m2": [
+          6.629954806618924e-05,
+          2.014385362390265e-05,
+          3.516073085893279e-05,
+          2.014385362390265e-05,
+          0.0005105590086151393,
+          2.80715461896786e-06,
+          3.516073085893279e-05,
+          2.80715461896786e-06,
+          0.00048304963678542717
+        ],
+        "principal_moments_kg_m2": [
+          6.243359048739634e-05,
+          0.0004859466440467349,
+          0.0005115279589326231
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 2,
+      "body_info": [
+        1,
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "b1099db343060a05c0120373e39998b136d874e2733b30953d7ebd4d21018912",
+      "source_file_matches_original_export_baseline": true
+    },
+    "P1.V0.右前腿.09.15.09.30-1/COT-DM6248P.09.15.09.30-3": {
+      "name": "P1.V0.右前腿.09.15.09.30-1/COT-DM6248P.09.15.09.30-3",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\COT-DM6248P.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "P1.V0.右前腿.09.15.09.30-1",
+      "transform": [
+        0.0036359862252834264,
+        0.9653602496501879,
+        -0.26089532000305515,
+        -0.9999929323646055,
+        0.003759598668690853,
+        -2.5272274207502273e-05,
+        0.0009564648488129778,
+        0.26089356797969815,
+        0.965367096684891,
+        0.09463033667255688,
+        -0.05679845528483347,
+        -0.514900068805706,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        0.0036359862252834264,
+        0.9653602496501879,
+        -0.26089532000305515,
+        -0.9999929323646055,
+        0.003759598668690853,
+        -2.5272274207502273e-05,
+        0.0009564648488129778,
+        0.26089356797969815,
+        0.965367096684891,
+        0.09463033667255688,
+        -0.05679845528483347,
+        -0.514900068805706,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        0.03157579253441487,
+        -0.1033946699199107,
+        -0.5614996297724649,
+        0.09442437708883286,
+        -0.009964404863246186,
+        -0.4683021065870431
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.20657475299964775,
+        "volume_m3": 0.0002065747532994101,
+        "density_kg_m3": 999.9999985488917,
+        "com_m": [
+          4.9146683202096344e-05,
+          0.03161867697786208,
+          -2.884033124936939e-06
+        ],
+        "inertia_com_matrix_kg_m2": [
+          0.00011248163570315766,
+          2.919986740757441e-07,
+          -6.528578228484662e-09,
+          2.919986740757441e-07,
+          0.00013112942632440255,
+          -1.4981277707123135e-08,
+          -6.528578228484662e-09,
+          -1.4981277707123135e-08,
+          0.0001126850928228403
+        ],
+        "principal_moments_kg_m2": [
+          0.0001124768449283931,
+          0.00011268530042470844,
+          0.00013113400949729882
+        ],
+        "override_mass": true,
+        "override_com": true,
+        "override_inertia": true
+      },
+      "solid_body_count": 32,
+      "body_info": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "ff2280e7b6429abbc3e19e4b937c84eefe5a0e54c304569c483f36374d289753",
+      "source_file_matches_original_export_baseline": true
+    },
+    "REF-J0电机输出转接件.09.15.09.30-3": {
+      "name": "REF-J0电机输出转接件.09.15.09.30-3",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\REF-J0电机输出转接件.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": null,
+      "transform": [
+        -0.9999929323646055,
+        0.0037595986686908564,
+        -2.52722742076233e-05,
+        -0.0037596836086917847,
+        -0.9999703401974331,
+        0.006721867641729444,
+        2.2792272958405866e-18,
+        0.006721915149774874,
+        0.9999774076731531,
+        0.13499957594187617,
+        -0.056501540659477316,
+        -0.44815055661381475,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        -0.9999929323646055,
+        0.0037595986686908564,
+        -2.52722742076233e-05,
+        -0.0037596836086917847,
+        -0.9999703401974331,
+        0.006721867641729444,
+        2.2792272958405866e-18,
+        0.006721915149774874,
+        0.9999774076731531,
+        0.13499957594187617,
+        -0.056501540659477316,
+        -0.44815055661381475,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        0.05572643165566607,
+        -0.09897806575902751,
+        -0.557031783581567,
+        0.09427345393130396,
+        -0.014416473255457717,
+        -0.464619555253941
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "mass_kg": 0,
+        "volume_m3": 0,
+        "density_kg_m3": 0,
+        "com_m": [
+          0,
+          0,
+          0
+        ],
+        "inertia_com_matrix_kg_m2": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "principal_moments_kg_m2": [
+          0,
+          0,
+          0
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 0,
+      "body_info": null,
+      "mass_part_frame_original_mp2": {
+        "error": "CreateMassProperty2 returned null"
+      },
+      "zero_mass_reference": true,
+      "mass_properties_provenance": {
+        "source_file": "native_mass_fallback.json",
+        "api": "IModelDocExtension.CreateMassProperty / IMassProperty (legacy_mass only)",
+        "coordinate_frame": "part",
+        "reason": "CreateMassProperty2 returned null for a component with no solid bodies.",
+        "values_changed": false,
+        "extension_GetMassProperties2_used": false,
+        "zero_mass_reference": true,
+        "inertial_grouping": "Keep in its assigned rigid body; do not manufacture an independent mass."
+      },
+      "verified_current_source_file_sha256": "da1580b121a5114acdbd7b8d1c3f290d5f365557a310d8e80e96c4e27f838df7",
+      "source_file_matches_original_export_baseline": true
+    },
+    "P1.V0.右前腿.09.15.09.30-1/REF-J2输出连杆.09.15.09.30-1": {
+      "name": "P1.V0.右前腿.09.15.09.30-1/REF-J2输出连杆.09.15.09.30-1",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\REF-J2输出连杆.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "P1.V0.右前腿.09.15.09.30-1",
+      "transform": [
+        -0.0033051539324082018,
+        -0.8758743377580506,
+        0.482527947806528,
+        -0.9999929323646055,
+        0.0037595986686907775,
+        -2.527227420740165e-05,
+        -0.001791976093744468,
+        -0.48252462100368176,
+        -0.875880573449904,
+        0.17274930913863729,
+        -0.05709215334553499,
+        -0.514898094547591,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        -0.0033051539324082018,
+        -0.8758743377580506,
+        0.482527947806528,
+        -0.9999929323646055,
+        0.0037595986686907775,
+        -2.527227420740165e-05,
+        -0.001791976093744468,
+        -0.48252462100368176,
+        -0.875880573449904,
+        0.17274930913863729,
+        -0.05709215334553499,
+        -0.514898094547591,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        0.16637379684264433,
+        -0.09052619790948531,
+        -0.5386704016212922,
+        0.18013845732035658,
+        -0.03329667407552535,
+        -0.4858179535121298
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.012992775190673475,
+        "volume_m3": 4.8121389595086946e-06,
+        "density_kg_m3": 2700,
+        "com_m": [
+          0.005522643225091593,
+          0.002897407827696609,
+          2.2530450271653974e-10
+        ],
+        "inertia_com_matrix_kg_m2": [
+          1.0668856256104208e-06,
+          -1.0906406118626886e-07,
+          4.4773494177355473e-14,
+          -1.0906406118626886e-07,
+          3.0694858116381583e-06,
+          -1.1942284808888955e-14,
+          4.4773494177355473e-14,
+          -1.1942284808888955e-14,
+          2.156283344972436e-06
+        ],
+        "principal_moments_kg_m2": [
+          1.0609633768784204e-06,
+          2.1562833449724304e-06,
+          3.0754080603701558e-06
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 1,
+      "body_info": [
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "b39a33be578f7fb06221f60e4844d6ee34b0a8f2f5a92fdcba15c8e3bb654e3a",
+      "source_file_matches_original_export_baseline": true
+    },
+    "P1.V0.右前腿.09.15.09.30-1/COT-深沟球轴承8-16-6.09.15.09.30-1": {
+      "name": "P1.V0.右前腿.09.15.09.30-1/COT-深沟球轴承8-16-6.09.15.09.30-1",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\COT-深沟球轴承8-16-6.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "P1.V0.右前腿.09.15.09.30-1",
+      "transform": [
+        -0.0030826870976557643,
+        -0.8160602371568654,
+        0.5779586372498806,
+        -0.0021522688250798787,
+        -0.5779546303554728,
+        -0.8160660592069576,
+        0.9999929323646055,
+        -0.003759598668690637,
+        2.527227420720287e-05,
+        0.17418349541878986,
+        -0.07477858355577238,
+        -0.5414102839007392,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        -0.0030826870976557643,
+        -0.8160602371568654,
+        0.5779586372498806,
+        -0.0021522688250798787,
+        -0.5779546303554728,
+        -0.8160660592069576,
+        0.9999929323646055,
+        -0.003759598668690637,
+        2.527227420720287e-05,
+        0.17418349541878986,
+        -0.07477858355577238,
+        -0.5414102839007392,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        0.1741297477723909,
+        -0.08885551621290624,
+        -0.5147108474374696,
+        0.18021346466134233,
+        -0.06652872074069668,
+        -0.49240630066051494
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.006966795868600722,
+        "volume_m3": 9.0477868423386e-07,
+        "density_kg_m3": 7700,
+        "com_m": [
+          0.02424513123150973,
+          -0.02921203591236576,
+          0.003
+        ],
+        "inertia_com_matrix_kg_m2": [
+          1.6023630497781655e-07,
+          1.4190367121198643e-40,
+          -2.020080302649181e-40,
+          1.4190367121198643e-40,
+          1.6023630497781653e-07,
+          5.385244322494889e-40,
+          -2.020080302649181e-40,
+          5.385244322494889e-40,
+          2.7867183474402874e-07
+        ],
+        "principal_moments_kg_m2": [
+          1.6023630497781666e-07,
+          1.6023630497781666e-07,
+          2.786718347440284e-07
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 1,
+      "body_info": [
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "cc373b8f2bbe7ad0b9da12f9cc4fe8e898164d6b69201092054404775ccf3217",
+      "source_file_matches_original_export_baseline": true
+    },
+    "P1.V0.右前腿.09.15.09.30-1/COT-深沟球轴承8-16-6.09.15.09.30-2": {
+      "name": "P1.V0.右前腿.09.15.09.30-1/COT-深沟球轴承8-16-6.09.15.09.30-2",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\COT-深沟球轴承8-16-6.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "P1.V0.右前腿.09.15.09.30-1",
+      "transform": [
+        -0.002640930248184178,
+        -0.6976290249484219,
+        0.7164543035232173,
+        -0.0026759499736900903,
+        -0.7164493066277364,
+        -0.6976340231986782,
+        0.9999929323646055,
+        -0.003759598668690917,
+        2.5272274207597178e-05,
+        0.17330400836363619,
+        -0.2561673943224814,
+        -0.6390782734847387,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        -0.002640930248184178,
+        -0.6976290249484219,
+        0.7164543035232173,
+        -0.0026759499736900903,
+        -0.7164493066277364,
+        -0.6976340231986782,
+        0.9999929323646055,
+        -0.003759598668690917,
+        2.5272274207597178e-05,
+        0.17330400836363619,
+        -0.2561673943224814,
+        -0.6390782734847387,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        0.17327561356815183,
+        -0.26348774295328853,
+        -0.6126411413488455,
+        0.17936064124588944,
+        -0.24083993205605786,
+        -0.59001557648765
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.006966795868600722,
+        "volume_m3": 9.0477868423386e-07,
+        "density_kg_m3": 7700,
+        "com_m": [
+          0.02424513123150973,
+          -0.02921203591236576,
+          0.003
+        ],
+        "inertia_com_matrix_kg_m2": [
+          1.6023630497781655e-07,
+          1.4190367121198643e-40,
+          -2.020080302649181e-40,
+          1.4190367121198643e-40,
+          1.6023630497781653e-07,
+          5.385244322494889e-40,
+          -2.020080302649181e-40,
+          5.385244322494889e-40,
+          2.7867183474402874e-07
+        ],
+        "principal_moments_kg_m2": [
+          1.6023630497781666e-07,
+          1.6023630497781666e-07,
+          2.786718347440284e-07
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 1,
+      "body_info": [
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "cc373b8f2bbe7ad0b9da12f9cc4fe8e898164d6b69201092054404775ccf3217",
+      "source_file_matches_original_export_baseline": true
+    },
+    "P1.V0.右前腿.09.15.09.30-1/REF-J2输出连杆中继.09.15.09.30-1": {
+      "name": "P1.V0.右前腿.09.15.09.30-1/REF-J2输出连杆中继.09.15.09.30-1",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\REF-J2输出连杆中继.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "P1.V0.右前腿.09.15.09.30-1",
+      "transform": [
+        -0.003267401116865414,
+        -0.8723623547380269,
+        -0.48884889907400464,
+        0.9999929323646055,
+        -0.0037595986686907033,
+        2.5272274207315635e-05,
+        -0.0018599222507866245,
+        -0.488845361493566,
+        0.8723684733158611,
+        0.17317163448740822,
+        -0.0776770800821267,
+        -0.503558675138089,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        -0.003267401116865414,
+        -0.8723623547380269,
+        -0.48884889907400464,
+        0.9999929323646055,
+        -0.0037595986686907033,
+        2.5272274207315635e-05,
+        -0.0018599222507866245,
+        -0.488845361493566,
+        0.8723684733158611,
+        0.17317163448740822,
+        -0.0776770800821267,
+        -0.503558675138089,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        0.172445454439334,
+        -0.27151458739827244,
+        -0.617849297280265,
+        0.18077783826740473,
+        -0.06474560677792658,
+        -0.4906269191039695
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.029879420039698595,
+        "volume_m3": 1.1066451866555035e-05,
+        "density_kg_m3": 2700,
+        "com_m": [
+          0.10403851092936445,
+          0.0037076862251371333,
+          0.0040389133175550915
+        ],
+        "inertia_com_matrix_kg_m2": [
+          6.269159313351948e-07,
+          5.112114592992264e-09,
+          4.675182389252734e-07,
+          5.112114592992264e-09,
+          0.00012689542911099402,
+          5.2488963066657485e-09,
+          4.675182389252734e-07,
+          5.2488963066657485e-09,
+          0.00012649754250398877
+        ],
+        "principal_moments_kg_m2": [
+          6.251792550026785e-07,
+          0.0001264992099404059,
+          0.00012689549835090904
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 1,
+      "body_info": [
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "24c38d7d06d9a67fc5f8c8c7ae7b46bdfddc7094184e1fc57d4cddb775172ad5",
+      "source_file_matches_original_export_baseline": true
+    },
+    "镜向P1.V0.右前腿.09.15.09.30-3/镜向COT-DM6248P.09.15.09.30-2": {
+      "name": "镜向P1.V0.右前腿.09.15.09.30-3/镜向COT-DM6248P.09.15.09.30-2",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\镜向COT-DM6248P.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "镜向P1.V0.右前腿.09.15.09.30-3",
+      "transform": [
+        0.000995237850580816,
+        -0.27118746662341053,
+        -0.9625260346858143,
+        0.9999929323646055,
+        0.0037595986686908677,
+        -2.5272274207526447e-05,
+        0.00362556512260324,
+        -0.9625192067508199,
+        0.2711892916641711,
+        -0.1668798260358985,
+        -0.05707008628864638,
+        -0.5148982428838946,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        0.000995237850580816,
+        -0.27118746662341053,
+        -0.9625260346858143,
+        0.9999929323646055,
+        0.0037595986686908677,
+        -2.5272274207526447e-05,
+        0.00362556512260324,
+        -0.9625192067508199,
+        0.2711892916641711,
+        -0.1668798260358985,
+        -0.05707008628864638,
+        -0.5148982428838946,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        -0.16667494382433978,
+        -0.10394950944200869,
+        -0.561781014417811,
+        -0.10382420452559116,
+        -0.009952827348774007,
+        -0.46801707009807414
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.20657473938894885,
+        "volume_m3": 0.00020657473938894897,
+        "density_kg_m3": 999.9999999999994,
+        "com_m": [
+          4.914667225007801e-05,
+          0.03161867606475068,
+          2.883996257332813e-06
+        ],
+        "inertia_com_matrix_kg_m2": [
+          0.00011248162403956222,
+          2.9199881318058796e-07,
+          6.528021340335523e-09,
+          2.9199881318058796e-07,
+          0.00013112942094203065,
+          1.4981132431227398e-08,
+          6.528021340335523e-09,
+          1.4981132431227398e-08,
+          0.00011268508329025395
+        ],
+        "principal_moments_kg_m2": [
+          0.00011247683330039123,
+          0.00011268529085393776,
+          0.0001311340041175177
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 32,
+      "body_info": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "582d2ae14f2d8007b6d7a0dd3ff491d9b25ab7b7db8d1fa89b357f88453868df",
+      "source_file_matches_original_export_baseline": true
+    },
+    "镜向P1.V0.右前腿.09.15.09.30-3/镜向REF-J1电机输出转接件.09.15.09.30-1": {
+      "name": "镜向P1.V0.右前腿.09.15.09.30-3/镜向REF-J1电机输出转接件.09.15.09.30-1",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\镜向REF-J1电机输出转接件.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "镜向P1.V0.右前腿.09.15.09.30-3",
+      "transform": [
+        0.0009952378505806772,
+        -0.27118746662341053,
+        -0.9625260346858143,
+        0.9999929323646055,
+        0.003759598668691129,
+        -2.527227420774428e-05,
+        0.003625565122603551,
+        -0.9625192067508199,
+        0.2711892916641711,
+        -0.11399972436221815,
+        -0.05687127692368166,
+        -0.5148995792937695,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        0.0009952378505806772,
+        -0.27118746662341053,
+        -0.9625260346858143,
+        0.9999929323646055,
+        0.003759598668691129,
+        -2.527227420774428e-05,
+        0.003625565122603551,
+        -0.9625192067508199,
+        0.2711892916641711,
+        -0.11399972436221815,
+        -0.05687127692368166,
+        -0.5148995792937695,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        -0.1141680662896361,
+        -0.10182776744474031,
+        -0.5612390808809392,
+        -0.0937505964888079,
+        -0.01183929017293435,
+        -0.46856058519731525
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.04354551084489966,
+        "volume_m3": 1.6127966979592468e-05,
+        "density_kg_m3": 2700,
+        "com_m": [
+          -3.762756231955915e-08,
+          0.011952993788133266,
+          -5.3692659568907836e-08
+        ],
+        "inertia_com_matrix_kg_m2": [
+          2.0470885204610868e-05,
+          -8.227300925122157e-12,
+          -1.3250784548399072e-10,
+          -8.227300925122157e-12,
+          3.6777267082145696e-05,
+          -1.2701755831731879e-11,
+          -1.3250784548399072e-10,
+          -1.2701755831731879e-11,
+          2.0559771396644902e-05
+        ],
+        "principal_moments_kg_m2": [
+          2.0470885007067216e-05,
+          2.0559771594174395e-05,
+          3.6777267082159764e-05
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 1,
+      "body_info": [
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "13475149539c9d9d7710005a1aba7d99f49270687ea811372e3ada40efd7a557",
+      "source_file_matches_original_export_baseline": true
+    },
+    "镜向P1.V0.右前腿.09.15.09.30-3/镜向REF-J2电机限位.09.15.09.30-1": {
+      "name": "镜向P1.V0.右前腿.09.15.09.30-3/镜向REF-J2电机限位.09.15.09.30-1",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\镜向REF-J2电机限位.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "镜向P1.V0.右前腿.09.15.09.30-3",
+      "transform": [
+        -0.0036255651226037794,
+        0.9625192067508619,
+        -0.2711892916640207,
+        -0.0009952378505786053,
+        0.27118746662326026,
+        0.9625260346858566,
+        0.9999929323646055,
+        0.003759598668690792,
+        -2.5272274209216868e-05,
+        -0.16474936567972095,
+        -0.05706207655611435,
+        -0.514898296725853,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        -0.0036255651226037794,
+        0.9625192067508619,
+        -0.2711892916640207,
+        -0.0009952378505786053,
+        0.27118746662326026,
+        0.9625260346858566,
+        0.9999929323646055,
+        0.003759598668690792,
+        -2.5272274209216868e-05,
+        -0.16474936567972095,
+        -0.05706207655611435,
+        -0.514898296725853,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        -0.17187830796320597,
+        -0.09440802061636239,
+        -0.5522181853479368,
+        -0.16460958638978218,
+        -0.022681891494666102,
+        -0.48801119590299613
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.012934407034880262,
+        "volume_m3": 4.790521124029727e-06,
+        "density_kg_m3": 2700,
+        "com_m": [
+          0.003230808307972196,
+          -0.012329994353967366,
+          -0.003400865681217765
+        ],
+        "inertia_com_matrix_kg_m2": [
+          1.9363277829851177e-06,
+          8.657355042408642e-07,
+          7.758285536213819e-09,
+          8.657355042408642e-07,
+          5.1021271481046505e-06,
+          1.2230007935100148e-09,
+          7.758285536213819e-09,
+          1.2230007935100148e-09,
+          6.938570481288137e-06
+        ],
+        "principal_moments_kg_m2": [
+          1.7150346802609392e-06,
+          5.323408209558331e-06,
+          6.9385825225586155e-06
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 1,
+      "body_info": [
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "36a64bcad6b19c6fe166761ab07bdba61dfa7d58ae8cd254cb66695fff041adc",
+      "source_file_matches_original_export_baseline": true
+    },
+    "镜向P1.V0.右前腿.09.15.09.30-3/镜向REF-大腿外部.09.15.09.30-1": {
+      "name": "镜向P1.V0.右前腿.09.15.09.30-3/镜向REF-大腿外部.09.15.09.30-1",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\镜向REF-大腿外部.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "镜向P1.V0.右前腿.09.15.09.30-3",
+      "transform": [
+        0.0032674011168664805,
+        -0.8723623547380353,
+        -0.48884889907398976,
+        -0.9999929323646055,
+        -0.0037595986686914753,
+        2.5272274206569788e-05,
+        -0.001859922250786297,
+        0.48884536149355123,
+        -0.8723684733158692,
+        -0.1567494222208051,
+        -0.05703199976676765,
+        -0.5148984989040517,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        0.0032674011168664805,
+        -0.8723623547380353,
+        -0.48884889907398976,
+        -0.9999929323646055,
+        -0.0037595986686914753,
+        2.5272274206569788e-05,
+        -0.001859922250786297,
+        0.48884536149355123,
+        -0.8723684733158692,
+        -0.1567494222208051,
+        -0.05703199976676765,
+        -0.5148984989040517,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        -0.18894422033666836,
+        -0.2648398216377279,
+        -0.6527497054065106,
+        -0.14397037646651345,
+        -0.005212106829793728,
+        -0.45884238722768833
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.0945454301355253,
+        "volume_m3": 9.454543013552531e-05,
+        "density_kg_m3": 999.9999999999999,
+        "com_m": [
+          0.060031682178054026,
+          0.012896520083006287,
+          -0.008269880747784305
+        ],
+        "inertia_com_matrix_kg_m2": [
+          6.62997216891969e-05,
+          2.014371905363979e-05,
+          -3.51609941026937e-05,
+          2.014371905363979e-05,
+          0.0005105596953574316,
+          -2.8071137897277954e-06,
+          -3.51609941026937e-05,
+          -2.8071137897277954e-06,
+          0.00048305024123802576
+        ],
+        "principal_moments_kg_m2": [
+          6.243373683288357e-05,
+          0.0004859472928471826,
+          0.0005115286286045867
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 2,
+      "body_info": [
+        1,
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "8d09ff3a614b66cf7a94cc4f8e0a2dde699c689784b070e207561f71a6a6a0ec",
+      "source_file_matches_original_export_baseline": true
+    },
+    "REF-J0电机输出转接件.09.15.09.30-5": {
+      "name": "REF-J0电机输出转接件.09.15.09.30-5",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\REF-J0电机输出转接件.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": null,
+      "transform": [
+        0.9999929323646055,
+        0.0037595986686908564,
+        -2.52722742076233e-05,
+        -0.0037596836086917864,
+        0.999970340197433,
+        -0.006721867641729443,
+        -2.2768245622195593e-18,
+        0.006721915149774873,
+        0.999977407673153,
+        -0.13499957587520148,
+        -0.056501558393077925,
+        -0.4481505564946082,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        0.9999929323646055,
+        0.0037595986686908564,
+        -2.52722742076233e-05,
+        -0.0037596836086917864,
+        0.999970340197433,
+        -0.006721867641729443,
+        -2.2768245622195593e-18,
+        0.006721915149774873,
+        0.999977407673153,
+        -0.13499957587520148,
+        -0.056501558393077925,
+        -0.4481505564946082,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        -0.09427345393130399,
+        -0.0989780657590275,
+        -0.5570317835815669,
+        -0.0557264316556661,
+        -0.014416473255457724,
+        -0.4646195552539409
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "mass_kg": 0,
+        "volume_m3": 0,
+        "density_kg_m3": 0,
+        "com_m": [
+          0,
+          0,
+          0
+        ],
+        "inertia_com_matrix_kg_m2": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "principal_moments_kg_m2": [
+          0,
+          0,
+          0
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 0,
+      "body_info": null,
+      "mass_part_frame_original_mp2": {
+        "error": "CreateMassProperty2 returned null"
+      },
+      "zero_mass_reference": true,
+      "mass_properties_provenance": {
+        "source_file": "native_mass_fallback.json",
+        "api": "IModelDocExtension.CreateMassProperty / IMassProperty (legacy_mass only)",
+        "coordinate_frame": "part",
+        "reason": "CreateMassProperty2 returned null for a component with no solid bodies.",
+        "values_changed": false,
+        "extension_GetMassProperties2_used": false,
+        "zero_mass_reference": true,
+        "inertial_grouping": "Keep in its assigned rigid body; do not manufacture an independent mass."
+      },
+      "verified_current_source_file_sha256": "da1580b121a5114acdbd7b8d1c3f290d5f365557a310d8e80e96c4e27f838df7",
+      "source_file_matches_original_export_baseline": true
+    },
+    "镜向P1.V0.右前腿.09.15.09.30-3/镜向COT-DM6248P.09.15.09.30-1": {
+      "name": "镜向P1.V0.右前腿.09.15.09.30-3/镜向COT-DM6248P.09.15.09.30-1",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\镜向COT-DM6248P.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "镜向P1.V0.右前腿.09.15.09.30-3",
+      "transform": [
+        -0.003635986225283428,
+        0.9653602496501882,
+        -0.2608953200030543,
+        0.9999929323646055,
+        0.0037595986686908517,
+        -2.527227420750724e-05,
+        0.0009564648488129667,
+        -0.26089356797969726,
+        -0.9653670966848912,
+        -0.09463033667255688,
+        -0.0567984552848335,
+        -0.5149000688057062,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        -0.003635986225283428,
+        0.9653602496501882,
+        -0.2608953200030543,
+        0.9999929323646055,
+        0.0037595986686908517,
+        -2.527227420750724e-05,
+        0.0009564648488129667,
+        -0.26089356797969726,
+        -0.9653670966848912,
+        -0.09463033667255688,
+        -0.0567984552848335,
+        -0.5149000688057062,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        -0.09442437708883286,
+        -0.1033946699199107,
+        -0.561499629772465,
+        -0.03157579253441487,
+        -0.009964404863246241,
+        -0.4683021065870432
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.20657473938894885,
+        "volume_m3": 0.00020657473938894897,
+        "density_kg_m3": 999.9999999999994,
+        "com_m": [
+          4.914667225007801e-05,
+          0.03161867606475068,
+          2.883996257332813e-06
+        ],
+        "inertia_com_matrix_kg_m2": [
+          0.00011248162403956222,
+          2.9199881318058796e-07,
+          6.528021340335523e-09,
+          2.9199881318058796e-07,
+          0.00013112942094203065,
+          1.4981132431227398e-08,
+          6.528021340335523e-09,
+          1.4981132431227398e-08,
+          0.00011268508329025395
+        ],
+        "principal_moments_kg_m2": [
+          0.00011247683330039123,
+          0.00011268529085393776,
+          0.0001311340041175177
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 32,
+      "body_info": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "582d2ae14f2d8007b6d7a0dd3ff491d9b25ab7b7db8d1fa89b357f88453868df",
+      "source_file_matches_original_export_baseline": true
+    },
+    "镜向P1.V0.右前腿.09.15.09.30-3/镜向REF-J2输出连杆.09.15.09.30-1": {
+      "name": "镜向P1.V0.右前腿.09.15.09.30-3/镜向REF-J2输出连杆.09.15.09.30-1",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\镜向REF-J2输出连杆.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "镜向P1.V0.右前腿.09.15.09.30-3",
+      "transform": [
+        0.003305153932408202,
+        -0.8758743377580507,
+        0.48252794780652786,
+        0.9999929323646055,
+        0.0037595986686907784,
+        -2.5272274207398905e-05,
+        -0.0017919760937444701,
+        0.4825246210036816,
+        0.8758805734499041,
+        -0.17274930913863748,
+        -0.05709215334547822,
+        -0.5148980945476797,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        0.003305153932408202,
+        -0.8758743377580507,
+        0.48252794780652786,
+        0.9999929323646055,
+        0.0037595986686907784,
+        -2.5272274207398905e-05,
+        -0.0017919760937444701,
+        0.4825246210036816,
+        0.8758805734499041,
+        -0.17274930913863748,
+        -0.05709215334547822,
+        -0.5148980945476797,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        -0.18013845732035677,
+        -0.09052619790942854,
+        -0.5386704016213809,
+        -0.16637379684264453,
+        -0.03329667407546859,
+        -0.4858179535122185
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.012992775190673477,
+        "volume_m3": 4.812138959508695e-06,
+        "density_kg_m3": 2700,
+        "com_m": [
+          0.005522643225091593,
+          0.002897407827696607,
+          -2.253045047658454e-10
+        ],
+        "inertia_com_matrix_kg_m2": [
+          1.066885625610421e-06,
+          -1.0906406118626883e-07,
+          -4.477349412185164e-14,
+          -1.0906406118626883e-07,
+          3.0694858116381583e-06,
+          1.1942284769160019e-14,
+          -4.477349412185164e-14,
+          1.1942284769160019e-14,
+          2.156283344972436e-06
+        ],
+        "principal_moments_kg_m2": [
+          1.0609633768784208e-06,
+          2.156283344972431e-06,
+          3.075408060370155e-06
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 1,
+      "body_info": [
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "1d1d7c72576c924613d6ce193782f73e77128b987e420eb85aeec431042a2627",
+      "source_file_matches_original_export_baseline": true
+    },
+    "镜向P1.V0.右前腿.09.15.09.30-3/镜向COT-深沟球轴承8-16-6.09.15.09.30-1": {
+      "name": "镜向P1.V0.右前腿.09.15.09.30-3/镜向COT-深沟球轴承8-16-6.09.15.09.30-1",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\镜向COT-深沟球轴承8-16-6.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "镜向P1.V0.右前腿.09.15.09.30-3",
+      "transform": [
+        0.0030826870976557574,
+        -0.8160602371568656,
+        0.5779586372498805,
+        0.0021522688250798848,
+        -0.5779546303554726,
+        -0.8160660592069575,
+        0.9999929323646055,
+        0.0037595986686906396,
+        -2.527227420720093e-05,
+        -0.17418349541878983,
+        -0.07477858355577242,
+        -0.5414102839007392,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        0.0030826870976557574,
+        -0.8160602371568656,
+        0.5779586372498805,
+        0.0021522688250798848,
+        -0.5779546303554726,
+        -0.8160660592069575,
+        0.9999929323646055,
+        0.0037595986686906396,
+        -2.527227420720093e-05,
+        -0.17418349541878983,
+        -0.07477858355577242,
+        -0.5414102839007392,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        -0.1802134646613423,
+        -0.0888555162129063,
+        -0.5147108474374696,
+        -0.17412974777239087,
+        -0.06652872074069674,
+        -0.49240630066051494
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.006966795868600723,
+        "volume_m3": 9.047786842338602e-07,
+        "density_kg_m3": 7700,
+        "com_m": [
+          0.02424513123150973,
+          -0.029212035912365764,
+          -0.003
+        ],
+        "inertia_com_matrix_kg_m2": [
+          1.6023630497781655e-07,
+          -1.4190367121198643e-40,
+          2.0200803026491805e-40,
+          -1.4190367121198643e-40,
+          1.6023630497781653e-07,
+          5.385244322494889e-40,
+          2.0200803026491805e-40,
+          5.385244322494889e-40,
+          2.7867183474402874e-07
+        ],
+        "principal_moments_kg_m2": [
+          1.6023630497781666e-07,
+          1.6023630497781666e-07,
+          2.786718347440284e-07
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 1,
+      "body_info": [
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "90aaeafa43600b39ce31896b1698b7176629187c9184766a1c42f637910a11eb",
+      "source_file_matches_original_export_baseline": true
+    },
+    "镜向P1.V0.右前腿.09.15.09.30-3/镜向COT-深沟球轴承8-16-6.09.15.09.30-2": {
+      "name": "镜向P1.V0.右前腿.09.15.09.30-3/镜向COT-深沟球轴承8-16-6.09.15.09.30-2",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\镜向COT-深沟球轴承8-16-6.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "镜向P1.V0.右前腿.09.15.09.30-3",
+      "transform": [
+        0.0026409302481841803,
+        -0.6976290249484223,
+        0.7164543035232172,
+        0.00267594997369009,
+        -0.7164493066277363,
+        -0.6976340231986783,
+        0.9999929323646054,
+        0.003759598668690917,
+        -2.527227420759467e-05,
+        -0.17330400836363616,
+        -0.2561673943224815,
+        -0.6390782734847387,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        0.0026409302481841803,
+        -0.6976290249484223,
+        0.7164543035232172,
+        0.00267594997369009,
+        -0.7164493066277363,
+        -0.6976340231986783,
+        0.9999929323646054,
+        0.003759598668690917,
+        -2.527227420759467e-05,
+        -0.17330400836363616,
+        -0.2561673943224815,
+        -0.6390782734847387,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        -0.1793606412458894,
+        -0.2634877429532886,
+        -0.6126411413488455,
+        -0.1732756135681518,
+        -0.24083993205605791,
+        -0.59001557648765
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.006966795868600723,
+        "volume_m3": 9.047786842338602e-07,
+        "density_kg_m3": 7700,
+        "com_m": [
+          0.02424513123150973,
+          -0.029212035912365764,
+          -0.003
+        ],
+        "inertia_com_matrix_kg_m2": [
+          1.6023630497781655e-07,
+          -1.4190367121198643e-40,
+          2.0200803026491805e-40,
+          -1.4190367121198643e-40,
+          1.6023630497781653e-07,
+          5.385244322494889e-40,
+          2.0200803026491805e-40,
+          5.385244322494889e-40,
+          2.7867183474402874e-07
+        ],
+        "principal_moments_kg_m2": [
+          1.6023630497781666e-07,
+          1.6023630497781666e-07,
+          2.786718347440284e-07
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 1,
+      "body_info": [
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "90aaeafa43600b39ce31896b1698b7176629187c9184766a1c42f637910a11eb",
+      "source_file_matches_original_export_baseline": true
+    },
+    "镜向P1.V0.右前腿.09.15.09.30-3/镜向REF-J2输出连杆中继.09.15.09.30-1": {
+      "name": "镜向P1.V0.右前腿.09.15.09.30-3/镜向REF-J2输出连杆中继.09.15.09.30-1",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\镜向REF-J2输出连杆中继.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "镜向P1.V0.右前腿.09.15.09.30-3",
+      "transform": [
+        0.0032674011168654137,
+        -0.8723623547380268,
+        -0.48884889907400475,
+        -0.9999929323646055,
+        -0.003759598668690706,
+        2.5272274207313693e-05,
+        -0.0018599222507866265,
+        0.4888453614935664,
+        -0.8723684733158608,
+        -0.1731716344874082,
+        -0.07767708008212677,
+        -0.5035586751380892,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        0.0032674011168654137,
+        -0.8723623547380268,
+        -0.48884889907400475,
+        -0.9999929323646055,
+        -0.003759598668690706,
+        2.5272274207313693e-05,
+        -0.0018599222507866265,
+        0.4888453614935664,
+        -0.8723684733158608,
+        -0.1731716344874082,
+        -0.07767708008212677,
+        -0.5035586751380892,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        -0.18077783826740468,
+        -0.2715145873982725,
+        -0.6178492972802652,
+        -0.172445454439334,
+        -0.06474560677792664,
+        -0.4906269191039696
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.029879420039698696,
+        "volume_m3": 1.1066451866555072e-05,
+        "density_kg_m3": 2700,
+        "com_m": [
+          0.1040385109293648,
+          0.0037076862251371407,
+          -0.004038913317555077
+        ],
+        "inertia_com_matrix_kg_m2": [
+          6.269159313351976e-07,
+          5.112114593014658e-09,
+          -4.675182389252258e-07,
+          5.112114593014658e-09,
+          0.00012689542911099475,
+          -5.248896306664816e-09,
+          -4.675182389252258e-07,
+          -5.248896306664816e-09,
+          0.00012649754250398948
+        ],
+        "principal_moments_kg_m2": [
+          6.25179255002682e-07,
+          0.00012649920994041452,
+          0.00012689549835090186
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 1,
+      "body_info": [
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "97dd8bb784b1a8a48004152ab8e4c56fcfb5bfa24a1637d78d05962199e85eba",
+      "source_file_matches_original_export_baseline": true
+    },
+    "镜向P1.V0.右后腿.09.15.09.30-3/镜向COT-DM6248P.09.151.09.30-2": {
+      "name": "镜向P1.V0.右后腿.09.15.09.30-3/镜向COT-DM6248P.09.151.09.30-2",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\镜向COT-DM6248P.09.151.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "镜向P1.V0.右后腿.09.15.09.30-3",
+      "transform": [
+        -0.27059988962484544,
+        -0.8293111370486017,
+        0.4888954261416004,
+        0.9506715910436214,
+        -0.31019917147308723,
+        -9.087244687016983e-18,
+        0.15165495612610636,
+        0.46477899262398437,
+        0.8723423996905246,
+        -0.1623481577472912,
+        -0.023498752652146286,
+        0.021254504332235843,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        -0.27059988962484544,
+        -0.8293111370486017,
+        0.4888954261416004,
+        0.9506715910436214,
+        -0.31019917147308723,
+        -9.087244687016983e-18,
+        0.15165495612610636,
+        0.46477899262398437,
+        0.8723423996905246,
+        -0.1623481577472912,
+        -0.023498752652146286,
+        0.021254504332235843,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        -0.17803213471902612,
+        -0.0921796489548371,
+        -0.03047253304938491,
+        -0.08652379200172859,
+        0.02555864911734701,
+        0.0729815417138566
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.2065747393934207,
+        "volume_m3": 0.0002065747393934211,
+        "density_kg_m3": 999.9999999999981,
+        "com_m": [
+          4.914667224893628e-05,
+          0.03161867606424641,
+          2.883996256978015e-06
+        ],
+        "inertia_com_matrix_kg_m2": [
+          0.00011248162404246902,
+          2.919988131861077e-07,
+          6.5280213403686696e-09,
+          2.919988131861077e-07,
+          0.00013112942094282198,
+          1.4981132433073185e-08,
+          6.5280213403686696e-09,
+          1.4981132433073185e-08,
+          0.00011268508329316141
+        ],
+        "principal_moments_kg_m2": [
+          0.00011247683330335043,
+          0.00011268529085679153,
+          0.00013113400411831033
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 32,
+      "body_info": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "7e5dbb84d241639714b426e47391eea8a07786ac2e80492da92cd2ced362cee0",
+      "source_file_matches_original_export_baseline": true
+    },
+    "镜向P1.V0.右后腿.09.15.09.30-3/镜向REF-J1电机输出转接件.09.151.09.30-1": {
+      "name": "镜向P1.V0.右后腿.09.15.09.30-3/镜向REF-J1电机输出转接件.09.151.09.30-1",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\镜向REF-J1电机输出转接件.09.151.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "镜向P1.V0.右后腿.09.15.09.30-3",
+      "transform": [
+        -0.2705998896248456,
+        -0.8293111370486017,
+        0.4888954261416004,
+        0.9506715910436213,
+        -0.3101991714730875,
+        -2.1227833811848019e-16,
+        0.15165495612610666,
+        0.46477899262398426,
+        0.8723423996905246,
+        -0.11207619205070099,
+        -0.03990223231254797,
+        0.021254504332235843,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        -0.2705998896248456,
+        -0.8293111370486017,
+        0.4888954261416004,
+        0.9506715910436213,
+        -0.3101991714730875,
+        -2.1227833811848019e-16,
+        0.15165495612610666,
+        0.46477899262398426,
+        0.8723423996905246,
+        -0.11207619205070099,
+        -0.03990223231254797,
+        0.021254504332235843,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        -0.12781867268563896,
+        -0.09437751255264408,
+        -0.028728460324276898,
+        -0.07724334376732206,
+        0.008343960739655834,
+        0.07123746898874858
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.04354551084489966,
+        "volume_m3": 1.6127966979592468e-05,
+        "density_kg_m3": 2700,
+        "com_m": [
+          -3.762756232043747e-08,
+          0.011952993788133266,
+          -5.3692659568183385e-08
+        ],
+        "inertia_com_matrix_kg_m2": [
+          2.0470885204610868e-05,
+          -8.227300925339086e-12,
+          -1.325078454843942e-10,
+          -8.227300925339086e-12,
+          3.677726708214569e-05,
+          -1.270175583183038e-11,
+          -1.325078454843942e-10,
+          -1.270175583183038e-11,
+          2.0559771396644892e-05
+        ],
+        "principal_moments_kg_m2": [
+          2.0470885007068788e-05,
+          2.0559771594172782e-05,
+          3.677726708215978e-05
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 1,
+      "body_info": [
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "7f71f6dffce913875f1b40c5321fc53985a00871b0f17908afef207dc308211c",
+      "source_file_matches_original_export_baseline": true
+    },
+    "镜向P1.V0.右后腿.09.15.09.30-3/镜向REF-J2电机限位.09.151.09.30-1": {
+      "name": "镜向P1.V0.右后腿.09.15.09.30-3/镜向REF-J2电机限位.09.151.09.30-1",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\镜向REF-J2电机限位.09.151.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "镜向P1.V0.右后腿.09.15.09.30-3",
+      "transform": [
+        -0.15165495612606444,
+        -0.46477899262385475,
+        -0.872342399690601,
+        0.2705998896248707,
+        0.8293111370486737,
+        -0.4888954261414641,
+        0.9506715910436209,
+        -0.31019917147308873,
+        4.592254516371817e-16,
+        -0.16032277529616393,
+        -0.024159624360289435,
+        0.021254504332232457,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        -0.15165495612606444,
+        -0.46477899262385475,
+        -0.872342399690601,
+        0.2705998896248707,
+        0.8293111370486737,
+        -0.4888954261414641,
+        0.9506715910436209,
+        -0.31019917147308873,
+        4.592254516371817e-16,
+        -0.16032277529616393,
+        -0.024159624360289435,
+        0.021254504332232457,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        -0.17975068551743506,
+        -0.06330585078288342,
+        -0.014623728717740203,
+        -0.15048263918470656,
+        0.00816896790325597,
+        0.06243194856365242
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.012934407034880257,
+        "volume_m3": 4.790521124029725e-06,
+        "density_kg_m3": 2700,
+        "com_m": [
+          0.0032308083079721963,
+          -0.012329994353967368,
+          -0.003400865681217765
+        ],
+        "inertia_com_matrix_kg_m2": [
+          1.9363277829851173e-06,
+          8.657355042408642e-07,
+          7.758285536213814e-09,
+          8.657355042408642e-07,
+          5.1021271481046505e-06,
+          1.2230007935100158e-09,
+          7.758285536213814e-09,
+          1.2230007935100158e-09,
+          6.938570481288137e-06
+        ],
+        "principal_moments_kg_m2": [
+          1.715034680260943e-06,
+          5.323408209558324e-06,
+          6.938582522558617e-06
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 1,
+      "body_info": [
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "63bf8f1f17e99a3685d21ccb3e9768ae85b341583a6944f6326a1189809da6dc",
+      "source_file_matches_original_export_baseline": true
+    },
+    "镜向P1.V0.右后腿.09.15.09.30-3/镜向REF-大腿外部.09.151.09.30-1": {
+      "name": "镜向P1.V0.右后腿.09.15.09.30-3/镜向REF-大腿外部.09.151.09.30-1",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\镜向REF-大腿外部.09.151.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "镜向P1.V0.右后腿.09.15.09.30-3",
+      "transform": [
+        -0.08410676906472817,
+        -0.2577631512830835,
+        0.9625404974535391,
+        -0.9506715910436214,
+        0.31019917147308645,
+        8.086352627465687e-16,
+        -0.2985792648193805,
+        -0.9150599061580748,
+        -0.27113795522186357,
+        -0.15271740256781724,
+        -0.026641217732077872,
+        0.0212545043322364,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        -0.08410676906472817,
+        -0.2577631512830835,
+        0.9625404974535391,
+        -0.9506715910436214,
+        0.31019917147308645,
+        8.086352627465687e-16,
+        -0.2985792648193805,
+        -0.9150599061580748,
+        -0.27113795522186357,
+        -0.15271740256781724,
+        -0.026641217732077872,
+        0.0212545043322364,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        -0.21251361205068334,
+        -0.12038870458895742,
+        -0.025652390664951077,
+        -0.1252856039302929,
+        0.03239332679038003,
+        0.23888690854117361
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.09454543013552533,
+        "volume_m3": 9.454543013552533e-05,
+        "density_kg_m3": 1000,
+        "com_m": [
+          0.060031682178054095,
+          0.012896520083006291,
+          -0.008269880747784304
+        ],
+        "inertia_com_matrix_kg_m2": [
+          6.62997216891969e-05,
+          2.0143719053639805e-05,
+          -3.516099410269368e-05,
+          2.0143719053639805e-05,
+          0.0005105596953574318,
+          -2.8071137897277946e-06,
+          -3.516099410269368e-05,
+          -2.8071137897277946e-06,
+          0.000483050241238026
+        ],
+        "principal_moments_kg_m2": [
+          6.243373683288348e-05,
+          0.0004859472928471871,
+          0.0005115286286045828
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 2,
+      "body_info": [
+        1,
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "e6165452d11269d8ea9ec5b38c68e66d02c7b1ed0c6bce64a65efa35e607b52d",
+      "source_file_matches_original_export_baseline": true
+    },
+    "REF-J0电机输出转接件.09.15.09.30-6": {
+      "name": "REF-J0电机输出转接件.09.15.09.30-6",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\REF-J0电机输出转接件.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": null,
+      "transform": [
+        0.9506715910436215,
+        -0.3101991714730866,
+        1.6672743372996407e-17,
+        -0.3101991714730866,
+        -0.9506715910436215,
+        2.7858667402112195e-18,
+        1.498612991482054e-17,
+        -7.820315546838987e-18,
+        -1,
+        -0.13204028996150807,
+        -0.03338803285228459,
+        -0.04549549566777673,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        0.9506715910436215,
+        -0.3101991714730866,
+        1.6672743372996407e-17,
+        -0.3101991714730866,
+        -0.9506715910436215,
+        2.7858667402112195e-18,
+        1.498612991482054e-17,
+        -7.820315546838987e-18,
+        -1,
+        -0.13204028996150807,
+        -0.03338803285228459,
+        -0.04549549566777673,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        -0.10617088566158836,
+        -0.09776434423197305,
+        -0.028745495667764125,
+        -0.043829000130705086,
+        -0.006235674379092115,
+        0.06310452933223587
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "mass_kg": 0,
+        "volume_m3": 0,
+        "density_kg_m3": 0,
+        "com_m": [
+          0,
+          0,
+          0
+        ],
+        "inertia_com_matrix_kg_m2": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "principal_moments_kg_m2": [
+          0,
+          0,
+          0
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 0,
+      "body_info": null,
+      "mass_part_frame_original_mp2": {
+        "error": "CreateMassProperty2 returned null"
+      },
+      "zero_mass_reference": true,
+      "mass_properties_provenance": {
+        "source_file": "native_mass_fallback.json",
+        "api": "IModelDocExtension.CreateMassProperty / IMassProperty (legacy_mass only)",
+        "coordinate_frame": "part",
+        "reason": "CreateMassProperty2 returned null for a component with no solid bodies.",
+        "values_changed": false,
+        "extension_GetMassProperties2_used": false,
+        "zero_mass_reference": true,
+        "inertial_grouping": "Keep in its assigned rigid body; do not manufacture an independent mass."
+      },
+      "verified_current_source_file_sha256": "da1580b121a5114acdbd7b8d1c3f290d5f365557a310d8e80e96c4e27f838df7",
+      "source_file_matches_original_export_baseline": true
+    },
+    "镜向P1.V0.右后腿.09.15.09.30-3/镜向COT-DM6248P.09.151.09.30-1": {
+      "name": "镜向P1.V0.右后腿.09.15.09.30-3/镜向COT-DM6248P.09.151.09.30-1",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\镜向COT-DM6248P.09.151.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "镜向P1.V0.右后腿.09.15.09.30-3",
+      "transform": [
+        -0.18843178181471998,
+        -0.5774894271003113,
+        -0.7943547225197847,
+        0.9506715910436213,
+        -0.3101991714730871,
+        -2.2527136020188567e-17,
+        -0.24640817678137122,
+        -0.755170467910898,
+        0.607454175070446,
+        -0.09366213529439069,
+        -0.045910642791076456,
+        0.021254504332235843,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        -0.18843178181471998,
+        -0.5774894271003113,
+        -0.7943547225197847,
+        0.9506715910436213,
+        -0.3101991714730871,
+        -2.2527136020188567e-17,
+        -0.24640817678137122,
+        -0.755170467910898,
+        0.607454175070446,
+        -0.09366213529439069,
+        -0.045910642791076456,
+        0.021254504332235843,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        -0.10982434655424092,
+        -0.11605719017663496,
+        -0.03201423377619292,
+        -0.017359535260712794,
+        0.004612410061284523,
+        0.0745232424406646
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.2065747393934207,
+        "volume_m3": 0.0002065747393934211,
+        "density_kg_m3": 999.9999999999981,
+        "com_m": [
+          4.914667224893628e-05,
+          0.03161867606424641,
+          2.883996256978015e-06
+        ],
+        "inertia_com_matrix_kg_m2": [
+          0.00011248162404246902,
+          2.919988131861077e-07,
+          6.5280213403686696e-09,
+          2.919988131861077e-07,
+          0.00013112942094282198,
+          1.4981132433073185e-08,
+          6.5280213403686696e-09,
+          1.4981132433073185e-08,
+          0.00011268508329316141
+        ],
+        "principal_moments_kg_m2": [
+          0.00011247683330335043,
+          0.00011268529085679153,
+          0.00013113400411831033
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 32,
+      "body_info": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "7e5dbb84d241639714b426e47391eea8a07786ac2e80492da92cd2ced362cee0",
+      "source_file_matches_original_export_baseline": true
+    },
+    "镜向P1.V0.右后腿.09.15.09.30-3/镜向REF-J2输出连杆.09.151.09.30-1": {
+      "name": "镜向P1.V0.右后腿.09.15.09.30-3/镜向REF-J2输出连杆.09.151.09.30-1",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\镜向REF-J2输出连杆.09.151.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "镜向P1.V0.右后腿.09.15.09.30-3",
+      "transform": [
+        0.26562430461114456,
+        0.8140623944459535,
+        -0.5164747300195497,
+        0.9506715910436214,
+        -0.31019917147308723,
+        -9.087244687013045e-18,
+        -0.1602100333388507,
+        -0.4909978533215099,
+        -0.8563024309502066,
+        -0.1679281480245127,
+        -0.021678030988504814,
+        0.021254504332235635,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        0.26562430461114456,
+        0.8140623944459535,
+        -0.5164747300195497,
+        0.9506715910436214,
+        -0.31019917147308723,
+        -9.087244687013045e-18,
+        -0.1602100333388507,
+        -0.4909978533215099,
+        -0.8563024309502066,
+        -0.1679281480245127,
+        -0.021678030988504814,
+        0.021254504332235635,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        -0.18232015155325604,
+        -0.046455330146142226,
+        -0.008450318014950147,
+        -0.15161248231564256,
+        0.012379663638084824,
+        0.04527810464920637
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.012992775190673477,
+        "volume_m3": 4.812138959508695e-06,
+        "density_kg_m3": 2700,
+        "com_m": [
+          0.005522643225091593,
+          0.0028974078276966086,
+          -2.253045047658454e-10
+        ],
+        "inertia_com_matrix_kg_m2": [
+          1.066885625610421e-06,
+          -1.0906406118626883e-07,
+          -4.477349412185164e-14,
+          -1.0906406118626883e-07,
+          3.0694858116381587e-06,
+          1.1942284769160024e-14,
+          -4.477349412185164e-14,
+          1.1942284769160024e-14,
+          2.156283344972436e-06
+        ],
+        "principal_moments_kg_m2": [
+          1.0609633768784234e-06,
+          2.1562833449724223e-06,
+          3.075408060370162e-06
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 1,
+      "body_info": [
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "d283501bff8185038531d4e3ccafb1d4ea0d21319344fe195edaa7033cdff147",
+      "source_file_matches_original_export_baseline": true
+    },
+    "镜向P1.V0.右后腿.09.15.09.30-3/镜向COT-深沟球轴承8-16-6.09.151.09.30-1": {
+      "name": "镜向P1.V0.右后腿.09.15.09.30-3/镜向COT-深沟球轴承8-16-6.09.151.09.30-1",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\镜向COT-深沟球轴承8-16-6.09.151.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "镜向P1.V0.右后腿.09.15.09.30-3",
+      "transform": [
+        0.23354124782962504,
+        0.7157370169435321,
+        0.6581633597663699,
+        -0.20416172889347123,
+        -0.6256972083957102,
+        0.7528751502480634,
+        0.9506715910436215,
+        -0.31019917147308684,
+        1.3646489268253103e-16,
+        -0.1747382022106827,
+        -0.03771329318678265,
+        0.015153107074043617,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        0.23354124782962504,
+        0.7157370169435321,
+        0.6581633597663699,
+        -0.20416172889347123,
+        -0.6256972083957102,
+        0.7528751502480634,
+        0.9506715910436215,
+        -0.31019917147308684,
+        1.3646489268253103e-16,
+        -0.1747382022106827,
+        -0.03771329318678265,
+        0.015153107074043617,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        -0.17231763761276264,
+        -0.01281373976452885,
+        -0.0021709599033390564,
+        -0.1596103604389314,
+        0.01051040286973755,
+        0.020405656256891877
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.006966795868600723,
+        "volume_m3": 9.047786842338602e-07,
+        "density_kg_m3": 7700,
+        "com_m": [
+          0.02424513123150973,
+          -0.029212035912365764,
+          -0.003
+        ],
+        "inertia_com_matrix_kg_m2": [
+          1.6023630497781655e-07,
+          -1.4190367121198643e-40,
+          2.0200803026491805e-40,
+          -1.4190367121198643e-40,
+          1.6023630497781653e-07,
+          5.385244322494889e-40,
+          2.0200803026491805e-40,
+          5.385244322494889e-40,
+          2.7867183474402874e-07
+        ],
+        "principal_moments_kg_m2": [
+          1.6023630497781666e-07,
+          1.6023630497781666e-07,
+          2.786718347440284e-07
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 1,
+      "body_info": [
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "be8a3dd03e1cd62f6a4f195b80a8508f37b836f9f794116eeaf2b63c1bda5b4a",
+      "source_file_matches_original_export_baseline": true
+    },
+    "镜向P1.V0.右后腿.09.15.09.30-3/镜向COT-深沟球轴承8-16-6.09.151.09.30-2": {
+      "name": "镜向P1.V0.右后腿.09.15.09.30-3/镜向COT-深沟球轴承8-16-6.09.151.09.30-2",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\镜向COT-深沟球轴承8-16-6.09.151.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "镜向P1.V0.右后腿.09.15.09.30-3",
+      "transform": [
+        0.2667129396513223,
+        0.8173987489590775,
+        0.5106109017859735,
+        -0.15839107867913488,
+        -0.4854232784050897,
+        0.8598119020909833,
+        0.9506715910436213,
+        -0.31019917147308723,
+        -4.2035379125271987e-17,
+        -0.19083661984901631,
+        -0.08769507823118433,
+        0.21436247550720344,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        0.2667129396513223,
+        0.8173987489590775,
+        0.5106109017859735,
+        -0.15839107867913488,
+        -0.4854232784050897,
+        0.8598119020909833,
+        0.9506715910436213,
+        -0.31019917147308723,
+        -4.2035379125271987e-17,
+        -0.19083661984901631,
+        -0.08769507823118433,
+        0.21436247550720344,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        -0.1888480654403604,
+        -0.06411951227164515,
+        0.19066206523646692,
+        -0.17634237160081137,
+        -0.041413164804979946,
+        0.21258883009849824
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.006966795868600723,
+        "volume_m3": 9.047786842338602e-07,
+        "density_kg_m3": 7700,
+        "com_m": [
+          0.02424513123150973,
+          -0.029212035912365764,
+          -0.003
+        ],
+        "inertia_com_matrix_kg_m2": [
+          1.6023630497781655e-07,
+          -1.4190367121198643e-40,
+          2.0200803026491805e-40,
+          -1.4190367121198643e-40,
+          1.6023630497781653e-07,
+          5.385244322494889e-40,
+          2.0200803026491805e-40,
+          5.385244322494889e-40,
+          2.7867183474402874e-07
+        ],
+        "principal_moments_kg_m2": [
+          1.6023630497781666e-07,
+          1.6023630497781666e-07,
+          2.786718347440284e-07
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 1,
+      "body_info": [
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "be8a3dd03e1cd62f6a4f195b80a8508f37b836f9f794116eeaf2b63c1bda5b4a",
+      "source_file_matches_original_export_baseline": true
+    },
+    "镜向P1.V0.右后腿.09.15.09.30-3/镜向REF-J2输出连杆中继.09.151.09.30-1": {
+      "name": "镜向P1.V0.右后腿.09.15.09.30-3/镜向REF-J2输出连杆中继.09.151.09.30-1",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\镜向REF-J2输出连杆中继.09.151.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": "镜向P1.V0.右后腿.09.15.09.30-3",
+      "transform": [
+        -0.08410676906444715,
+        -0.25776315128221905,
+        0.9625404974537952,
+        -0.9506715910436215,
+        0.31019917147308695,
+        -9.795260623233617e-17,
+        -0.2985792648194603,
+        -0.9150599061583182,
+        -0.2711379552209545,
+        -0.16216131266165024,
+        -0.0023924651332198586,
+        0.009117348176807136,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        -0.08410676906444715,
+        -0.25776315128221905,
+        0.9625404974537952,
+        -0.9506715910436215,
+        0.31019917147308695,
+        -9.795260623233617e-17,
+        -0.2985792648194603,
+        -0.9150599061583182,
+        -0.2711379552209545,
+        -0.16216131266165024,
+        -0.0023924651332198586,
+        0.009117348176807136,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        -0.19042046709632673,
+        -0.06697948988507138,
+        -0.002602597123603001,
+        -0.1585257953397531,
+        0.011093698923176461,
+        0.22041265803586155
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.02987942003969869,
+        "volume_m3": 1.106645186655507e-05,
+        "density_kg_m3": 2700,
+        "com_m": [
+          0.10403851092936478,
+          0.0037076862251371407,
+          -0.004038913317555077
+        ],
+        "inertia_com_matrix_kg_m2": [
+          6.269159313351977e-07,
+          5.112114593014588e-09,
+          -4.675182389252266e-07,
+          5.112114593014588e-09,
+          0.00012689542911099478,
+          -5.248896306664809e-09,
+          -4.675182389252266e-07,
+          -5.248896306664809e-09,
+          0.0001264975425039895
+        ],
+        "principal_moments_kg_m2": [
+          6.251792550026823e-07,
+          0.0001264992099403984,
+          0.00012689549835091807
+        ],
+        "override_mass": false,
+        "override_com": false,
+        "override_inertia": false
+      },
+      "solid_body_count": 1,
+      "body_info": [
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "cdb26b9ab68b3b4c43c6c6539872009a0b65544e194b6b0ffdc968790e875ba5",
+      "source_file_matches_original_export_baseline": true
+    },
+    "COT-DM6248P.09.15.09.30-1": {
+      "name": "COT-DM6248P.09.15.09.30-1",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\COT-DM6248P.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": null,
+      "transform": [
+        0.9998534993048148,
+        -0.017116656446775035,
+        -1.815097185623536e-18,
+        2.8259433786409352e-21,
+        -1.3010333997044846e-18,
+        -1,
+        0.017116656446775,
+        0.9998534993048147,
+        -6.202741982315458e-19,
+        0.07500000000000002,
+        -0.05199999999999995,
+        -0.028365020254162925,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        0.9998534993048148,
+        -0.017116656446775035,
+        -1.815097185623536e-18,
+        2.8259433786409352e-21,
+        -1.3010333997044846e-18,
+        -1,
+        0.017116656446775,
+        0.9998534993048147,
+        -6.202741982315458e-19,
+        0.07500000000000002,
+        -0.05199999999999995,
+        -0.028365020254162925,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        0.036355134081439616,
+        -0.09064486591856036,
+        -0.09124549566776294,
+        0.11364486591856043,
+        -0.01335513408143954,
+        -0.028745495667764125
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.20657475299964775,
+        "volume_m3": 0.0002065747532994101,
+        "density_kg_m3": 999.9999985488917,
+        "com_m": [
+          4.9146683202096344e-05,
+          0.03161867697786208,
+          -2.884033124936939e-06
+        ],
+        "inertia_com_matrix_kg_m2": [
+          0.00011248163570315766,
+          2.919986740757441e-07,
+          -6.528578228484662e-09,
+          2.919986740757441e-07,
+          0.00013112942632440255,
+          -1.4981277707123135e-08,
+          -6.528578228484662e-09,
+          -1.4981277707123135e-08,
+          0.0001126850928228403
+        ],
+        "principal_moments_kg_m2": [
+          0.0001124768449283931,
+          0.00011268530042470844,
+          0.00013113400949729882
+        ],
+        "override_mass": true,
+        "override_com": true,
+        "override_inertia": true
+      },
+      "solid_body_count": 32,
+      "body_info": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "ff2280e7b6429abbc3e19e4b937c84eefe5a0e54c304569c483f36374d289753",
+      "source_file_matches_original_export_baseline": true
+    },
+    "COT-DM6248P.09.15.09.30-2": {
+      "name": "COT-DM6248P.09.15.09.30-2",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\COT-DM6248P.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": null,
+      "transform": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        -0.07499999999999998,
+        -0.052,
+        -0.028365020254162904,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        -0.07499999999999998,
+        -0.052,
+        -0.028365020254162904,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        -0.11299999999999999,
+        -0.09,
+        -0.09124549566776291,
+        -0.036999999999999984,
+        -0.013999999999999999,
+        -0.028745495667764104
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.20657475299964775,
+        "volume_m3": 0.0002065747532994101,
+        "density_kg_m3": 999.9999985488917,
+        "com_m": [
+          4.9146683202096344e-05,
+          0.03161867697786208,
+          -2.884033124936939e-06
+        ],
+        "inertia_com_matrix_kg_m2": [
+          0.00011248163570315766,
+          2.919986740757441e-07,
+          -6.528578228484662e-09,
+          2.919986740757441e-07,
+          0.00013112942632440255,
+          -1.4981277707123135e-08,
+          -6.528578228484662e-09,
+          -1.4981277707123135e-08,
+          0.0001126850928228403
+        ],
+        "principal_moments_kg_m2": [
+          0.0001124768449283931,
+          0.00011268530042470844,
+          0.00013113400949729882
+        ],
+        "override_mass": true,
+        "override_com": true,
+        "override_inertia": true
+      },
+      "solid_body_count": 32,
+      "body_info": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "ff2280e7b6429abbc3e19e4b937c84eefe5a0e54c304569c483f36374d289753",
+      "source_file_matches_original_export_baseline": true
+    },
+    "COT-DM6248P.09.15.09.30-4": {
+      "name": "COT-DM6248P.09.15.09.30-4",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\COT-DM6248P.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": null,
+      "transform": [
+        -0.9228555619419878,
+        0.38513751996505435,
+        -0.002588920219931507,
+        -1.0287656863617051e-17,
+        0.0067219151497745775,
+        0.9999774076731531,
+        0.3851462213143701,
+        0.9228347124874999,
+        -0.006203356782871574,
+        0.07500000000000002,
+        -0.05639111434156138,
+        -0.4652821613465814,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        -0.9228555619419878,
+        0.38513751996505435,
+        -0.002588920219931507,
+        -1.0287656863617051e-17,
+        0.0067219151497745775,
+        0.9999774076731531,
+        0.3851462213143701,
+        0.9228347124874999,
+        -0.006203356782871574,
+        0.07500000000000002,
+        -0.05639111434156138,
+        -0.4652821613465814,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        0.025295932236258423,
+        -0.10609150165131163,
+        -0.46523580105491164,
+        0.12470406776374163,
+        -0.006265492288056618,
+        -0.4020690000231277
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.20657475299964775,
+        "volume_m3": 0.0002065747532994101,
+        "density_kg_m3": 999.9999985488917,
+        "com_m": [
+          4.9146683202096344e-05,
+          0.03161867697786208,
+          -2.884033124936939e-06
+        ],
+        "inertia_com_matrix_kg_m2": [
+          0.00011248163570315766,
+          2.919986740757441e-07,
+          -6.528578228484662e-09,
+          2.919986740757441e-07,
+          0.00013112942632440255,
+          -1.4981277707123135e-08,
+          -6.528578228484662e-09,
+          -1.4981277707123135e-08,
+          0.0001126850928228403
+        ],
+        "principal_moments_kg_m2": [
+          0.0001124768449283931,
+          0.00011268530042470844,
+          0.00013113400949729882
+        ],
+        "override_mass": true,
+        "override_com": true,
+        "override_inertia": true
+      },
+      "solid_body_count": 32,
+      "body_info": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "ff2280e7b6429abbc3e19e4b937c84eefe5a0e54c304569c483f36374d289753",
+      "source_file_matches_original_export_baseline": true
+    },
+    "COT-DM6248P.09.15.09.30-3": {
+      "name": "COT-DM6248P.09.15.09.30-3",
+      "path": "C:\\Users\\Xuleo\\Desktop\\Robotics\\Reconfigurable_robot\\Model\\P1.V0.09.15.09.30\\COT-DM6248P.09.15.09.30.SLDPRT",
+      "configuration": "默认",
+      "suppressed": false,
+      "suppression_state": 2,
+      "fixed": false,
+      "solving": 0,
+      "parent": null,
+      "transform": [
+        -0.5351781087103319,
+        0.8447201603240112,
+        -0.005678265528232582,
+        1.7465476144355264e-16,
+        0.0067219151497745384,
+        0.9999774076731531,
+        0.8447392449491334,
+        0.5351660177915788,
+        -0.003597421836767816,
+        -0.07499999999999993,
+        -0.056391114341561334,
+        -0.46528216134658046,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total_transform": [
+        -0.5351781087103319,
+        0.8447201603240112,
+        -0.005678265528232582,
+        1.7465476144355264e-16,
+        0.0067219151497745384,
+        0.9999774076731531,
+        0.8447392449491334,
+        0.5351660177915788,
+        -0.003597421836767816,
+        -0.07499999999999993,
+        -0.056391114341561334,
+        -0.46528216134658046,
+        1,
+        0,
+        0,
+        0
+      ],
+      "box_root_m": [
+        -0.1274368594390596,
+        -0.10882423158650695,
+        -0.46525417064867414,
+        -0.02256314056094024,
+        -0.0035327623528612073,
+        -0.4020506304293633
+      ],
+      "constraint_status": 2,
+      "document_type": 1,
+      "mass_part_frame": {
+        "recalculated": true,
+        "mass_kg": 0.20657475299964775,
+        "volume_m3": 0.0002065747532994101,
+        "density_kg_m3": 999.9999985488917,
+        "com_m": [
+          4.9146683202096344e-05,
+          0.03161867697786208,
+          -2.884033124936939e-06
+        ],
+        "inertia_com_matrix_kg_m2": [
+          0.00011248163570315766,
+          2.919986740757441e-07,
+          -6.528578228484662e-09,
+          2.919986740757441e-07,
+          0.00013112942632440255,
+          -1.4981277707123135e-08,
+          -6.528578228484662e-09,
+          -1.4981277707123135e-08,
+          0.0001126850928228403
+        ],
+        "principal_moments_kg_m2": [
+          0.0001124768449283931,
+          0.00011268530042470844,
+          0.00013113400949729882
+        ],
+        "override_mass": true,
+        "override_com": true,
+        "override_inertia": true
+      },
+      "solid_body_count": 32,
+      "body_info": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "mass_properties_provenance": {
+        "source_file": "native_components.json",
+        "api": "IModelDocExtension.CreateMassProperty2 / IMassProperty2",
+        "coordinate_frame": "part",
+        "values_changed": false
+      },
+      "verified_current_source_file_sha256": "ff2280e7b6429abbc3e19e4b937c84eefe5a0e54c304569c483f36374d289753",
+      "source_file_matches_original_export_baseline": true
+    }
+  },
+  "model_total_mass_kg": 22.687993683030435,
+  "motor_modules": {
+    "right_rear": {
+      "body": "right_rear_hip",
+      "motor_count": 3,
+      "mass_kg": 2.0,
+      "chassis_body": "base_link",
+      "chassis_motor_component": "COT-DM6248P.09.15.09.30-1",
+      "chassis_motor_mass_removed_kg": 0.20657475299964775,
+      "drive_geometry_parent": "right_rear_upper_leg",
+      "drive_geom_names": [
+        "right_rear_thigh_drive_visual_0",
+        "right_rear_thigh_drive_visual_1",
+        "right_rear_thigh_drive_visual_2",
+        "right_rear_thigh_drive_collision_0",
+        "right_rear_thigh_drive_collision_1",
+        "right_rear_thigh_drive_collision_2"
+      ],
+      "adopted_com_body_m": [
+        -0.011418929551981774,
+        -0.003689080686733034,
+        0.06379581880325753
+      ],
+      "cad_weighted_com_body_m": [
+        0.01746462430016056,
+        0.005420734143687843,
+        0.03899054452725095
+      ]
+    },
+    "right_front": {
+      "body": "right_front_hip",
+      "motor_count": 3,
+      "mass_kg": 2.0,
+      "chassis_body": "body_front",
+      "chassis_motor_component": "COT-DM6248P.09.15.09.30-4",
+      "chassis_motor_mass_removed_kg": 0.20657475299964775,
+      "drive_geometry_parent": "right_front_upper_leg",
+      "drive_geom_names": [
+        "right_front_thigh_drive_visual_0",
+        "right_front_thigh_drive_visual_1",
+        "right_front_thigh_drive_visual_2",
+        "right_front_thigh_drive_collision_0",
+        "right_front_thigh_drive_collision_1",
+        "right_front_thigh_drive_collision_2"
+      ],
+      "adopted_com_body_m": [
+        -0.012000126611705658,
+        -0.00043908939348677976,
+        -0.0637338144255551
+      ],
+      "cad_weighted_com_body_m": [
+        0.018256426368904427,
+        -0.00032055402389669085,
+        -0.03919387276871755
+      ]
+    },
+    "left_front": {
+      "body": "left_front_hip",
+      "motor_count": 3,
+      "mass_kg": 2.0,
+      "chassis_body": "body_front",
+      "chassis_motor_component": "COT-DM6248P.09.15.09.30-3",
+      "chassis_motor_mass_removed_kg": 0.20657475299964775,
+      "drive_geometry_parent": "left_front_upper_leg",
+      "drive_geom_names": [
+        "left_front_thigh_drive_visual_0",
+        "left_front_thigh_drive_visual_1",
+        "left_front_thigh_drive_visual_2",
+        "left_front_thigh_drive_collision_0",
+        "left_front_thigh_drive_collision_1",
+        "left_front_thigh_drive_collision_2"
+      ],
+      "adopted_com_body_m": [
+        0.011999888888353953,
+        -0.00037597345748518617,
+        -0.06375087194613002
+      ],
+      "cad_weighted_com_body_m": [
+        -0.01827938972860181,
+        -0.00031330789531831826,
+        -0.03919389193928763
+      ]
+    },
+    "left_rear": {
+      "body": "left_rear_hip",
+      "motor_count": 3,
+      "mass_kg": 2.0,
+      "chassis_body": "base_link",
+      "chassis_motor_component": "COT-DM6248P.09.15.09.30-2",
+      "chassis_motor_mass_removed_kg": 0.20657475299964775,
+      "drive_geometry_parent": "left_rear_upper_leg",
+      "drive_geom_names": [
+        "left_rear_thigh_drive_visual_0",
+        "left_rear_thigh_drive_visual_1",
+        "left_rear_thigh_drive_visual_2",
+        "left_rear_thigh_drive_collision_0",
+        "left_rear_thigh_drive_collision_1",
+        "left_rear_thigh_drive_collision_2"
+      ],
+      "adopted_com_body_m": [
+        0.011406609748793251,
+        -0.00372683735398306,
+        0.063743883329586
+      ],
+      "cad_weighted_com_body_m": [
+        -0.01743460299860572,
+        0.005420988593692819,
+        0.03899051253427857
+      ]
+    }
+  },
+  "chassis_motor_mass_transfers": {
+    "base_link": {
+      "native_full_inertial": {
+        "mass_kg": 3.0927494610577315,
+        "com_body_m": [
+          0.00031124271367166364,
+          -0.02524098187335646,
+          -0.1624197793065255
+        ],
+        "inertia_com_body_kg_m2": [
+          [
+            0.038961706751795326,
+            4.790619023894012e-07,
+            0.00017570816214137683
+          ],
+          [
+            4.790619023894012e-07,
+            0.06312903466933827,
+            0.002953407043085761
+          ],
+          [
+            0.00017570816214137683,
+            0.002953407043085761,
+            0.029339650518023404
+          ]
+        ]
+      },
+      "adopted_inertial": {
+        "mass_kg": 2.679599955058436,
+        "com_body_m": [
+          0.0003516578996082819,
+          -0.02111467924187817,
+          -0.17821371027211258
+        ],
+        "inertia_com_body_kg_m2": [
+          [
+            0.033391550951001804,
+            3.7946308470077e-06,
+            0.00016232056379693023
+          ],
+          [
+            3.7946308470077e-06,
+            0.05557600613529905,
+            0.0016461916232134051
+          ],
+          [
+            0.00016232056379693023,
+            0.0016461916232134051,
+            0.026411864085546004
+          ]
+        ]
+      },
+      "removed_components": [
+        "COT-DM6248P.09.15.09.30-1",
+        "COT-DM6248P.09.15.09.30-2"
+      ],
+      "removed_motor_count": 2,
+      "reason": "The chassis-mounted DM6248P motors are already included in the corresponding 2 kg hips."
+    },
+    "body_front": {
+      "native_full_inertial": {
+        "mass_kg": 3.0927494610577315,
+        "com_body_m": [
+          -0.1142003419958673,
+          -0.0010223128773753226,
+          -0.18810764275306638
+        ],
+        "inertia_com_body_kg_m2": [
+          [
+            0.038959030990033054,
+            1.703398226514231e-08,
+            -0.00017827895594264278
+          ],
+          [
+            1.703398226514231e-08,
+            0.06316225484282634,
+            0.002723921783854608
+          ],
+          [
+            -0.00017827895594264278,
+            0.002723921783854608,
+            0.02930237340792792
+          ]
+        ]
+      },
+      "adopted_inertial": {
+        "mass_kg": 2.679599955058436,
+        "com_body_m": [
+          -0.11414834210039178,
+          -0.005046037977360723,
+          -0.17229163412977747
+        ],
+        "inertia_com_body_kg_m2": [
+          [
+            0.03339148145855795,
+            -4.712654647416305e-06,
+            -0.00016222248391760093
+          ],
+          [
+            -4.712654647416305e-06,
+            0.055595921171661435,
+            0.0014474751686558954
+          ],
+          [
+            -0.00016222248391760093,
+            0.0014474751686558954,
+            0.026391879556739693
+          ]
+        ]
+      },
+      "removed_components": [
+        "COT-DM6248P.09.15.09.30-3",
+        "COT-DM6248P.09.15.09.30-4"
+      ],
+      "removed_motor_count": 2,
+      "reason": "The chassis-mounted DM6248P motors are already included in the corresponding 2 kg hips."
+    }
+  }
+}

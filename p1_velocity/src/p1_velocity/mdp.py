@@ -10,12 +10,16 @@ Implement functions from left to right: how rewards are calculated
 import torch
 
 
-def wheel_air_time_penalty(t_air: torch.Tensor) -> torch.Tensor:
-  """this function calculates penalties for wheels in air for long time:
-  input a session that the wheel in air time, output max(0, tair-1)^2
+def tire_lift_penalty(air_time: torch.Tensor, grace_s: float) -> torch.Tensor:
+  """I want tire to stay on ground (chat, 2026-11-05; replaces max(0, tair-1)^2).
+
+  Agent: number of tires that have been off the ground for longer than grace_s.
+  With weight -1 in env_cfgs.py this costs 1 per tire per second off the ground,
+  at all times (not only after a push). The short grace ignores contact bounces.
   """
-  # t_air: wheel air time in the session [s], shape (num_envs,)
-  return torch.clamp(t_air - 1.0, min=0.0) ** 2
+  # air_time: time each tire has been off the ground [s], shape (num_envs, 4)
+  # (mjlab ContactData.current_air_time, 0 while touching). Returns (num_envs,).
+  return (air_time > grace_s).sum(dim=-1).float()
 
 
 def non_tire_contact_failure(found: torch.Tensor) -> torch.Tensor:
@@ -66,7 +70,31 @@ def com_height_reward(h: torch.Tensor, h_ref: float, std: float) -> torch.Tensor
   return torch.exp(-(((h - h_ref) / std) ** 2))
 
 
-def late_recovery_penalty(t: torch.Tensor) -> torch.Tensor:
-  """this function penalize if recover too late: (t-5)^2 for t>=5"""
-  # t: elapsed recovery time [s]; no penalty before the 5 s deadline
-  return torch.clamp(t - 5.0, min=0.0) ** 2
+def arm_ground_contact(found: torch.Tensor) -> torch.Tensor:
+  """lets make arm can touch ground but with less penalty; my intension is make at
+  less contact as possible (chat, 2026-11-05)
+
+  Agent: 1 while any arm geom touches the ground, else 0. With weight -5 in
+  env_cfgs.py this costs 5 per second of arm contact, from the first touch.
+  """
+  # found: contact counts of the arm geoms with the ground, shape
+  # (num_envs, num_geoms); 0 = no contact. Returns (num_envs,) float.
+  return torch.any(found > 0, dim=-1).float()
+
+
+def update_contact_time(
+  contact_time: torch.Tensor, touching: torch.Tensor, dt: float
+) -> torch.Tensor:
+  """Agent: continuous arm contact time [s]; adds dt while touching, back to 0
+  as soon as the arm leaves the ground."""
+  # contact_time: (num_envs,) [s]; touching: (num_envs,) bool; dt: step [s]
+  return torch.where(touching, contact_time + dt, torch.zeros_like(contact_time))
+
+
+def arm_contact_too_long(contact_time: torch.Tensor, tolerance_s: float) -> torch.Tensor:
+  """maybe if tolerance added for arm temporary can touch a bit (chat, 2026-11-05)
+
+  Agent: True (= failure, episode ends) once the arm has touched the ground
+  continuously for longer than tolerance_s.
+  """
+  return contact_time > tolerance_s

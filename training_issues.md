@@ -128,3 +128,53 @@ Logs and checkpoints (`model_0.pt` … `model_299.pt`, ONNX export):
   100 N sideways, 150 N front/back).
 
 
+
+## 4. Changes before the vast.ai run (2026-11-05, not trained yet)
+
+These change the task, so the 300-iteration numbers above are not comparable with the next run. Details are in `specification/env_cfg.md` and `specification/mdp.md` (Implementation mode).
+
+| Open item above | Change |
+|----|----|
+| 5 s episodes, `late_recovery` never fires | Episodes are 10 s with about 3 pushes each (first after 1–2 s, then 2–4 s after each push ends). `late_recovery` is removed: returning to the pose is already rewarded by `leg_pose`. |
+| Wheel lift after pushes | `wheel_air_time` is replaced by `tire_lift`: −1 per tire per second off the ground after a 0.1 s grace, at all times. New logged metric `Episode_Metrics/all_tires_down`. Compare it with the 92.4 % / 67.6 % above (trained policy, before / after pushes). |
+| Arm clearance | Arm contact (arm, wrist, hand, arm mount) costs −5 per second, and longer than 0.5 s counts as failure. Other non-tire contact is still failure right away. Pushes are now up to 150 N in every direction. Arm friction against the ground is 0.5 (was MuJoCo's default 1.0). |
+
+Also changed:
+
+* **Policy inputs:** no body linear velocity (the critic keeps it) and no wheel angles.
+* **Play mode:** keeps the pushes.
+* **Training length:** `max_iterations` 3,000 (was 10,000).
+
+To check first on vast.ai:
+
+* `uv run --with pytest pytest tests -s`.
+* The solver-buffer test, because arm contacts now continue instead of ending the episode.
+
+## 5. vast.ai run with the section 4 changes (2026-11-05)
+
+RTX 5090 (32 GB, driver 595.91, CUDA 13.2), 4096 envs, 3,000 iterations.
+
+* **Time:** 36 min 44 s, 0.74 s per iteration (132k steps/s).
+* **Resources:** GPU 81 % busy, 3.8 GB memory. No errors.
+* **Tests:** all 26 passed before training. The solver-buffer test peaked at 50 of 300 constraint rows, with no overflow.
+
+| Iteration | Mean reward (per 10 s episode) | Episode length (of 500) | Failures | `all_tires_down` | `tire_lift` /s | `arm_contact` /s | Action std |
+|----|----|----|----|----|----|----|----|
+| 0 | −0.03 | 18 | 0.46 | 4 % | −0.003 | −0.002 | 0.99 |
+| 100 | 28.12 | 500 | 0 | 53 % | −0.008 | −0.002 | 0.25 |
+| 500 | 29.23 | 500 | 0 | 85 % | −0.003 | −0.0006 | 0.16 |
+| 1000 | 29.56 | 500 | 0 | 96 % | −0.0005 | 0.0000 | 0.10 |
+| 2000 | 29.61 | 500 | 0 | 96 % | −0.0008 | 0.0000 | 0.09 |
+| 2999 | 29.57 | 500 | 0 | 94 % | −0.0006 | 0.0000 | 0.11 |
+
+"Failures" counts body/leg contact plus arm contact longer than 0.5 s. All values are measured during training, with the policy's action noise.
+
+**Verdict:**
+
+* **Robot stays up:** after about iteration 100, no episode ends early, and the arm stops touching the ground.
+* **Tires:** stay down about 95 % of the time. The rest is mostly short bounces: `tire_lift` only counts lifts longer than 0.1 s and stays near 0.
+* **Leveled off:** progress flattened after about iteration 1,000.
+* **The pushes are too easy:** pushes up to 150 N never cause a failure. For more anti-interference, use stronger pushes or raise them during training.
+* **Not done yet:** a deterministic play/eval with pushes, which would compare with the 92.4 % / 67.6 % in the open items.
+
+**Files:** logs and checkpoints (`model_0.pt` … `model_2999.pt`, ONNX export, TensorBoard, `train.log`) are in `p1_velocity/logs/rsl_rl/p1_velocity/2026-11-05_22-58-10_vast_5090/`.

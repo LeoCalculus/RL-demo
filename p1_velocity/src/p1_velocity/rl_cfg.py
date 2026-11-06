@@ -29,5 +29,7 @@ def p1_ppo_runner_cfg() -> RslRlOnPolicyRunnerCfg:
       entropy_coef=0.01,
     ),
     experiment_name="p1_velocity",
-    max_iterations=10_000,
+    # ~30-45 min on a 5090 (estimate), ~92 min on the 5080 laptop; stopping
+    # early is fine, checkpoints are saved every 50 iterations.
+    max_iterations=3_000,
   )

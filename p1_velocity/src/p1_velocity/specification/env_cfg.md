@@ -245,3 +245,38 @@ The project `.venv` now has CUDA torch (`2.10.0+cu128`). Plain `uv run` re-syncs
 """
 
 
+Agent:
+
+"""
+
+Your decisions (from chat, 2026-11-05), checked before a 1-hour run on a vast.ai RTX 5090:
+
+* **Episodes:** 10 s. The first push comes after 1–2 s, then 2–4 s after each push ends. That gives about 3 pushes per episode instead of 1.
+* **Late recovery:** removed (see `mdp.md`).
+* **Pushes:** up to 150 N in every direction, since the arm may now touch the ground briefly. Before this it was 100 N sideways.
+* **Arm contact:** the arm, wrist and hand geoms on both sides plus the two arm mounts (46 geoms) have their own sensor. They give a penalty (−5 per second), and contact longer than 0.5 s counts as failure. Other non-tire ground contact (body, legs, wheel hubs; 68 geoms) is still failure right away.
+* **Play:** keeps the pushes.
+* **Inputs:** body linear velocity comes out of the policy inputs, because the real robot only has a wheel + IMU estimate; the critic keeps it. Wheel angles come out of both groups; wheel speed stays. Linkage angles stay, because they follow from the knee encoder.
+* **Training length:** `max_iterations` 3,000.
+
+Implemented in `src/p1_velocity/env_cfgs.py`, `p1/p1_constants.py` and `rl_cfg.py`. Tests are in `tests/test_env_cfgs.py` and `tests/test_mdp.py`. **Not run yet:** you asked to leave the checks for the vast.ai machine. Run them there with `uv run --with pytest pytest tests -s` (pytest is not in the lock file).
+
+* **Push timing:** `ComImpulsePush` now takes `gap_s` (2–4 s) instead of the recovery window. The push state that only fed the removed recovery terms is gone.
+* **Tires:** the `tire_lift` reward uses mjlab's per-tire air time, tracked at 500 Hz. A new metric `Episode_Metrics/all_tires_down` logs the fraction of time all 4 tires are down. It is not a reward; watch it during the run.
+* **Arm:** new sensor `arm_ground_touch`, reward `arm_contact` and termination `arm_contact_too_long`. The arm patterns are `ARM_GEOMS_EXPR` in `p1_constants.py`.
+* **Arm friction:** the arm geoms now have priority 1, condim 3 and friction 0.5. **Correction to what I told you in chat:** I said non-tire geoms had no friction against the ground. That was wrong. The ground uses MuJoCo's defaults (condim 3, friction 1.0), and with equal priority MuJoCo takes the larger value. So arm–ground contact had friction 1.0, not 0. The 0.5 is a change from 1.0. Lower friction makes leaning on the arm less useful.
+* **Inputs:** policy input size 78 = ang vel 3 + gravity 3 + 28 joint angles + 32 joint speeds + 12 last actions.
+
+Time estimates at 4096 envs:
+
+| Iterations | 5080 laptop (measured 1.84 s) | 5090 (estimate 0.6–0.9 s) |
+|----|----|----|
+| 1,000 | ~31 min | 10–15 min |
+| 2,000 | ~61 min | 20–30 min |
+| 3,000 | ~92 min | 30–45 min |
+
+Stopping early gives the same policy as a shorter run: the learning rate adapts and does not depend on `max_iterations`. Checkpoints are saved every 50 iterations.
+
+To check on vast.ai: `test_solver_buffers_with_pushes_and_random_actions` (512 envs, pushes, random actions, 10 s). It reports the most constraint rows used per env (limit 300) and any solver/contact overflow. Arm contacts now continue instead of ending the episode, so this needs checking again.
+
+"""

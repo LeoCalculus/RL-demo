@@ -24,6 +24,18 @@ ARM_JOINTS = tuple(
   f"{side}{joint}" for side in ("", "left_") for joint in ("arm_deploy", "arm_pitch", "hand_roll")
 )
 WHEEL_JOINTS = tuple(f"{leg}_wheel_spin" for leg in LEGS)
+# Every joint except the 4 wheel spins. The policy sees these joint angles; a wheel
+# angle only says how far the robot has rolled, so it is left out (wheel speed stays).
+NON_WHEEL_JOINTS_EXPR = (r"(?!.*_wheel_spin$).*",)
+
+# Arm collision geoms: arm, wrist and hand links on both sides, plus the arm mounts on
+# the two rear lower legs (the lowest point, 17.6 mm above the ground). Touching the
+# ground with these is penalized, not an immediate failure (see env_cfgs.py).
+ARM_GEOMS_EXPR = (
+  r"^(left_)?(arm|wrist|hand)_link_collision.*$",
+  r"^(right|left)_rear_lower_leg_collision_arm_mount$",
+)
+ARM_FRICTION = 0.5  # sliding friction of the arm geoms against the ground
 
 ##
 # MJCF configuration
@@ -177,15 +189,23 @@ INIT_STATE = EntityCfg.InitialStateCfg(
 _foot_regex = r"^(right|left)_(front|rear)_wheel_collision$"
 _collision_regex = r".*_collision.*"
 
-# profile for full collision
+# profile for full collision (for each setting the first matching pattern wins)
+_arm_regex, _arm_mount_regex = ARM_GEOMS_EXPR
 FULL_COLLISION = GeomCfg(
   geom_names_expr=(_collision_regex,),
   # collision for normal force only, for wheel need normal force + friction
-  condim={_foot_regex: 3, _collision_regex: 1},
+  # Agent: arms may now touch the ground briefly, so they get friction (condim 3) too.
+  condim={_foot_regex: 3, _arm_regex: 3, _arm_mount_regex: 3, _collision_regex: 1},
   # wheel to terrain use the wheel's own friction
-  priority={_foot_regex: 1},
+  # Agent: same for the arms. Without the priority MuJoCo takes the larger friction of
+  # the two geoms, i.e. the ground's default 1.0.
+  priority={_foot_regex: 1, _arm_regex: 1, _arm_mount_regex: 1},
   # sliding friction coefficient
-  friction={_foot_regex: (0.6,)},
+  friction={
+    _foot_regex: (0.6,),
+    _arm_regex: (ARM_FRICTION,),
+    _arm_mount_regex: (ARM_FRICTION,),
+  },
   # contact softness
   solimp={_foot_regex: (0.9, 0.95, 0.023)},
 )

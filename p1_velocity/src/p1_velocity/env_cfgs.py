@@ -7,6 +7,7 @@ from mjlab.envs.mdp.actions import JointPositionActionCfg
 from mjlab.envs.mdp.events import resolve_env_ids
 from mjlab.managers.event_manager import EventTermCfg
 from mjlab.managers.manager_base import ManagerTermBase
+from mjlab.managers.metrics_manager import MetricsTermCfg
 from mjlab.managers.reward_manager import RewardTermCfg
 from mjlab.managers.scene_entity_config import SceneEntityCfg
 from mjlab.managers.termination_manager import TerminationTermCfg
@@ -22,9 +23,11 @@ from mjlab.tasks.velocity.velocity_env_cfg import make_velocity_env_cfg
 
 from p1_velocity import mdp as p1_mdp
 from p1_velocity.p1.p1_constants import (
+  ARM_GEOMS_EXPR,
   ARM_JOINTS,
   LEG_JOINTS,
   LEGS,
+  NON_WHEEL_JOINTS_EXPR,
   get_p1_robot_cfg,
 )
 
@@ -38,10 +41,10 @@ from p1_velocity.p1.p1_constants import (
 REWARD_WEIGHTS: dict[str, float | None] = {
   "upright": 1,  
   "leg_pose": 1,  
-  "com_height": 1,  
-  "wheel_air_time": -1,  
-  "late_recovery": -1,  
-  "failure": -50,  
+  "com_height": 1,
+  "tire_lift": -1,  # per tire per second off the ground (after TIRE_GRACE_S)
+  "arm_contact": -5,  # per second of arm-ground contact, from the first touch
+  "failure": -50,
   "action_rate_l2": -0.1, 
   "dof_pos_limits": -1.0,  
 }
@@ -51,12 +54,14 @@ ACTION_SCALE = 0.06  # rad per action unit = 0.25 * 97 / 400 (template had 0.5)
 LEG_POSE_STD = 0.1  # rad, width of the leg pose reward
 COM_HEIGHT_REF = 0.3338  # m, settled whole-robot CoM height measured in this env
 COM_HEIGHT_STD = 0.02  # m, width of the CoM height reward
-RECOVERED_TOL = 0.1  # rad, all 12 leg joints this close to standing = recovered
-RECOVERY_WINDOW_S = 5.0  # s, recovery window from your diagram
+EPISODE_LENGTH_S = 10.0  # s (chat 2026-11-05; was 5 s)
+TIRE_GRACE_S = 0.1  # s, a tire off the ground longer than this is penalized
+ARM_CONTACT_TOLERANCE_S = 0.5  # s, continuous arm contact longer than this = failure
 # N, max push size along the robot's forward, sideways (arm side), up axes
-PUSH_FORCE_MAX_N = (150.0, 100.0, 150.0)
+PUSH_FORCE_MAX_N = (150.0, 150.0, 150.0)
 PUSH_DURATION_S = (0.1, 0.2)  # s, how long one push lasts
-PUSH_WAIT_S = (1.0, 2.0)  # s, wait before a push (after a push: window + this)
+PUSH_WAIT_S = (1.0, 2.0)  # s, wait before the first push of an episode
+PUSH_GAP_S = (2.0, 4.0)  # s, wait after a push ends before the next one
 
 ##
 # P1 names.
@@ -102,15 +107,6 @@ def push_force_limit(direction: torch.Tensor, force_max) -> torch.Tensor:
   return 1.0 / torch.sqrt(((direction / force_max) ** 2).sum(dim=-1))
 
 
-def _push_term(env):
-  """The push event, or None when pushes are off (e.g. play mode)."""
-  try:
-    term = env.event_manager.get_term_cfg("push_robot").func
-  except ValueError:
-    return None
-  return term if isinstance(term, ComImpulsePush) else None
-
-
 def hold_default_joint_targets(env, env_ids, asset_cfg: SceneEntityCfg) -> None:
   """Hold the selected joints at their configured (initial) pose.
 
@@ -132,11 +128,11 @@ class ComImpulsePush(ManagerTermBase):
 
   Agent: each push is a force with a random direction on a sphere (in the robot's
   heading frame) and a random size from 0 up to push_force_limit for that
-  direction: 100 N sideways (the arm sides), 150 N forward/back and up/down. It is
-  applied at the whole-robot CoM (force on base_link plus the torque that moves it
-  to the CoM) for duration_s. The first push of an episode waits wait_s; the next
-  one also waits out the recovery window, so windows never overlap.
-  since_push_end and push_ended feed the recovery terms.
+  direction: 150 N in every direction, since the arm may now touch the ground
+  briefly (chat, 2026-11-05; was 100 N sideways). It is applied at the whole-robot
+  CoM (force on base_link plus the torque that moves it to the CoM) for
+  duration_s. The first push of an episode waits wait_s; each next one waits
+  gap_s after the previous push ends.
   """
 
   def __init__(self, cfg: EventTermCfg, env):
@@ -149,10 +145,6 @@ class ComImpulsePush(ManagerTermBase):
     self._active = torch.zeros(n, dtype=torch.bool, device=env.device)
     self._time_left = torch.zeros(n, device=env.device)
     self._wait = _uniform(self._wait_s, n, env.device)
-    # Seconds since the last push ended; -1 = no push yet this episode.
-    self.since_push_end = torch.full((n,), -1.0, device=env.device)
-    # True on the step a push ended.
-    self.push_ended = torch.zeros(n, dtype=torch.bool, device=env.device)
 
   def _write(self, env_ids: torch.Tensor, force: torch.Tensor) -> None:
     """Apply force (n, 3) at the whole-robot CoM through base_link."""
@@ -163,11 +155,9 @@ class ComImpulsePush(ManagerTermBase):
       force.unsqueeze(1), torque.unsqueeze(1), env_ids=env_ids, body_ids=[self._base]
     )
 
-  def __call__(self, env, env_ids, force_max, duration_s, wait_s, window_s, asset_cfg):
+  def __call__(self, env, env_ids, force_max, duration_s, wait_s, gap_s, asset_cfg):
     del env_ids, wait_s, asset_cfg  # Step events act on all envs; wait_s read at init.
     dt = env.step_dt
-    self.push_ended[:] = False
-    self.since_push_end[self.since_push_end >= 0] += dt
 
     # End pushes whose duration is over.
     self._time_left[self._active] -= dt
@@ -176,9 +166,7 @@ class ComImpulsePush(ManagerTermBase):
       ids = ended.nonzero().squeeze(-1)
       self._write(ids, torch.zeros(len(ids), 3, device=self.device))
       self._active[ids] = False
-      self.push_ended[ids] = True
-      self.since_push_end[ids] = 0.0
-      self._wait[ids] = window_s + _uniform(self._wait_s, len(ids), self.device)
+      self._wait[ids] = _uniform(gap_s, len(ids), self.device)
 
     # Start new pushes.
     self._wait[~self._active] -= dt
@@ -214,8 +202,6 @@ class ComImpulsePush(ManagerTermBase):
     self._active[env_ids] = False
     self._time_left[env_ids] = 0.0
     self._wait[env_ids] = _uniform(self._wait_s, len(env_ids), self.device)
-    self.since_push_end[env_ids] = -1.0
-    self.push_ended[env_ids] = False
 
 
 def upright_reward(env, asset_cfg: SceneEntityCfg) -> torch.Tensor:
@@ -250,66 +236,50 @@ class ComHeightReward(ManagerTermBase):
     return p1_mdp.com_height_reward(h, h_ref, std)
 
 
-class WheelAirTimePenalty(ManagerTermBase):
-  """mdp.wheel_air_time_penalty per push: tair = time in the window after a push
-  ends with at least one tire off the ground.
+def tire_lift(env, sensor_name: str, grace_s: float) -> torch.Tensor:
+  """mdp.tire_lift_penalty on each tire's air time, at all times.
 
-  Agent: charged as it builds up (the step's increase of max(0, tair-1)^2, divided
-  by dt), so each push costs max(0, tair-1)^2 in total, even if the episode ends
-  before the window does.
+  Agent: mjlab's tire sensor tracks air time per tire at the physics rate (500 Hz),
+  so short lifts between policy steps still count.
+  """
+  air_time = env.scene[sensor_name].data.current_air_time
+  return p1_mdp.tire_lift_penalty(air_time, grace_s)
+
+
+def arm_contact(env, sensor_name: str) -> torch.Tensor:
+  """mdp.arm_ground_contact on the arm sensor: 1 while any arm geom touches."""
+  return p1_mdp.arm_ground_contact(env.scene[sensor_name].data.found)
+
+
+class ArmContactTooLong(ManagerTermBase):
+  """Termination: arm on the ground continuously for longer than tolerance_s.
+
+  Agent: counts as a failure (not a time-out), so the failure penalty applies too.
+  The timer goes back to 0 whenever the arm leaves the ground.
   """
 
-  def __init__(self, cfg: RewardTermCfg, env):
+  def __init__(self, cfg: TerminationTermCfg, env):
     super().__init__(env)
-    self._t_air = torch.zeros(env.num_envs, device=env.device)
-    self._in_window = torch.zeros(env.num_envs, dtype=torch.bool, device=env.device)
+    self._contact_time = torch.zeros(env.num_envs, device=env.device)
 
-  def __call__(self, env, window_s, sensor_name):
-    push = _push_term(env)
-    if push is None:
-      return torch.zeros(env.num_envs, device=env.device)
-    self._t_air[push.push_ended] = 0.0
-    self._in_window |= push.push_ended
-    self._in_window &= push.since_push_end <= window_s
-    lifted = (env.scene[sensor_name].data.found <= 0).any(dim=-1)
-    before = p1_mdp.wheel_air_time_penalty(self._t_air)
-    self._t_air += env.step_dt * (self._in_window & lifted)
-    after = p1_mdp.wheel_air_time_penalty(self._t_air)
-    return (after - before) / env.step_dt
+  def __call__(self, env, sensor_name, tolerance_s):
+    touching = p1_mdp.arm_ground_contact(env.scene[sensor_name].data.found) > 0
+    self._contact_time = p1_mdp.update_contact_time(
+      self._contact_time, touching, env.step_dt
+    )
+    return p1_mdp.arm_contact_too_long(self._contact_time, tolerance_s)
 
   def reset(self, env_ids=None) -> None:
-    self._t_air[env_ids] = 0.0
-    self._in_window[env_ids] = False
+    self._contact_time[slice(None) if env_ids is None else env_ids] = 0.0
 
 
-class LateRecoveryPenalty(ManagerTermBase):
-  """went back to pose joint var value with tolerance
+def all_tires_down(env, sensor_name: str) -> torch.Tensor:
+  """Metric: 1 while all 4 tires touch the ground, else 0.
 
-  Agent: after a push ends, t counts until all 12 leg joints are within
-  `tolerance` of the standing pose (= recovered); mdp.late_recovery_penalty(t)
-  applies each step until then.
+  Agent: logged as the episode average (Episode_Metrics/all_tires_down), i.e. the
+  fraction of time all 4 tires are down. Not a reward.
   """
-
-  def __init__(self, cfg: RewardTermCfg, env):
-    super().__init__(env)
-    self._waiting = torch.zeros(env.num_envs, dtype=torch.bool, device=env.device)
-
-  def __call__(self, env, tolerance, asset_cfg):
-    push = _push_term(env)
-    if push is None:
-      return torch.zeros(env.num_envs, device=env.device)
-    self._waiting |= push.push_ended
-    asset = env.scene[asset_cfg.name]
-    error = asset.data.joint_pos[:, asset_cfg.joint_ids] - asset.data.default_joint_pos[
-      :, asset_cfg.joint_ids
-    ]
-    recovered = (error.abs() <= tolerance).all(dim=-1)
-    self._waiting &= ~recovered
-    penalty = p1_mdp.late_recovery_penalty(push.since_push_end)
-    return torch.where(self._waiting, penalty, torch.zeros_like(penalty))
-
-  def reset(self, env_ids=None) -> None:
-    self._waiting[env_ids] = False
+  return (env.scene[sensor_name].data.found > 0).all(dim=-1).float()
 
 
 def p1_anti_interference_cfg(play: bool = False) -> ManagerBasedRlEnvCfg:
@@ -351,10 +321,11 @@ def p1_anti_interference_cfg(play: bool = False) -> ManagerBasedRlEnvCfg:
   cfg.sim.nconmax = 50
   cfg.sim.njmax = 300
 
-  # Physics 500 Hz, policy 50 Hz (0.002 s x 10), 5 s episodes, 4096 envs.
+  # Physics 500 Hz, policy 50 Hz (0.002 s x 10), 4096 envs. Episodes are 10 s
+  # (chat 2026-11-05; your note said 5 s), so each one gets about 3 pushes.
   cfg.sim.mujoco.timestep = 0.002
   cfg.decimation = 10
-  cfg.episode_length_s = 5.0
+  cfg.episode_length_s = EPISODE_LENGTH_S
   cfg.scene.num_envs = 4096
 
   cfg.scene.entities = {"robot": get_p1_robot_cfg()}
@@ -367,6 +338,16 @@ def p1_anti_interference_cfg(play: bool = False) -> ManagerBasedRlEnvCfg:
   cfg.terminations.pop("out_of_terrain_bounds", None)
   del cfg.observations["actor"].terms["height_scan"]
   del cfg.observations["critic"].terms["height_scan"]
+
+  # Inputs (chat 2026-11-05): the policy no longer sees body linear velocity (the
+  # real robot only has a wheel + IMU estimate; the critic keeps the true value).
+  # No wheel angles in either group (wheel speed stays). Linkage angles stay: they
+  # follow from the knee encoder.
+  del cfg.observations["actor"].terms["base_lin_vel"]
+  for group in ("actor", "critic"):
+    cfg.observations[group].terms["joint_pos"].params["asset_cfg"] = SceneEntityCfg(
+      "robot", joint_names=NON_WHEEL_JOINTS_EXPR
+    )
 
   sensors = []
   for sensor in cfg.scene.sensors or ():
@@ -395,16 +376,26 @@ def p1_anti_interference_cfg(play: bool = False) -> ManagerBasedRlEnvCfg:
     primary=ContactMatch(
       mode="geom",
       entity="robot",
-      # Every collision geom (arms, body, legs, wheel hubs) except the 4 tires.
+      # Every collision geom (body, legs, wheel hubs) except the 4 tires and the
+      # arms; the arms have their own sensor below.
       pattern=r".*_collision.*",
-      exclude=TIRE_GEOMS,
+      exclude=(*TIRE_GEOMS, *ARM_GEOMS_EXPR),
     ),
     secondary=ContactMatch(mode="body", pattern="terrain"),
     fields=("found",),
     reduce="none",
     num_slots=1,
   )
-  cfg.scene.sensors = (*sensors, tire_ground_cfg, non_tire_ground_cfg)
+  arm_ground_cfg = ContactSensorCfg(
+    name="arm_ground_touch",
+    # Arm, wrist and hand geoms on both sides plus the two arm mounts.
+    primary=ContactMatch(mode="geom", pattern=ARM_GEOMS_EXPR, entity="robot"),
+    secondary=ContactMatch(mode="body", pattern="terrain"),
+    fields=("found",),
+    reduce="none",
+    num_slots=1,
+  )
+  cfg.scene.sensors = (*sensors, tire_ground_cfg, non_tire_ground_cfg, arm_ground_cfg)
 
   # Spawn at the confirmed height from p1_constants (no extra drop).
   cfg.events["reset_base"].params["pose_range"]["z"] = (0.0, 0.0)
@@ -435,7 +426,7 @@ def p1_anti_interference_cfg(play: bool = False) -> ManagerBasedRlEnvCfg:
       "force_max": PUSH_FORCE_MAX_N,
       "duration_s": PUSH_DURATION_S,
       "wait_s": PUSH_WAIT_S,
-      "window_s": RECOVERY_WINDOW_S,
+      "gap_s": PUSH_GAP_S,
       "asset_cfg": SceneEntityCfg("robot"),
     },
   )
@@ -476,14 +467,11 @@ def p1_anti_interference_cfg(play: bool = False) -> ManagerBasedRlEnvCfg:
         "asset_cfg": SceneEntityCfg("robot"),
       },
     ),
-    "wheel_air_time": (
-      WheelAirTimePenalty,
-      {"window_s": RECOVERY_WINDOW_S, "sensor_name": tire_ground_cfg.name},
+    "tire_lift": (
+      tire_lift,
+      {"sensor_name": tire_ground_cfg.name, "grace_s": TIRE_GRACE_S},
     ),
-    "late_recovery": (
-      LateRecoveryPenalty,
-      {"tolerance": RECOVERED_TOL, "asset_cfg": legs},
-    ),
+    "arm_contact": (arm_contact, {"sensor_name": arm_ground_cfg.name}),
     "failure": (envs_mdp.is_terminated, {}),
   }
   for name, weight in REWARD_WEIGHTS.items():
@@ -495,11 +483,24 @@ def p1_anti_interference_cfg(play: bool = False) -> ManagerBasedRlEnvCfg:
     else:
       cfg.rewards[name].weight = weight
 
-  # Terminations: any non-tire ground contact; the template's fell_over
-  # (tilt > 70 deg) stays for roll / tip-over.
+  # Terminations: ground contact of the body, legs or wheel hubs; arm contact
+  # longer than ARM_CONTACT_TOLERANCE_S; the template's fell_over (tilt > 70 deg)
+  # stays for roll / tip-over.
   cfg.terminations["illegal_contact"] = TerminationTermCfg(
     func=mdp.illegal_contact,
     params={"sensor_name": non_tire_ground_cfg.name},
+  )
+  cfg.terminations["arm_contact_too_long"] = TerminationTermCfg(
+    func=ArmContactTooLong,
+    params={
+      "sensor_name": arm_ground_cfg.name,
+      "tolerance_s": ARM_CONTACT_TOLERANCE_S,
+    },
+  )
+
+  # Logged only (not a reward): fraction of time all 4 tires are on the ground.
+  cfg.metrics["all_tires_down"] = MetricsTermCfg(
+    func=all_tires_down, params={"sensor_name": tire_ground_cfg.name}
   )
 
   # Apply play mode overrides.
@@ -508,7 +509,7 @@ def p1_anti_interference_cfg(play: bool = False) -> ManagerBasedRlEnvCfg:
     cfg.episode_length_s = int(1e9)
 
     cfg.observations["actor"].enable_corruption = False
-    cfg.events.pop("push_robot", None)
+    # Pushes stay on (chat 2026-11-05), so play shows the recovery.
 
   return cfg
 

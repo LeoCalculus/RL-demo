@@ -37,8 +37,8 @@
                 <mxCell id="BnWjq3TPnEe9q_jk1XOE-22" parent="1" style="rounded=1;whiteSpace=wrap;html=0;roundedPerimeter=1;fontSize=11;fontFamily=Helvetica;" value="Contain non-wheel limbs for supporting" vertex="1">
                     <mxGeometry height="60" width="120" x="1230" y="260" as="geometry"/>
                 </mxCell>
-                <mxCell id="BnWjq3TPnEe9q_jk1XOE-25" parent="1" style="rounded=1;whiteSpace=wrap;html=0;roundedPerimeter=1;fontSize=11;fontFamily=Helvetica;" value="Non-wheel ground contact&#xa;= failure, penalty&#xa;and restart, reward -1" vertex="1">
-                    <mxGeometry height="60" width="120" x="1230" y="340" as="geometry"/>
+                <mxCell id="BnWjq3TPnEe9q_jk1XOE-25" parent="1" style="rounded=1;whiteSpace=wrap;html=0;roundedPerimeter=1;fontSize=11;fontFamily=Helvetica;" value="Body / leg / hub&#xa;ground contact&#xa;= failure, penalty&#xa;and restart, reward -1&#xa;(arms: see arm box)" vertex="1">
+                    <mxGeometry height="80" width="120" x="1230" y="340" as="geometry"/>
                 </mxCell>
                 <mxCell id="BnWjq3TPnEe9q_jk1XOE-27" parent="1" style="text;html=0;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=11;fontFamily=Helvetica;" value="Joints" vertex="1">
                     <mxGeometry height="30" width="60" x="880" y="350" as="geometry"/>
@@ -58,7 +58,7 @@
                 <mxCell id="BnWjq3TPnEe9q_jk1XOE-38" parent="1" style="rounded=1;whiteSpace=wrap;html=0;roundedPerimeter=1;fontSize=11;fontFamily=Helvetica;" value="Joint return&#xa;after disturbance" vertex="1">
                     <mxGeometry height="60" width="120" x="1840" y="260" as="geometry"/>
                 </mxCell>
-                <mxCell id="BnWjq3TPnEe9q_jk1XOE-39" parent="1" style="rounded=1;whiteSpace=wrap;html=0;roundedPerimeter=1;fontSize=11;fontFamily=Helvetica;" value="Four hip_swing joints&#xa;Return to reference&#xa;Temporary corrections&#xa;allowed&#xa;reward + 1" vertex="1">
+                <mxCell id="BnWjq3TPnEe9q_jk1XOE-39" parent="1" style="rounded=1;whiteSpace=wrap;html=0;roundedPerimeter=1;fontSize=11;fontFamily=Helvetica;" value="All 12 leg joints&#xa;Return to reference&#xa;Temporary corrections&#xa;allowed&#xa;reward + 1" vertex="1">
                     <mxGeometry height="80" width="120" x="1840" y="350" as="geometry"/>
                 </mxCell>
                 <mxCell id="BnWjq3TPnEe9q_jk1XOE-42" parent="1" style="rounded=1;whiteSpace=wrap;html=0;roundedPerimeter=1;fontSize=11;fontFamily=Helvetica;" value="Maintain CoM height&#xa;by leg adjustment&#xa;Reward +1" vertex="1">
@@ -67,14 +67,14 @@
                 <mxCell id="Yx5xpsh3_fSb7M-df3Mm-1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;roundedPerimeter=1;fontSize=11;fontFamily=Helvetica;" value="Recovery speed&#xa;Exponential decay&#xa;Overall window: 5 s&#xa;reward = e^{-x}" vertex="1">
                     <mxGeometry height="60" width="120" x="2200" y="170" as="geometry"/>
                 </mxCell>
-                <mxCell id="support_timing" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;fontSize=11;fontFamily=Helvetica;fontColor=#000000;" value="All four wheels down simultaneously&lt;br&gt;&amp;gt;= 4 s in the 5 s window (80%)&lt;br&gt;&amp;lt;= 1 s total air time (20%)&lt;br&gt;All four support at settlement&lt;br&gt;penalty = max(0, tair-1)^2" vertex="1">
+                <mxCell id="support_timing" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;fontSize=11;fontFamily=Helvetica;fontColor=#000000;" value="Tires stay on the ground, at all times&lt;br&gt;Grace 0.1 s for contact bounces&lt;br&gt;Each tire off the ground longer than 0.1 s&lt;br&gt;costs 1 per second (weight -1)&lt;br&gt;penalty = number of tires with t_air &amp;gt; 0.1 s" vertex="1">
                     <mxGeometry height="100" width="260" x="1080" y="530" as="geometry"/>
                 </mxCell>
                 <mxCell id="soft_torque" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;fontSize=11;fontFamily=Helvetica;fontColor=#000000;" value="Small cost from&lt;br&gt;90% of torque limit&lt;br&gt;Cost if accumulated for more than 1s&lt;br&gt;penalty = log(max(0, accumulated_t-1)+1)" vertex="1">
                     <mxGeometry height="100" width="120" x="940" y="530" as="geometry"/>
                 </mxCell>
-                <mxCell id="raised_arms" parent="1" style="rounded=1;whiteSpace=wrap;html=0;roundedPerimeter=1;fontSize=11;fontFamily=Helvetica;" value="Arms held at configured pose&#xa;Source: p1_constants.py&#xa;arm_deploy = -150 deg&#xa;left_arm_deploy = +150 deg&#xa;No ground contact&#xa;arm contact = fell over, reward-1" vertex="1">
-                    <mxGeometry height="90" width="180" x="1485" y="260" as="geometry"/>
+                <mxCell id="raised_arms" parent="1" style="rounded=1;whiteSpace=wrap;html=0;roundedPerimeter=1;fontSize=11;fontFamily=Helvetica;" value="Arms held at configured pose&#xa;Source: p1_constants.py&#xa;arm_deploy = -150 deg&#xa;left_arm_deploy = +150 deg&#xa;Brief ground contact allowed&#xa;(arm mount counts as arm)&#xa;penalty = 5 per second of contact&#xa;contact &gt; 0.5 s = failure, reward -1" vertex="1">
+                    <mxGeometry height="125" width="180" x="1485" y="260" as="geometry"/>
                 </mxCell>
                 <mxCell id="late_recovery" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;fontSize=11;fontFamily=Helvetica;" value="Recovery overdue after 5 s&lt;br&gt;Cost grows while unrecovered&lt;br&gt;Later recovery =&amp;gt; larger penalty&lt;br&gt;No reset just for missed deadline&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;penalty = (t-5)^2 for t&amp;gt;=5&lt;/font&gt;&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
                     <mxGeometry height="120" width="200" x="2160" y="280" as="geometry"/>
@@ -260,6 +260,21 @@
                 </mxCell>
                 <mxCell id="ignored_reason_recovery" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fontSize=11;fontFamily=Helvetica;fontColor=#FF0000;strokeColor=#FF0000;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingTop=2;" value="Ignored for now: recovery-speed reward (red X)&#xa;Reason: keep only the late penalty first; an early-recovery reward may make the model chase early reward and cause issues (your decision).&#xa;Not implemented in mdp.py." vertex="1">
                     <mxGeometry height="115" width="220" x="2340" y="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="ignored_x_late_a" edge="1" parent="1" style="endArrow=none;html=0;strokeColor=#FF0000;strokeWidth=2;" value="">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="2160" y="280" as="sourcePoint"/>
+                        <mxPoint x="2360" y="400" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="ignored_x_late_b" edge="1" parent="1" style="endArrow=none;html=0;strokeColor=#FF0000;strokeWidth=2;" value="">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="2360" y="280" as="sourcePoint"/>
+                        <mxPoint x="2160" y="400" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="ignored_reason_late" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fontSize=11;fontFamily=Helvetica;fontColor=#FF0000;strokeColor=#FF0000;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingTop=2;" value="Ignored: late-recovery penalty (red X)&#xa;Reason: how late does not matter, only that the robot does not fall over; getting back to the standing angles is already rewarded every step (joint return), and staying up keeps earning reward (your decision, 2026-11-05).&#xa;Removed from mdp.py." vertex="1">
+                    <mxGeometry height="130" width="220" x="2380" y="285" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>

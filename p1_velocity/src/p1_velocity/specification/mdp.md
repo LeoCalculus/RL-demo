@@ -456,6 +456,43 @@ Suggestions:
 
 """
 
+Agent:
+
+"""
+
+Your decisions (from chat, 2026-11-05):
+
+1. **Late recovery: remove it.** How late doesn't matter; the robot just must not flip over. Getting back to the standing angles is already rewarded, and staying up keeps earning reward.
+2. **Tires:** keep them on the ground. The 1 s allowance was there because you expected wheels to lift during a push. Use a short grace instead: 0.1 s, weight −1 per tire per second.
+3. **Arm:** it may touch the ground, with a smaller penalty than falling, and as little as possible. Penalty from the first touch: −5 per second. A touch longer than 0.5 s counts as failure. The arm mounts count as arm.
+
+Updated `src/p1_velocity/mdp.py`. Tests are in `tests/test_mdp.py` (9 tests), and each case has a comment with its input and expected result for you to validate. **Not run yet:** this PC has no project venv, so they run on the vast.ai machine first.
+
+* **Removed:** `late_recovery_penalty` and `wheel_air_time_penalty`.
+* `tire_lift_penalty(air_time, grace_s)`: the number of tires off the ground for longer than `grace_s`. With weight −1, each tire costs 1 per second off the ground, at all times (not only after a push). Examples: air times `[0.5, 2.0, 0.11, 0.05]` s → `3`; exactly `0.1` s → not counted.
+* `arm_ground_contact(found)`: `1` while any arm geom touches the ground. With weight −5, contact costs 5 per second from the first touch.
+* `update_contact_time(t, touching, dt)` and `arm_contact_too_long(t, tolerance_s)`: continuous arm contact longer than 0.5 s → failure. The timer goes back to 0 when the arm leaves the ground.
+
+What each event costs with these weights:
+
+| Event | Cost |
+|----|----|
+| 0.1 s arm brush | −0.5 |
+| 0.5 s arm touch | −2.5 |
+| One tire up for 1 s | −1 |
+| Falling | about −6.5 |
+
+Falling is −1 for the failure plus about 5.5 of lost reward. The policy looks about 2 s ahead (discount 0.99 at 50 Hz).
+
+Diagram ([reward_design.drawio](reward_design.drawio), preview re-exported):
+
+* Late recovery is marked "Ignored" with a red X.
+* The tire box and arm box have the new rules.
+* The non-wheel contact box now reads body / leg / hub.
+* The joint-return box now says all 12 leg joints, which the code has used since your earlier answer.
+
+"""
+
 User 
 
 
